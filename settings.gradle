@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "40k9th Scoring"
