@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.ListAdapter
 import android.widget.Toast
 
 
@@ -28,7 +29,31 @@ class CreateBattle : AppCompatActivity() {
 
             selectMissonType.adapter = ArrayAdapter<String>(this,android.R.layout.simple_expandable_list_item_1,missionTypes)
 
-            var battleType = "Combat Patrol"
+            val secondaryNameList = SecondaryList().getSecondaries().map { it.secondaryName }
+
+
+
+
+            spinnerP1Sec1.adapter = ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, secondaryNameList)
+            spinnerP1Sec1.onItemSelectedListener = object  :  AdapterView.OnItemSelectedListener{
+                override fun onNothingSelected(p0: AdapterView<*>?){}
+
+                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
+                    var p1Secondary1 = position
+                }
+            }
+            spinnerP1Sec2.adapter = ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, secondaryNameList)
+            spinnerP1Sec3.adapter = ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, secondaryNameList)
+
+            spinnerP2Sec1.adapter = ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, secondaryNameList)
+            spinnerP2Sec2.adapter = ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, secondaryNameList)
+            spinnerP2Sec3.adapter = ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, secondaryNameList)
+
+
+
+
+
+            var battleType = "none"
 
             selectMissonType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
                 override fun onNothingSelected(p0: AdapterView<*>?){}
@@ -44,7 +69,11 @@ class CreateBattle : AppCompatActivity() {
 
                 //in case of väärä inputti
                 try {
-                    battleViewModel.insert(Battle(null,editYourName.text.toString(),editOpponentName.text.toString(), editYourCp.text.toString().toInt() , editOpponetCp.text.toString().toInt() , battleType))
+                    val battle = Battle(null,editYourName.text.toString(),editOpponentName.text.toString(), battleType)
+                    battle.p1Cp = editYourCp.text.toString().toInt()
+                    battle.p2Cp = editOpponetCp.text.toString().toInt()
+
+                    battleViewModel.insert(battle)
                     finish()
 
                 }

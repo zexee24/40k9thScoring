@@ -46,8 +46,8 @@ fun  getBattleAtPosition(position : Int): Battle {
         fun bind(battle: Battle,action: OnBattleClickListner){
             itemView.name1.text = battle.yourName
             itemView.name2.text = battle.opponentName
-            itemView.cp1.text = battle.yourCP.toString()
-            itemView.cp2.text = battle.opponentCP.toString()
+            itemView.cp1.text = battle.p1Cp.toString()
+            itemView.cp2.text = battle.p2Cp.toString()
             itemView.battleType.text = battle.battleType
 
             itemView.setOnClickListener{

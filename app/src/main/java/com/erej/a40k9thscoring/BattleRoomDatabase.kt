@@ -59,9 +59,9 @@ abstract class BattleRoomDatabase: RoomDatabase() {
         suspend fun populate(battleDAO: BattleDAO){
             battleDAO.deleteAll()
 
-            battleDAO.insert(Battle(null,"Testi1","Ei jere", 12,15,"ei mitään"))
-            battleDAO.insert(Battle(null,"Testi2","Ei jere", 12,15,"ei mitään"))
-            battleDAO.insert(Battle(null,"Testi3","Ei jere", 12,15,"ei mitään"))
+            battleDAO.insert(Battle(null,"Testi1","Ei jere","ei mitään"))
+            battleDAO.insert(Battle(null,"Testi2","Ei jere","ei mitään"))
+            battleDAO.insert(Battle(null,"Testi3","Ei jere","ei mitään"))
 
         }
 

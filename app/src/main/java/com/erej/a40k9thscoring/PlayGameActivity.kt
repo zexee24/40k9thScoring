@@ -2,8 +2,6 @@ package com.erej.a40k9thscoring
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.fragment_battle.*
-import kotlinx.android.synthetic.main.layout_battle_big.*
 
 
 class PlayGameActivity:AppCompatActivity() {
@@ -15,15 +13,22 @@ class PlayGameActivity:AppCompatActivity() {
         //Fetch the battle date from MainActivity
         val battleObject = intent.getSerializableExtra("battle") as Battle
 
-        val firstFragment = BattleFragment()
+        val firstFragment = BattleFragment(battleObject)
 
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.flFragment,firstFragment)
 
 
+
             commit()
         }
-        firstFragment.setBattle(battleObject)
+
+
+
+
+
+
+
 
         
 
