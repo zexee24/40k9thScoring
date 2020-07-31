@@ -3,7 +3,6 @@ package com.erej.a40k9thscoring
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -25,11 +24,20 @@ class Battle(
     val id : Long?,
     val yourName : String,
     val opponentName : String,
-    val yourCP : Int,
-    val opponentCP : Int,
     val battleType : String
 
-) : Serializable
+) : Serializable{
+     var p1Cp = 0
+     var p2Cp = 0
+     var p1Vp = 0
+     var p2Vp = 0
+     var P1Secondary1: Int = 0
+     var P1Secondary2: Int = 0
+     var P1Secondary3: Int = 0
+     var P2Secondary1: Int = 0
+     var P2Secondary2: Int = 0
+     var P2Secondary3: Int = 0
+}
 
 private lateinit var battleAdapter: BattleRecyclerAdapter
 lateinit var battleViewModel : BattleViewModel
@@ -46,6 +54,8 @@ class MainActivity : AppCompatActivity(), OnBattleClickListner{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        
 
 
 
