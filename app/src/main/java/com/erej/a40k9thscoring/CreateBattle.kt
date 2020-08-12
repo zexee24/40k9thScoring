@@ -1,19 +1,15 @@
 package com.erej.a40k9thscoring
 
-import android.content.Intent
+
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.ListAdapter
 import android.widget.Toast
-
-
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.createbattle.*
-import org.json.JSONObject
 import java.lang.NumberFormatException
-import java.time.LocalDateTime
+
 
 
 class CreateBattle : AppCompatActivity() {
@@ -49,7 +45,7 @@ class CreateBattle : AppCompatActivity() {
                 override fun onNothingSelected(p0: AdapterView<*>?){}
 
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                    var p1Secondary1 = position
+                     p1Secondary1 = position
                 }
             }
 
@@ -59,7 +55,7 @@ class CreateBattle : AppCompatActivity() {
                 override fun onNothingSelected(p0: AdapterView<*>?){}
 
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                    var p1Secondary2 = position
+                     p1Secondary2 = position
                 }
             }
 
@@ -70,7 +66,7 @@ class CreateBattle : AppCompatActivity() {
                 override fun onNothingSelected(p0: AdapterView<*>?){}
 
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                    var p1Secondary3 = position
+                     p1Secondary3 = position
                 }
             }
 
@@ -81,7 +77,7 @@ class CreateBattle : AppCompatActivity() {
                 override fun onNothingSelected(p0: AdapterView<*>?){}
 
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                    var p2Secondary1 = position
+                     p2Secondary1 = position
                 }
             }
 
@@ -92,7 +88,7 @@ class CreateBattle : AppCompatActivity() {
                 override fun onNothingSelected(p0: AdapterView<*>?){}
 
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                    var p2Secondary2 = position
+                     p2Secondary2 = position
                 }
             }
 
@@ -103,7 +99,7 @@ class CreateBattle : AppCompatActivity() {
                 override fun onNothingSelected(p0: AdapterView<*>?){}
 
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                    var p2Secondary3 = position
+                     p2Secondary3 = position
                 }
             }
 
