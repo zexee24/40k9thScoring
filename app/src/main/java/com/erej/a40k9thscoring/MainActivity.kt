@@ -31,12 +31,24 @@ class Battle(
      var p2Cp = 0
      var p1Vp = 0
      var p2Vp = 0
-     var P1Secondary1: Int = 0
-     var P1Secondary2: Int = 0
-     var P1Secondary3: Int = 0
-     var P2Secondary1: Int = 0
-     var P2Secondary2: Int = 0
-     var P2Secondary3: Int = 0
+
+     var p1Secondary1Vp: Int = 0
+     var p1Secondary2Vp: Int = 0
+     var p1Secondary3Vp: Int = 0
+     var p2Secondary1Vp: Int = 0
+     var p2Secondary2Vp: Int = 0
+     var p2Secondary3Vp: Int = 0
+
+    var p1Secondary1: Int = 0
+    var p1Secondary2: Int = 0
+    var p1Secondary3: Int = 0
+    var p2Secondary1: Int = 0
+    var p2Secondary2: Int = 0
+    var p2Secondary3: Int = 0
+
+
+
+
 }
 
 private lateinit var battleAdapter: BattleRecyclerAdapter

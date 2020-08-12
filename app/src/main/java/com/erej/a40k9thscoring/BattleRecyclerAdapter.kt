@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.layout_battle_small.view.*
+import kotlinx.android.synthetic.main.layout_battle_list.view.*
 
 class BattleRecyclerAdapter(private var clickListener: OnBattleClickListner) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
@@ -13,7 +13,7 @@ class BattleRecyclerAdapter(private var clickListener: OnBattleClickListner) : R
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
     return BattleViewHolder(
-        LayoutInflater.from(parent.context).inflate(R.layout.layout_battle_small, parent,false)
+        LayoutInflater.from(parent.context).inflate(R.layout.layout_battle_list, parent,false)
     )
     }
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
