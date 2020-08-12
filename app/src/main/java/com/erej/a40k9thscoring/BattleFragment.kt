@@ -14,6 +14,7 @@ class BattleFragment(val battleObject: Battle) : Fragment(R.layout.fragment_batt
 
 
 
+
     }
 
 

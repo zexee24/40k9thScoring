@@ -17,6 +17,7 @@ class PlayGameActivity:AppCompatActivity() {
 
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.flFragment,firstFragment)
+            intent.
 
 
 
