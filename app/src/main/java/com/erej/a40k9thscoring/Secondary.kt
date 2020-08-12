@@ -8,6 +8,7 @@ data class Secondary(
 
 
 
+
 ) {
     var secondaryPoints = 0
 

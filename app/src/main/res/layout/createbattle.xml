@@ -8,9 +8,8 @@
     <Spinner
         android:id="@+id/spinnerP2Sec1"
         android:layout_width="0dp"
-        android:layout_height="29dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_height="40dp"
+        android:spinnerMode="dialog"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/spinnerP1Sec1"
@@ -19,9 +18,8 @@
     <Spinner
         android:id="@+id/spinnerP2Sec2"
         android:layout_width="0dp"
-        android:layout_height="29dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_height="40dp"
+        android:spinnerMode="dialog"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/spinnerP1Sec2"
         app:layout_constraintTop_toBottomOf="@+id/spinnerP2Sec1" />
@@ -29,9 +27,8 @@
     <Spinner
         android:id="@+id/spinnerP2Sec3"
         android:layout_width="0dp"
-        android:layout_height="29dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_height="40dp"
+        android:spinnerMode="dialog"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/spinnerP1Sec3"
         app:layout_constraintTop_toBottomOf="@+id/spinnerP2Sec2" />
@@ -40,8 +37,6 @@
         android:id="@+id/editYourName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:ems="10"
         android:hint="Your name:"
         android:inputType="textPersonName"
@@ -65,8 +60,6 @@
         android:id="@+id/editOpponentName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:ems="10"
         android:hint="Opponent's name"
         android:inputType="textPersonName"
@@ -98,9 +91,8 @@
     <Spinner
         android:id="@+id/spinnerP1Sec3"
         android:layout_width="0dp"
-        android:layout_height="29dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_height="40dp"
+        android:spinnerMode="dialog"
         app:layout_constraintEnd_toEndOf="@+id/editYourName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerP1Sec2" />
@@ -117,9 +109,8 @@
     <Spinner
         android:id="@+id/spinnerP1Sec1"
         android:layout_width="0dp"
-        android:layout_height="29dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_height="40dp"
+        android:spinnerMode="dialog"
         app:layout_constraintEnd_toEndOf="@+id/editYourCp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editYourCp" />
@@ -127,9 +118,8 @@
     <Spinner
         android:id="@+id/spinnerP1Sec2"
         android:layout_width="0dp"
-        android:layout_height="29dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_height="40dp"
+        android:spinnerMode="dialog"
         app:layout_constraintEnd_toEndOf="@+id/editYourName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerP1Sec1" />
