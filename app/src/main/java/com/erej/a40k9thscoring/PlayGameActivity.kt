@@ -1,7 +1,9 @@
 package com.erej.a40k9thscoring
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.fragment_battle.*
 
 
 class PlayGameActivity:AppCompatActivity() {
@@ -17,6 +19,8 @@ class PlayGameActivity:AppCompatActivity() {
 
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.flFragment,firstFragment)
+
+
 
 
 
