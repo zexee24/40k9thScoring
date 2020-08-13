@@ -19,6 +19,8 @@ interface BattleDAO {
     @Delete
     suspend fun deleteOne(battle: Battle)
 
+    @Update
+    suspend fun update(battle: Battle)
 
 
 }

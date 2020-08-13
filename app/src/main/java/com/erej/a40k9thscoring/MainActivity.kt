@@ -46,6 +46,13 @@ class Battle(
     var p2Secondary2: Int = 0
     var p2Secondary3: Int = 0
 
+    var p1Secondary1Counter: Int = 0
+    var p1Secondary2Counter: Int = 0
+    var p1Secondary3Counter: Int = 0
+    var p2Secondary1Counter: Int = 0
+    var p2Secondary2Counter: Int = 0
+    var p2Secondary3Counter: Int = 0
+
 
 
 

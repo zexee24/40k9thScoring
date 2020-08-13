@@ -1,7 +1,6 @@
 package com.erej.a40k9thscoring
 
 import android.content.Context
-import android.widget.Toast
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -59,9 +58,21 @@ abstract class BattleRoomDatabase: RoomDatabase() {
         suspend fun populate(battleDAO: BattleDAO){
             battleDAO.deleteAll()
 
+<<<<<<< HEAD
             battleDAO.insert(Battle(null,"Testi1","Ei jere","ei mitään"))
             battleDAO.insert(Battle(null,"Testi2","Ei jere","ei mitään"))
             battleDAO.insert(Battle(null,"Testi3","Ei jere","ei mitään"))
+=======
+            val testBattle = Battle(null,"TestiJere","Ei jere","ei mitään")
+            testBattle.p1Secondary1 = 1
+            testBattle.p1Secondary2 = 2
+            testBattle.p1Secondary3 = 3
+            testBattle.p2Secondary1 = 4
+            testBattle.p2Secondary2 = 5
+            testBattle.p2Secondary3 = 6
+            battleDAO.insert(testBattle)
+
+>>>>>>> 1fc6641... Merge remote-tracking branch 'origin/master'
 
         }
 
