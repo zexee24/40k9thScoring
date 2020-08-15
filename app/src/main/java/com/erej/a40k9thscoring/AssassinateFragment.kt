@@ -60,7 +60,7 @@ class AssassinateFragment( private val battleObject: Battle, private val seconda
             battleViewModel.update(battleObject)
         }
         buttonDecrease.setOnClickListener{
-            counter.--
+            counter--
             if (counter < 0 ){
                 counter = 0
                 Toast.makeText(activity, "You haven't killed a negative amount of character have you?", Toast.LENGTH_SHORT).show()
