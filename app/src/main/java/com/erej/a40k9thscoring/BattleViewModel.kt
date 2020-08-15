@@ -28,4 +28,7 @@ import kotlinx.coroutines.launch
      fun deleteAll() = viewModelScope.launch(Dispatchers.IO){
          repository.deleteAll()
      }
+     fun update(battle: Battle) = viewModelScope.launch(Dispatchers.IO) {
+         repository.update(battle)
+     }
 }

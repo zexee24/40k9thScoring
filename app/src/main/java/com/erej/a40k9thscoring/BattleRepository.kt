@@ -16,4 +16,7 @@ class BattleRepository(private val battleDAO: BattleDAO) {
     suspend fun deleteAll(){
         battleDAO.deleteAll()
     }
+    suspend fun update(battle: Battle){
+        battleDAO.update(battle)
+    }
 }
