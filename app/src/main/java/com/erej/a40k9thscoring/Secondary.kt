@@ -4,26 +4,15 @@ data class Secondary(
     val category : String,
     val secondaryName : String,
     val triggerPhases : List<Int>,
-    val hint : String
+    val hint : String,
+    var counterHints : List<String> = listOf("no Hints")
+)
 
 
+class SecondaryList {
 
 
-) {
-    var secondaryPoints = 0
-
-
-
-
-
-
-}
-
-
-public class SecondaryList() {
-
-
-  public  fun getSecondaries(): List<Secondary> {
+  fun getSecondaries(): List<Secondary> {
         return listOf(
             Secondary("None", "None", listOf(), "Be Empty"),
 
@@ -31,7 +20,8 @@ public class SecondaryList() {
                 "Purge The Enemy",
                 "Assassinate",
                 listOf(1, 2, 3, 4),
-                "Score 3 VP per slain enemy Character."
+                "Score 3 VP per slain enemy Character.",
+                listOf("Killed Characters")
             ),
             Secondary(
                 "Purge The Enemy",

@@ -21,13 +21,13 @@ class PlayGameActivity:AppCompatActivity() {
         val secondaryList = SecondaryList()
 
         //store fragments
-        val p1Fragment1 = AssassinateFragment(battleObject,secondaryList.getSecondaries()[battleObject.p1Secondary1],1 )
-        val p1Fragment2 = AssassinateFragment(battleObject,secondaryList.getSecondaries()[battleObject.p1Secondary2],2 )
-        val p1Fragment3 = AssassinateFragment(battleObject,secondaryList.getSecondaries()[battleObject.p1Secondary2],3 )
+        val p1Fragment1 = FragmentSecondaryCounter(battleObject,secondaryList.getSecondaries()[battleObject.p1Secondary1],battleObject.p1Secondary1Counter )
+        val p1Fragment2 = FragmentSecondaryCounter(battleObject,secondaryList.getSecondaries()[battleObject.p1Secondary2],battleObject.p1Secondary2Counter )
+        val p1Fragment3 = FragmentSecondaryCounter(battleObject,secondaryList.getSecondaries()[battleObject.p1Secondary2],battleObject.p1Secondary3Counter )
 
-        val p2Fragment1 = AssassinateFragment(battleObject,secondaryList.getSecondaries()[battleObject.p2Secondary1],4 )
-        val p2Fragment2 = AssassinateFragment(battleObject,secondaryList.getSecondaries()[battleObject.p2Secondary2],5 )
-        val p2Fragment3 = AssassinateFragment(battleObject,secondaryList.getSecondaries()[battleObject.p2Secondary3],6 )
+        val p2Fragment1 = FragmentSecondaryCounter(battleObject,secondaryList.getSecondaries()[battleObject.p2Secondary1],battleObject.p2Secondary1Counter )
+        val p2Fragment2 = FragmentSecondaryCounter(battleObject,secondaryList.getSecondaries()[battleObject.p2Secondary2],battleObject.p2Secondary2Counter )
+        val p2Fragment3 = FragmentSecondaryCounter(battleObject,secondaryList.getSecondaries()[battleObject.p2Secondary3],battleObject.p2Secondary3Counter )
 
 
         //set fragments
@@ -42,7 +42,21 @@ class PlayGameActivity:AppCompatActivity() {
             commit()
         }
 
+
         buttonNext.setOnClickListener{
+
+            //update data from fragments
+            battleObject.p1Secondary1Counter = p1Fragment1.secondaryCounter
+            battleObject.p1Secondary2Counter = p1Fragment2.secondaryCounter
+            battleObject.p1Secondary3Counter = p1Fragment3.secondaryCounter
+
+            battleObject.p2Secondary1Counter = p2Fragment1.secondaryCounter
+            battleObject.p2Secondary2Counter = p2Fragment2.secondaryCounter
+            battleObject.p2Secondary3Counter = p2Fragment3.secondaryCounter
+
+            battleViewModel.update(battleObject)
+
+
             startActivity(Intent(this,MainActivity::class.java))
 
         }
