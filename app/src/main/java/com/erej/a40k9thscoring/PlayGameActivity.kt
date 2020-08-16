@@ -3,7 +3,17 @@ package com.erej.a40k9thscoring
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.layout_battle_big.*
+
+
+fun GetFragment(battleObject: Battle, secondaryNumber : Int, secondaryInstance:Int , counter: Int, FragmentType : String): Fragment {
+    when(FragmentType){
+        "Counter" -> return FragmentSecondaryCounter(battleObject, SecondaryList().getSecondaries()[secondaryInstance], counter)
+    }
+
+
+}
 
 
 class PlayGameActivity:AppCompatActivity() {
@@ -23,7 +33,7 @@ class PlayGameActivity:AppCompatActivity() {
         //store fragments
         val p1Fragment1 = FragmentSecondaryCounter(battleObject,secondaryList.getSecondaries()[battleObject.p1Secondary1],battleObject.p1Secondary1Counter )
         val p1Fragment2 = FragmentSecondaryCounter(battleObject,secondaryList.getSecondaries()[battleObject.p1Secondary2],battleObject.p1Secondary2Counter )
-        val p1Fragment3 = FragmentSecondaryCounter(battleObject,secondaryList.getSecondaries()[battleObject.p1Secondary2],battleObject.p1Secondary3Counter )
+        val p1Fragment3 = FragmentSecondaryCounter(battleObject,secondaryList.getSecondaries()[battleObject.p1Secondary3],battleObject.p1Secondary3Counter )
 
         val p2Fragment1 = FragmentSecondaryCounter(battleObject,secondaryList.getSecondaries()[battleObject.p2Secondary1],battleObject.p2Secondary1Counter )
         val p2Fragment2 = FragmentSecondaryCounter(battleObject,secondaryList.getSecondaries()[battleObject.p2Secondary2],battleObject.p2Secondary2Counter )
