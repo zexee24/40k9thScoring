@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_secondary_counter.*
 
 
-class FragmentSecondaryCounter(private val battleObject: Battle, private val secondary: Secondary, var secondaryCounter: Int) : Fragment(R.layout.fragment_secondary_counter)  {
+class FragmentSecondaryCounter(private val battleObject: Battle, private val secondary: Secondary, var secondaryCounter: Int) : Fragment(R.layout.fragment_secondary_counter) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

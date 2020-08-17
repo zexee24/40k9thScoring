@@ -30,7 +30,7 @@ class SecondaryList {
                 "Bring It Down",
                 listOf(1, 2, 3, 4),
                 "Score 2 VP for each slain Monster/Vehicle, 3 VP instead if they had >10 Wounds.",
-                "Counter"
+                "DualCounter"
             ),
             Secondary(
                 "Purge The Enemy",
