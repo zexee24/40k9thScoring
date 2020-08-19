@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.layout_battle_big.*
 
+interface SeconDaryFragment
 
 
 
