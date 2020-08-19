@@ -7,14 +7,12 @@ import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_secondary_counter.*
 
 
-class FragmentSecondaryCounter(private val battleObject: Battle, private val secondary: Secondary, var secondaryCounter: Int) : Fragment(R.layout.fragment_secondary_counter) {
+class FragmentSecondaryCounter(private val battleObject: Battle, private val secondary: Secondary, private var secondaryCounter: Int, private val counterNumber: Int) : Fragment(R.layout.fragment_secondary_counter) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
-
+        secondaryCounter = battleObject.getSecondaryCounter(counterNumber)
 
         //setup secondary names
         textViewTitle.text = secondary.secondaryName
@@ -25,7 +23,7 @@ class FragmentSecondaryCounter(private val battleObject: Battle, private val sec
         buttonIncrease.setOnClickListener{
             secondaryCounter++
             counterView1.text = secondaryCounter.toString()
-
+            battleObject.setSecondaryCounter(counterNumber, secondaryCounter)
         }
 
 
@@ -35,6 +33,7 @@ class FragmentSecondaryCounter(private val battleObject: Battle, private val sec
                 secondaryCounter = 0
         }
             counterView1.text = secondaryCounter.toString()
+            battleObject.setSecondaryCounter(counterNumber, secondaryCounter)
 
 
 

@@ -9,10 +9,11 @@ data class Secondary(
 =======
     val hint : String,
     val fragmentType: String,
-    var counterHints : List<String> = listOf("no Hints")
+    var counterHints : List<String> = listOf("no Hints", "no Hints 2")
 )
 >>>>>>> c3fa666... Merge remote-tracking branch 'origin/master'
 
+<<<<<<< HEAD
 
 
 
@@ -31,6 +32,11 @@ public class SecondaryList() {
 
 
   public  fun getSecondaries(): List<Secondary> {
+=======
+class SecondaryList {
+
+  fun getSecondaries(): List<Secondary> {
+>>>>>>> dc6b797... Merge remote-tracking branch 'origin/master'
         return listOf(
             Secondary("None", "None", listOf(), "Be Empty","Empty"),
 
@@ -50,8 +56,9 @@ public class SecondaryList() {
                 "Purge The Enemy",
                 "Bring It Down",
                 listOf(1, 2, 3, 4),
-                "Score 2 VP for each slain Monster/Vehicle, 3 VP instead if they had >10 Wounds.",
-                "DualCounter"
+                "Score 2 VP for each slain Monster/Vehicle 3 VP instead if they had >10 Wounds.",
+                "DualCounter",
+                listOf("slain monsters/vehicles", "slain monsters/vehicles with >10 wounds")
             ),
             Secondary(
                 "Purge The Enemy",

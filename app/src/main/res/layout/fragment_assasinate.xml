@@ -23,7 +23,7 @@
         android:layout_marginBottom="1dp"
         android:text="Title"
         app:layout_constraintBottom_toTopOf="@+id/textViewdescription"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textViewSecondaryVp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView" />
 
@@ -67,7 +67,35 @@
         android:layout_height="wrap_content"
         android:text="-"
         app:layout_constraintBottom_toBottomOf="parent"
+<<<<<<< HEAD:app/src/main/res/layout/fragment_assasinate.xml
         app:layout_constraintEnd_toEndOf="parent"
+=======
+        app:layout_constraintEnd_toStartOf="@+id/counterView1"
+        app:layout_constraintStart_toEndOf="@+id/textViewCounterHint" />
+
+    <TextView
+        android:id="@+id/textViewCounterHint"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="TextView"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonDecrease"
+        app:layout_constraintEnd_toStartOf="@id/buttonDecrease"
+>>>>>>> dc6b797... Merge remote-tracking branch 'origin/master':app/src/main/res/layout/fragment_secondary_counter.xml
         app:layout_constraintStart_toStartOf="parent"
+<<<<<<< HEAD:app/src/main/res/layout/fragment_assasinate.xml
         app:layout_constraintTop_toBottomOf="@+id/counterView1" />
+=======
+        app:layout_constraintTop_toTopOf="@+id/buttonDecrease" />
+
+    <TextView
+        android:id="@+id/textViewSecondaryVp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewdescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+>>>>>>> 322aa61... Fuq me:app/src/main/res/layout/fragment_secondary_counter.xml
 </androidx.constraintlayout.widget.ConstraintLayout>

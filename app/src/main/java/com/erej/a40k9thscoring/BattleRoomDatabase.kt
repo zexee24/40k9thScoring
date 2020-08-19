@@ -59,11 +59,16 @@ abstract class BattleRoomDatabase: RoomDatabase() {
             battleDAO.deleteAll()
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             battleDAO.insert(Battle(null,"Testi1","Ei jere","ei mitään"))
             battleDAO.insert(Battle(null,"Testi2","Ei jere","ei mitään"))
             battleDAO.insert(Battle(null,"Testi3","Ei jere","ei mitään"))
 =======
             val testBattle = Battle(null,"TestiJere","Ei jere","ei mitään")
+=======
+
+            val testBattle = Battle(null,"Testi Jere","Ei jere","ei mitään")
+>>>>>>> dc6b797... Merge remote-tracking branch 'origin/master'
             testBattle.p1Secondary1 = 1
             testBattle.p1Secondary2 = 2
             testBattle.p1Secondary3 = 3
