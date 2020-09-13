@@ -5,16 +5,45 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.layout_battle_big.*
+import java.lang.ref.Reference
+import kotlin.reflect.KClass
 
-interface SeconDaryFragment
+fun getSecondaryCounter(battleObject: Battle, counterNumber: Int):Int{
+
+    return when(counterNumber){
+        1 -> battleObject.p1Secondary1Counter
+        2 -> battleObject.p1Secondary2Counter
+        3 -> battleObject.p1Secondary3Counter
+
+        4 -> battleObject.p2Secondary1Counter
+        5 -> battleObject.p2Secondary2Counter
+        6 -> battleObject.p2Secondary3Counter
+        else -> battleObject.p1Secondary1Counter
+    }
+}
+
+fun setSecondaryCounter(battleObject: Battle, counterNumber: Int, counter: Int){
+
+    when(counterNumber){
+        1 -> battleObject.p1Secondary1Counter = counter
+        2 -> battleObject.p1Secondary2Counter = counter
+        3 -> battleObject.p1Secondary3Counter = counter
+
+        4 -> battleObject.p2Secondary1Counter = counter
+        5 -> battleObject.p2Secondary2Counter = counter
+        6 -> battleObject.p2Secondary3Counter = counter
+        else -> battleObject.p1Secondary1Counter = counter
+    }
+    battleViewModel.update(battleObject)
+}
 
 
 
-fun getFragment(battleObject: Battle, secondaryNumber : Secondary, counter: Int, FragmentType : String): Fragment {
+fun getFragment(battleObject: Battle, secondary : Secondary, counter: Int,counterNumber:Int, FragmentType : String): Fragment {
     return when(FragmentType){
-        "Counter" -> FragmentSecondaryCounter(battleObject, secondaryNumber, counter)
-        "DualCounter" -> FragmentSecondaryDualCounter(battleObject, secondaryNumber, counter)
-        else -> FragmentSecondaryCounter(battleObject, secondaryNumber, counter)
+        "Counter" -> FragmentSecondaryCounter(battleObject, secondary, counter, counterNumber)
+        "DualCounter" -> FragmentSecondaryDualCounter(battleObject, secondary, counter,counterNumber)
+        else -> FragmentSecondaryCounter(battleObject, secondary, counter, counterNumber)
 
     }
 
@@ -38,13 +67,13 @@ class PlayGameActivity:AppCompatActivity() {
 
         //store fragments
 
-        val p1Fragment1 = getFragment(battleObject,secondaryList[battleObject.p1Secondary1],battleObject.p1Secondary1Counter, secondaryList[battleObject.p1Secondary1].fragmentType)
-        val p1Fragment2 = getFragment(battleObject,secondaryList[battleObject.p1Secondary2],battleObject.p1Secondary1Counter, secondaryList[battleObject.p1Secondary2].fragmentType)
-        val p1Fragment3 = getFragment(battleObject,secondaryList[battleObject.p1Secondary3],battleObject.p1Secondary1Counter, secondaryList[battleObject.p1Secondary3].fragmentType)
+        val p1Fragment1 = getFragment(battleObject,secondaryList[battleObject.p1Secondary1],battleObject.p1Secondary1Counter, 1, secondaryList[battleObject.p1Secondary1].fragmentType)
+        val p1Fragment2 = getFragment(battleObject,secondaryList[battleObject.p1Secondary2],battleObject.p1Secondary1Counter, 2, secondaryList[battleObject.p1Secondary2].fragmentType)
+        val p1Fragment3 = getFragment(battleObject,secondaryList[battleObject.p1Secondary3],battleObject.p1Secondary1Counter, 3, secondaryList[battleObject.p1Secondary3].fragmentType)
 
-        val p2Fragment1 = getFragment(battleObject,secondaryList[battleObject.p2Secondary1],battleObject.p1Secondary1Counter, secondaryList[battleObject.p2Secondary1].fragmentType)
-        val p2Fragment2 = getFragment(battleObject,secondaryList[battleObject.p2Secondary2],battleObject.p1Secondary1Counter, secondaryList[battleObject.p2Secondary2].fragmentType)
-        val p2Fragment3 = getFragment(battleObject,secondaryList[battleObject.p2Secondary3],battleObject.p1Secondary1Counter, secondaryList[battleObject.p2Secondary3].fragmentType)
+        val p2Fragment1 = getFragment(battleObject,secondaryList[battleObject.p2Secondary1],battleObject.p1Secondary1Counter, 4, secondaryList[battleObject.p2Secondary1].fragmentType)
+        val p2Fragment2 = getFragment(battleObject,secondaryList[battleObject.p2Secondary2],battleObject.p1Secondary1Counter, 5, secondaryList[battleObject.p2Secondary2].fragmentType)
+        val p2Fragment3 = getFragment(battleObject,secondaryList[battleObject.p2Secondary3],battleObject.p1Secondary1Counter, 6, secondaryList[battleObject.p2Secondary3].fragmentType)
 
 
 
@@ -61,18 +90,10 @@ class PlayGameActivity:AppCompatActivity() {
             replace(R.id.flSixthFragment,p2Fragment3)
             commit()
         }
+        supportFragmentManager
 
 
         buttonNext.setOnClickListener{
-
-            //update data from fragments
-            battleObject.p1Secondary1Counter = p1Fragment1.secondaryCounter
-            battleObject.p1Secondary2Counter = p1Fragment2.secondaryCounter
-            battleObject.p1Secondary3Counter = p1Fragment3.secondaryCounter
-
-            battleObject.p2Secondary1Counter = p2Fragment1.secondaryCounter
-            battleObject.p2Secondary2Counter = p2Fragment2.secondaryCounter
-            battleObject.p2Secondary3Counter = p2Fragment3.secondaryCounter
 
             battleViewModel.update(battleObject)
 
