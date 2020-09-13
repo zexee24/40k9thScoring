@@ -47,7 +47,7 @@
         app:layout_constraintBottom_toTopOf="@+id/flSecondFragment"
         app:layout_constraintEnd_toStartOf="@+id/flFourthFragment"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/textViewRoundCounter" />
 
     <FrameLayout
         android:id="@+id/flSecondFragment"
@@ -93,7 +93,7 @@
         app:layout_constraintBottom_toTopOf="@id/flFifthFragment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/flFirstFragment"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/textViewRoundCounter">
 
     </FrameLayout>
 
@@ -126,4 +126,14 @@
         app:layout_constraintTop_toBottomOf="@id/flFifthFragment">
 
     </FrameLayout>
+
+    <TextView
+        android:id="@+id/textViewRoundCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Rounderror"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

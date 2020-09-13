@@ -15,7 +15,6 @@ import androidx.room.PrimaryKey
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.Serializable
 
-
 @Entity(tableName = "battle_table")
 class Battle(
     @PrimaryKey(autoGenerate = true)
@@ -27,6 +26,9 @@ class Battle(
     val battleType : String
 
 ) : Serializable{
+
+     var roundCounter: Int = 1
+
      var p1Cp = 0
      var p2Cp = 0
      var p1Vp = 0
@@ -53,18 +55,10 @@ class Battle(
     var p2Secondary2Counter: Int = 0
     var p2Secondary3Counter: Int = 0
 
-
-
-
 }
 
 private lateinit var battleAdapter: BattleRecyclerAdapter
 lateinit var battleViewModel : BattleViewModel
-
-
-
-
-
 
 
 class MainActivity : AppCompatActivity(), OnBattleClickListner{
@@ -74,17 +68,11 @@ class MainActivity : AppCompatActivity(), OnBattleClickListner{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        
-
-
-
         //init BattleViewModel
         battleViewModel = ViewModelProvider(this).get(BattleViewModel::class.java)
 
-
         //initialise recycler view
         initRecyclerView()
-
 
         //on data update
         battleViewModel.allBattles.observe(this, Observer {battles ->
@@ -93,13 +81,9 @@ class MainActivity : AppCompatActivity(), OnBattleClickListner{
             battles?.let { battleAdapter.submitList(it)}
         })
 
-
-
         //create new battle
         addNewBattle.setOnClickListener{
         startActivity(Intent(this,CreateBattle::class.java))
-
-
 
         }
 
@@ -113,7 +97,6 @@ class MainActivity : AppCompatActivity(), OnBattleClickListner{
                 return false
             }
 
-
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
 
                 battleViewModel.deleteOne(battleAdapter.getBattleAtPosition(viewHolder.adapterPosition))
@@ -124,7 +107,6 @@ class MainActivity : AppCompatActivity(), OnBattleClickListner{
         val itemTouchHelper = ItemTouchHelper(itemTouchHelperCallback)
         itemTouchHelper.attachToRecyclerView(recyclerView)
 
-
     }
 
         //enterBattle
@@ -134,10 +116,6 @@ class MainActivity : AppCompatActivity(), OnBattleClickListner{
         startActivity(intent)
 
     }
-
-
-
-
 
     private fun initRecyclerView(){
         recyclerView.apply {
