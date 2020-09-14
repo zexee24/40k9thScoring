@@ -48,12 +48,94 @@ class Battle(
     var p2Secondary2: Int = 0
     var p2Secondary3: Int = 0
 
-    var p1Secondary1Counter: Int = 0
-    var p1Secondary2Counter: Int = 0
-    var p1Secondary3Counter: Int = 0
-    var p2Secondary1Counter: Int = 0
-    var p2Secondary2Counter: Int = 0
-    var p2Secondary3Counter: Int = 0
+    var p1Secondary1Counter1: Int = 0
+    var p1Secondary2Counter1: Int = 0
+    var p1Secondary3Counter1: Int = 0
+    var p2Secondary1Counter1: Int = 0
+    var p2Secondary2Counter1: Int = 0
+    var p2Secondary3Counter1: Int = 0
+
+    var p1Secondary1Counter2: Int = 0
+    var p1Secondary2Counter2: Int = 0
+    var p1Secondary3Counter2: Int = 0
+    var p2Secondary1Counter2: Int = 0
+    var p2Secondary2Counter2: Int = 0
+    var p2Secondary3Counter2: Int = 0
+
+    fun getSecondaryCounter(counterNumber: Int):Int{
+
+        return when(counterNumber){
+            1 -> this.p1Secondary1Counter1
+            2 -> this.p1Secondary2Counter1
+            3 -> this.p1Secondary3Counter1
+
+            4 -> this.p2Secondary1Counter1
+            5 -> this.p2Secondary2Counter1
+            6 -> this.p2Secondary3Counter1
+
+            11 -> this.p1Secondary1Counter2
+            12 -> this.p1Secondary2Counter2
+            13 -> this.p1Secondary3Counter2
+
+            14 -> this.p2Secondary1Counter2
+            15 -> this.p2Secondary2Counter2
+            16 -> this.p2Secondary3Counter2
+            else -> throw error("Problem in counter Indexing")
+        }
+    }
+
+    fun getSecondaryVpCounter(counterNumber: Int):Int{
+
+        return when(counterNumber){
+            1 -> this.p1Secondary1Vp
+            2 -> this.p1Secondary2Vp
+            3 -> this.p1Secondary3Vp
+
+            4 -> this.p2Secondary1Vp
+            5 -> this.p2Secondary2Vp
+            6 -> this.p2Secondary3Vp
+            else -> throw error("Problem in counter Indexing")
+        }
+    }
+
+    fun setSecondaryCounter(counterNumber: Int, counter: Int){
+
+        when(counterNumber){
+            1 -> this.p1Secondary1Counter1 = counter
+            2 -> this.p1Secondary2Counter1 = counter
+            3 -> this.p1Secondary3Counter1 = counter
+
+            4 -> this.p2Secondary1Counter1 = counter
+            5 -> this.p2Secondary2Counter1 = counter
+            6 -> this.p2Secondary3Counter1 = counter
+
+            11 -> this.p1Secondary1Counter2 = counter
+            12 -> this.p1Secondary2Counter2 = counter
+            13 -> this.p1Secondary3Counter2 = counter
+
+            14 -> this.p2Secondary1Counter2 = counter
+            15 -> this.p2Secondary2Counter2 = counter
+            16 -> this.p2Secondary3Counter2 = counter
+
+            else -> throw error("Problem in counter Indexing")
+        }
+        battleViewModel.update(this)
+    }
+
+    fun setSecondaryVpCounter(counterNumber: Int, counter: Int){
+
+        when(counterNumber){
+            1 -> this.p1Secondary1Vp = counter
+            2 -> this.p1Secondary2Vp = counter
+            3 -> this.p1Secondary3Vp = counter
+
+            4 -> this.p2Secondary1Vp = counter
+            5 -> this.p2Secondary2Vp = counter
+            6 -> this.p2Secondary3Vp = counter
+            else -> throw error("Problem in counter Indexing")
+        }
+        battleViewModel.update(this)
+    }
 
 }
 

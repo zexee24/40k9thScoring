@@ -17,51 +17,61 @@ class FragmentSecondaryDualCounter(private val battleObject: Battle, private val
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        secondaryCounter = getSecondaryCounter(battleObject, counterNumber)
-        var secondaryCounter2 = 0
+        secondaryCounter = battleObject.getSecondaryCounter(counterNumber)
+        var secondaryCounter2 = battleObject.getSecondaryCounter(10 + counterNumber)
 
 
 
 
 
-        //setup secondary names
+        //setup secondary names and counters
         textViewTitle.text = secondary.secondaryName
         textViewdescription.text = secondary.hint
+        textViewSecondaryVp.text = battleObject.getSecondaryVpCounter(counterNumber).toString()
         counterView1.text = secondaryCounter.toString()
+        counterView.text = secondaryCounter2.toString()
         textViewCounterHint2.text = secondary.counterHints[0]
         textViewCounterHint1.text = secondary.counterHints[1]
 
+
+
+        //alempi nappi
         buttonIncrease.setOnClickListener{
             secondaryCounter++
             counterView1.text = secondaryCounter.toString()
-            setSecondaryCounter(battleObject, counterNumber, secondaryCounter)
+            battleObject.setSecondaryCounter(counterNumber, secondaryCounter)
 
         }
 
-
+        //alempi nappi
         buttonDecrease2.setOnClickListener{
             secondaryCounter--
             if (secondaryCounter < 0 ){
                 secondaryCounter = 0
         }
             counterView1.text = secondaryCounter.toString()
-            setSecondaryCounter(battleObject, counterNumber, secondaryCounter)
+            battleObject.setSecondaryCounter(counterNumber, secondaryCounter)
 
         }
 
+        //ylempi nappi
         buttonIncrease1.setOnClickListener{
             secondaryCounter2++
             counterView.text = secondaryCounter2.toString()
+            battleObject.setSecondaryCounter(10+counterNumber, secondaryCounter2)
+            battleViewModel.update(battleObject)
 
         }
 
-
+        //ylempi nappi
         buttonDecrease.setOnClickListener{
             secondaryCounter2--
             if (secondaryCounter2 < 0 ){
                 secondaryCounter2 = 0
             }
             counterView.text = secondaryCounter2.toString()
+            battleObject.setSecondaryCounter(10+counterNumber, secondaryCounter2)
+            battleViewModel.update(battleObject)
         }
 
 

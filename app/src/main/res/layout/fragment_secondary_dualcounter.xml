@@ -50,7 +50,7 @@
         android:text="Title"
         android:textSize="24dp"
         app:layout_constraintBottom_toTopOf="@+id/textViewdescription"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textViewSecondaryVp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -122,4 +122,14 @@
         app:layout_constraintEnd_toStartOf="@+id/buttonDecrease2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/buttonDecrease2" />
+
+    <TextView
+        android:id="@+id/textViewSecondaryVp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewdescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

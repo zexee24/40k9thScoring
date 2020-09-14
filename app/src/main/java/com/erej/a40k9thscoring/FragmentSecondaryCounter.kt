@@ -12,7 +12,7 @@ class FragmentSecondaryCounter(private val battleObject: Battle, private val sec
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        secondaryCounter = getSecondaryCounter(battleObject, counterNumber)
+        secondaryCounter = battleObject.getSecondaryCounter(counterNumber)
 
         //setup secondary names
         textViewTitle.text = secondary.secondaryName
@@ -23,7 +23,7 @@ class FragmentSecondaryCounter(private val battleObject: Battle, private val sec
         buttonIncrease.setOnClickListener{
             secondaryCounter++
             counterView1.text = secondaryCounter.toString()
-            setSecondaryCounter(battleObject, counterNumber, secondaryCounter)
+            battleObject.setSecondaryCounter(counterNumber, secondaryCounter)
         }
 
 
@@ -33,7 +33,7 @@ class FragmentSecondaryCounter(private val battleObject: Battle, private val sec
                 secondaryCounter = 0
         }
             counterView1.text = secondaryCounter.toString()
-            setSecondaryCounter(battleObject, counterNumber, secondaryCounter)
+            battleObject.setSecondaryCounter(counterNumber, secondaryCounter)
 
 
 
