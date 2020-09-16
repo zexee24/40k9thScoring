@@ -73,7 +73,7 @@ abstract class BattleRoomDatabase: RoomDatabase() {
             testBattle.p1Secondary2 = 2
             testBattle.p1Secondary3 = 3
             testBattle.p2Secondary1 = 4
-            testBattle.p2Secondary2 = 5
+            testBattle.p2Secondary2 = 0
             testBattle.p2Secondary3 = 6
             battleDAO.insert(testBattle)
 

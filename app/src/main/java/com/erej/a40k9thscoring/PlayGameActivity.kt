@@ -24,43 +24,52 @@ import kotlinx.android.synthetic.main.layout_battle_big.*
 >>>>>>> dc6b797... Merge remote-tracking branch 'origin/master'
 
 
-fun getFragment(battleObject: Battle, secondary : Secondary, counter: Int, counterNumber:Int, FragmentType : String): Fragment {
-    return when(FragmentType){
-        "Counter" -> FragmentSecondaryCounter(battleObject, secondary, counter, counterNumber)
-        "DualCounter" -> FragmentSecondaryDualCounter(battleObject, secondary, counter,counterNumber)
-        else -> FragmentSecondaryCounter(battleObject, secondary, counter, counterNumber)
-
-    }
-
-
-}
-
-fun setupFragments(battleObject: Battle, secondaryList: List<Secondary>,supportFragmentManager: FragmentManager){
-
-    //store fragments
-    val p1Fragment1 = getFragment(battleObject,secondaryList[battleObject.p1Secondary1],battleObject.p1Secondary1Counter1, 1, secondaryList[battleObject.p1Secondary1].fragmentType)
-    val p1Fragment2 = getFragment(battleObject,secondaryList[battleObject.p1Secondary2],battleObject.p1Secondary1Counter1, 2, secondaryList[battleObject.p1Secondary2].fragmentType)
-    val p1Fragment3 = getFragment(battleObject,secondaryList[battleObject.p1Secondary3],battleObject.p1Secondary1Counter1, 3, secondaryList[battleObject.p1Secondary3].fragmentType)
-
-    val p2Fragment1 = getFragment(battleObject,secondaryList[battleObject.p2Secondary1],battleObject.p1Secondary1Counter1, 4, secondaryList[battleObject.p2Secondary1].fragmentType)
-    val p2Fragment2 = getFragment(battleObject,secondaryList[battleObject.p2Secondary2],battleObject.p1Secondary1Counter1, 5, secondaryList[battleObject.p2Secondary2].fragmentType)
-    val p2Fragment3 = getFragment(battleObject,secondaryList[battleObject.p2Secondary3],battleObject.p1Secondary1Counter1, 6, secondaryList[battleObject.p2Secondary3].fragmentType)
-
-    //set fragments
-    supportFragmentManager.beginTransaction().apply {
-        replace(R.id.flFirstFragment,p1Fragment1)
-        replace(R.id.flSecondFragment,p1Fragment2)
-        replace(R.id.flThirdFragment,p1Fragment3)
-
-        replace(R.id.flFourthFragment,p2Fragment1)
-        replace(R.id.flFifthFragment,p2Fragment2)
-        replace(R.id.flSixthFragment,p2Fragment3)
-        commit()
-    }
-
-}
-
 class PlayGameActivity:AppCompatActivity() {
+
+    private fun setupFragments(battleObject: Battle, supportFragmentManager: FragmentManager){
+
+        val secondaryList = SecondaryList().getSecondaries()
+
+        //store fragments
+        val p1Fragment1 = getFragment(battleObject,secondaryList[battleObject.p1Secondary1],battleObject.p1Secondary1Counter1, 1, secondaryList[battleObject.p1Secondary1].fragmentType)
+        val p1Fragment2 = getFragment(battleObject,secondaryList[battleObject.p1Secondary2],battleObject.p1Secondary1Counter1, 2, secondaryList[battleObject.p1Secondary2].fragmentType)
+        val p1Fragment3 = getFragment(battleObject,secondaryList[battleObject.p1Secondary3],battleObject.p1Secondary1Counter1, 3, secondaryList[battleObject.p1Secondary3].fragmentType)
+
+        val p2Fragment1 = getFragment(battleObject,secondaryList[battleObject.p2Secondary1],battleObject.p1Secondary1Counter1, 4, secondaryList[battleObject.p2Secondary1].fragmentType)
+        val p2Fragment2 = getFragment(battleObject,secondaryList[battleObject.p2Secondary2],battleObject.p1Secondary1Counter1, 5, secondaryList[battleObject.p2Secondary2].fragmentType)
+        val p2Fragment3 = getFragment(battleObject,secondaryList[battleObject.p2Secondary3],battleObject.p1Secondary1Counter1, 6, secondaryList[battleObject.p2Secondary3].fragmentType)
+
+
+
+
+        //set fragments
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.flFirstFragment,p1Fragment1)
+            replace(R.id.flSecondFragment,p1Fragment2)
+            replace(R.id.flThirdFragment,p1Fragment3)
+
+            replace(R.id.flFourthFragment,p2Fragment1)
+            replace(R.id.flFifthFragment,p2Fragment2)
+            replace(R.id.flSixthFragment,p2Fragment3)
+            commit()
+        }
+    }
+
+    private fun getFragment(battleObject: Battle, secondary : Secondary, secondaryCounter: Int, counterNumber:Int, FragmentType : String): Fragment {
+        return when(FragmentType){
+            "Counter" -> FragmentSecondaryCounter(battleObject, secondary, secondaryCounter, counterNumber)
+            "DualCounter" -> FragmentSecondaryDualCounter(battleObject, secondary, secondaryCounter,counterNumber)
+            "OneTimeCheckMark" -> FragmentSecondaryOnetimeCheckMark(battleObject,secondary,secondaryCounter, counterNumber)
+            "OneCheckMark" -> FragmentSecondaryOneCheckMark(battleObject,secondary,secondaryCounter, counterNumber)
+            "Empty" -> FragmentSecondaryNone()
+            else -> FragmentSecondaryCounter(battleObject, secondary, secondaryCounter, counterNumber)
+
+        }
+
+
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         //do something idk
         super.onCreate(savedInstanceState)
@@ -86,6 +95,7 @@ class PlayGameActivity:AppCompatActivity() {
         //get a super ugly list of secondaries ... but it works ... for now
         val secondaryList = SecondaryList().getSecondaries()
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         //store fragments
 <<<<<<< HEAD
@@ -115,6 +125,9 @@ class PlayGameActivity:AppCompatActivity() {
 =======
         setupFragments(battleObject, secondaryList, supportFragmentManager)
 >>>>>>> dc6b797... Merge remote-tracking branch 'origin/master'
+=======
+        setupFragments(battleObject, supportFragmentManager)
+>>>>>>> 6a5579d... Merge remote-tracking branch 'origin/master'
 
         //set roundCounter
         textViewRoundCounter.text = resources.getString(R.string.Round, battleObject.roundCounter)
@@ -152,6 +165,7 @@ class PlayGameActivity:AppCompatActivity() {
 >>>>>>> dc6b797... Merge remote-tracking branch 'origin/master'
             battleViewModel.update(battleObject)
             textViewRoundCounter.text = resources.getString(R.string.Round, battleObject.roundCounter)
+<<<<<<< HEAD
 
 
 
@@ -160,6 +174,9 @@ class PlayGameActivity:AppCompatActivity() {
 >>>>>>> 1fac747... Working...
             startActivity(Intent(this,MainActivity::class.java))
 =======
+=======
+            setupFragments(battleObject,supportFragmentManager)
+>>>>>>> 6a5579d... Merge remote-tracking branch 'origin/master'
             if (battleObject.roundCounter == 5){
                 startActivity(Intent(this,MainActivity::class.java))
             }

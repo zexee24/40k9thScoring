@@ -42,6 +42,13 @@
         style="@style/Widget.AppCompat.Button.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD:app/src/main/res/layout/fragment_assasinate.xml
+=======
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorPositive"
+>>>>>>> 6a5579d... Merge remote-tracking branch 'origin/master':app/src/main/res/layout/fragment_secondary_counter.xml
         android:text="+"
         app:layout_constraintBottom_toTopOf="@+id/counterView1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,6 +72,11 @@
         style="@style/Widget.AppCompat.Button.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD:app/src/main/res/layout/fragment_assasinate.xml
+=======
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorNegative"
+>>>>>>> 6a5579d... Merge remote-tracking branch 'origin/master':app/src/main/res/layout/fragment_secondary_counter.xml
         android:text="-"
         app:layout_constraintBottom_toBottomOf="parent"
 <<<<<<< HEAD:app/src/main/res/layout/fragment_assasinate.xml

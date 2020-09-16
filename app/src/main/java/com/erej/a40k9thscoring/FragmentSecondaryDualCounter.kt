@@ -1,6 +1,5 @@
 package com.erej.a40k9thscoring
 
-
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -11,21 +10,25 @@ import kotlinx.android.synthetic.main.fragment_secondary_counter.textViewTitle
 import kotlinx.android.synthetic.main.fragment_secondary_counter.textViewdescription
 import kotlinx.android.synthetic.main.fragment_secondary_dualcounter.*
 
+class FragmentSecondaryDualCounter(
+    private val battleObject: Battle, private val secondary: Secondary, private var secondaryCounter: Int, private val counterNumber: Int) : Fragment(R.layout.fragment_secondary_dualcounter)  {
 
-class FragmentSecondaryDualCounter(private val battleObject: Battle, private val secondary: Secondary, private var secondaryCounter: Int, private val counterNumber: Int) : Fragment(R.layout.fragment_secondary_dualcounter)  {
+    private var secondaryCounter2 = battleObject.getSecondaryCounter(10 + counterNumber)
+
+    private fun updateVP (){
+        battleObject.secondaryToVpDual(secondary,counterNumber,secondaryCounter,secondaryCounter2)
+        textViewSecondaryVp.text = battleObject.getSecondaryVpCounter(counterNumber).toString()
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         secondaryCounter = battleObject.getSecondaryCounter(counterNumber)
-        var secondaryCounter2 = battleObject.getSecondaryCounter(10 + counterNumber)
-
-
 
 
 
         //setup secondary names and counters
-        textViewTitle.text = secondary.secondaryName
+        textViewTitle.text = secondary.name
         textViewdescription.text = secondary.hint
         textViewSecondaryVp.text = battleObject.getSecondaryVpCounter(counterNumber).toString()
         counterView1.text = secondaryCounter.toString()
@@ -33,17 +36,15 @@ class FragmentSecondaryDualCounter(private val battleObject: Battle, private val
         textViewCounterHint2.text = secondary.counterHints[0]
         textViewCounterHint1.text = secondary.counterHints[1]
 
-
-
-        //alempi nappi
+        //lower button
         buttonIncrease.setOnClickListener{
             secondaryCounter++
             counterView1.text = secondaryCounter.toString()
             battleObject.setSecondaryCounter(counterNumber, secondaryCounter)
-
+           updateVP()
         }
 
-        //alempi nappi
+        //lower button
         buttonDecrease2.setOnClickListener{
             secondaryCounter--
             if (secondaryCounter < 0 ){
@@ -51,19 +52,20 @@ class FragmentSecondaryDualCounter(private val battleObject: Battle, private val
         }
             counterView1.text = secondaryCounter.toString()
             battleObject.setSecondaryCounter(counterNumber, secondaryCounter)
+            updateVP()
 
         }
 
-        //ylempi nappi
+        //upper button
         buttonIncrease1.setOnClickListener{
             secondaryCounter2++
             counterView.text = secondaryCounter2.toString()
             battleObject.setSecondaryCounter(10+counterNumber, secondaryCounter2)
-            battleViewModel.update(battleObject)
+            updateVP()
 
         }
 
-        //ylempi nappi
+        //upper button
         buttonDecrease.setOnClickListener{
             secondaryCounter2--
             if (secondaryCounter2 < 0 ){
@@ -71,12 +73,8 @@ class FragmentSecondaryDualCounter(private val battleObject: Battle, private val
             }
             counterView.text = secondaryCounter2.toString()
             battleObject.setSecondaryCounter(10+counterNumber, secondaryCounter2)
-            battleViewModel.update(battleObject)
+            updateVP()
         }
-
-
-
-
 
     }
 

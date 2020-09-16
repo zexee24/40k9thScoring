@@ -27,7 +27,7 @@ class CreateBattle : AppCompatActivity() {
 
             val secondaryList = SecondaryList().getSecondaries()
 
-            val secondaryNameList = secondaryList.map { it.secondaryName }
+            val secondaryNameList = secondaryList.map { it.name }
 
             var p1Secondary1 = 0
             var p1Secondary2 = 0
