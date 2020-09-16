@@ -15,7 +15,7 @@ class FragmentSecondaryCounter(private val battleObject: Battle, private val sec
         secondaryCounter = battleObject.getSecondaryCounter(counterNumber)
 
         //setup secondary names
-        textViewTitle.text = secondary.secondaryName
+        textViewTitle.text = secondary.name
         textViewdescription.text = secondary.hint
         counterView1.text = secondaryCounter.toString()
         textViewCounterHint.text = secondary.counterHints[0]

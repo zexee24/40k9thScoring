@@ -2,7 +2,14 @@ package com.erej.a40k9thscoring
 
 data class Secondary(
     val category : String,
-    val secondaryName : String,
+    val name : String,
+
+    /*
+    0 = command
+    1 = movement
+    2 = psycic
+
+     */
     val triggerPhases : List<Int>,
     val hint : String,
     val fragmentType: String,
@@ -53,7 +60,7 @@ class SecondaryList {
                 "Set aside a tally of the number of models that you destroy." +
                         " Add 10 to the tally if you destroy a model with 10 or more wounds. At the end of the game, " +
                         "divide your tally by 10 and round down, then score that many VP.( E.G. a tally of 109 would yield 10 VP)",
-                "Counter"
+                "DualCounter"
             ),
             Secondary(
                 "No Mercy, No Respite Secondaries",

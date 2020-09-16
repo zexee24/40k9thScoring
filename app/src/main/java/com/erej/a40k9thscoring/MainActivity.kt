@@ -27,19 +27,21 @@ class Battle(
 
 ) : Serializable{
 
-     var roundCounter: Int = 1
+    var roundCounter: Int = 1
+    var phaseCounter: Int = 0
 
-     var p1Cp = 0
-     var p2Cp = 0
-     var p1Vp = 0
-     var p2Vp = 0
+    var p1Cp = 0
+    var p2Cp = 0
+    var p1Vp = 0
+    var p2Vp = 0
 
-     var p1Secondary1Vp: Int = 0
-     var p1Secondary2Vp: Int = 0
-     var p1Secondary3Vp: Int = 0
-     var p2Secondary1Vp: Int = 0
-     var p2Secondary2Vp: Int = 0
-     var p2Secondary3Vp: Int = 0
+    var p1Secondary1Vp: Int = 0
+    var p1Secondary2Vp: Int = 0
+    var p1Secondary3Vp: Int = 0
+    var p2Secondary1Vp: Int = 0
+    var p2Secondary2Vp: Int = 0
+
+    var p2Secondary3Vp: Int = 0
 
     var p1Secondary1: Int = 0
     var p1Secondary2: Int = 0
@@ -122,7 +124,7 @@ class Battle(
         battleViewModel.update(this)
     }
 
-    fun setSecondaryVpCounter(counterNumber: Int, counter: Int){
+    private fun setSecondaryVpCounter(counterNumber: Int, counter: Int){
 
         when(counterNumber){
             1 -> this.p1Secondary1Vp = counter
@@ -135,6 +137,13 @@ class Battle(
             else -> throw error("Problem in counter Indexing")
         }
         battleViewModel.update(this)
+    }
+
+    fun secondaryToVpDual(secondary: Secondary, counterNumber: Int, secondaryCounter: Int, secondaryCounter2: Int){
+        when (secondary.name){
+            "Bring It Down" -> this.setSecondaryVpCounter(counterNumber, 2 * secondaryCounter + 3 * secondaryCounter2)
+            "Thin Their Ranks" -> this.setSecondaryVpCounter(counterNumber, secondaryCounter + 10 * secondaryCounter2)
+        }
     }
 
 }

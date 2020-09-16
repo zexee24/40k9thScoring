@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import kotlinx.android.synthetic.main.layout_battle_big.*
 
-
 fun getFragment(battleObject: Battle, secondary : Secondary, counter: Int, counterNumber:Int, FragmentType : String): Fragment {
     return when(FragmentType){
         "Counter" -> FragmentSecondaryCounter(battleObject, secondary, counter, counterNumber)
