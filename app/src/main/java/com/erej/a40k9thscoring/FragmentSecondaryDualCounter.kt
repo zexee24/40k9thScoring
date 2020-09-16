@@ -11,12 +11,11 @@ import kotlinx.android.synthetic.main.fragment_secondary_counter.textViewdescrip
 import kotlinx.android.synthetic.main.fragment_secondary_dualcounter.*
 
 class FragmentSecondaryDualCounter(
-    private val battleObject: Battle,
-    private val secondary: Secondary, private var secondaryCounter: Int, private val counterNumber: Int) : Fragment(R.layout.fragment_secondary_dualcounter)  {
+    private val battleObject: Battle, private val secondary: Secondary, private var secondaryCounter: Int, private val counterNumber: Int) : Fragment(R.layout.fragment_secondary_dualcounter)  {
 
-    var secondaryCounter2 = battleObject.getSecondaryCounter(10 + counterNumber)
+    private var secondaryCounter2 = battleObject.getSecondaryCounter(10 + counterNumber)
 
-    fun updateVP (){
+    private fun updateVP (){
         battleObject.secondaryToVpDual(secondary,counterNumber,secondaryCounter,secondaryCounter2)
         textViewSecondaryVp.text = battleObject.getSecondaryVpCounter(counterNumber).toString()
     }
@@ -37,7 +36,7 @@ class FragmentSecondaryDualCounter(
         textViewCounterHint2.text = secondary.counterHints[0]
         textViewCounterHint1.text = secondary.counterHints[1]
 
-        //alempi nappi
+        //lower button
         buttonIncrease.setOnClickListener{
             secondaryCounter++
             counterView1.text = secondaryCounter.toString()
@@ -45,7 +44,7 @@ class FragmentSecondaryDualCounter(
            updateVP()
         }
 
-        //alempi nappi
+        //lower button
         buttonDecrease2.setOnClickListener{
             secondaryCounter--
             if (secondaryCounter < 0 ){
@@ -57,7 +56,7 @@ class FragmentSecondaryDualCounter(
 
         }
 
-        //ylempi nappi
+        //upper button
         buttonIncrease1.setOnClickListener{
             secondaryCounter2++
             counterView.text = secondaryCounter2.toString()
@@ -66,7 +65,7 @@ class FragmentSecondaryDualCounter(
 
         }
 
-        //ylempi nappi
+        //upper button
         buttonDecrease.setOnClickListener{
             secondaryCounter2--
             if (secondaryCounter2 < 0 ){
