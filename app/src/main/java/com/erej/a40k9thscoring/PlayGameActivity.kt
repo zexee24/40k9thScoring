@@ -61,6 +61,7 @@ class PlayGameActivity:AppCompatActivity() {
             "DualCounter" -> FragmentSecondaryDualCounter(battleObject, secondary, secondaryCounter,counterNumber)
             "OneTimeCheckMark" -> FragmentSecondaryOnetimeCheckMark(battleObject,secondary,secondaryCounter, counterNumber)
             "OneCheckMark" -> FragmentSecondaryOneCheckMark(battleObject,secondary,secondaryCounter, counterNumber)
+            "ThreeOneTimeCheckMarks" -> FragmentSecondaryThreeOnetimeCheckMarks(battleObject, secondary, secondaryCounter, counterNumber)
             "Empty" -> FragmentSecondaryNone()
             else -> FragmentSecondaryCounter(battleObject, secondary, secondaryCounter, counterNumber)
 
@@ -176,8 +177,12 @@ class PlayGameActivity:AppCompatActivity() {
 =======
 =======
             setupFragments(battleObject,supportFragmentManager)
+<<<<<<< HEAD
 >>>>>>> 6a5579d... Merge remote-tracking branch 'origin/master'
             if (battleObject.roundCounter == 5){
+=======
+            if (battleObject.roundCounter > 5){
+>>>>>>> 5c39fd9... 3 Check Mark counter done
                 startActivity(Intent(this,MainActivity::class.java))
             }
 >>>>>>> dc6b797... Merge remote-tracking branch 'origin/master'

@@ -20,6 +20,9 @@ class Battle(
     var roundCounter: Int = 1
     var phaseCounter: Int = 0
 
+    var p1PrimaryVp: Int = 0
+    var p2PrimaryVp: Int = 0
+
     var p1Cp = 0
     var p2Cp = 0
     var p1Vp = 0
@@ -129,7 +132,10 @@ class Battle(
         if(this.getSecondaryVpCounter(counterNumber) > 15){
             this.setSecondaryVpCounter(counterNumber, 15)
         }
-        battleViewModel.update(this)
+        if(this.getSecondaryVpCounter(counterNumber) < 0){
+          throw error("Vp counter is under 0")
+        }
+        this.updateVp()
     }
 
     fun secondaryToVpDual(secondary: Secondary, counterNumber: Int, secondaryCounter: Int, secondaryCounter2: Int){
@@ -159,6 +165,18 @@ class Battle(
             "Attrition" -> this.setSecondaryVpCounter(counterNumber, 4 * secondaryCounter)
 
         }
+    }
+
+    fun secondaryToVpThreeOneTimeCheckMarks(secondary: Secondary, counterNumber: Int, secondaryCounter: Int){
+        when (secondary.name){
+            "While We Stand, We Fight" -> this.setSecondaryVpCounter(counterNumber, 5 * secondaryCounter)
+        }
+    }
+
+    private fun updateVp() {
+        p1Vp = p1PrimaryVp + p1Secondary1Vp + p1Secondary2Vp + p1Secondary3Vp
+        p2Vp = p2PrimaryVp + p2Secondary1Vp + p2Secondary2Vp + p2Secondary3Vp
+        battleViewModel.update(this)
     }
 
 

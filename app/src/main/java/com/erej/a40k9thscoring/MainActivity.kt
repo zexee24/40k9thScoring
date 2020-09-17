@@ -16,7 +16,7 @@ private lateinit var battleAdapter: BattleRecyclerAdapter
 lateinit var battleViewModel : BattleViewModel
 
 
-class MainActivity : AppCompatActivity(), OnBattleClickListner{
+class MainActivity : AppCompatActivity(), OnBattleClickListener{
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
