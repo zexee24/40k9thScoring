@@ -167,6 +167,12 @@ class Battle(
         }
     }
 
+    fun secondaryToVpThreeOneTimeCheckMarks(secondary: Secondary, counterNumber: Int, secondaryCounter: Int){
+        when (secondary.name){
+            "While We Stand, We Fight" -> this.setSecondaryVpCounter(counterNumber, 5 * secondaryCounter)
+        }
+    }
+
     private fun updateVp() {
         p1Vp = p1PrimaryVp + p1Secondary1Vp + p1Secondary2Vp + p1Secondary3Vp
         p2Vp = p2PrimaryVp + p2Secondary1Vp + p2Secondary2Vp + p2Secondary3Vp

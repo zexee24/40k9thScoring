@@ -45,6 +45,7 @@ class PlayGameActivity:AppCompatActivity() {
             "DualCounter" -> FragmentSecondaryDualCounter(battleObject, secondary, secondaryCounter,counterNumber)
             "OneTimeCheckMark" -> FragmentSecondaryOnetimeCheckMark(battleObject,secondary,secondaryCounter, counterNumber)
             "OneCheckMark" -> FragmentSecondaryOneCheckMark(battleObject,secondary,secondaryCounter, counterNumber)
+            "ThreeOneTimeCheckMarks" -> FragmentSecondaryThreeOnetimeCheckMarks(battleObject, secondary, secondaryCounter, counterNumber)
             "Empty" -> FragmentSecondaryNone()
             else -> FragmentSecondaryCounter(battleObject, secondary, secondaryCounter, counterNumber)
 
@@ -83,7 +84,7 @@ class PlayGameActivity:AppCompatActivity() {
             battleViewModel.update(battleObject)
             textViewRoundCounter.text = resources.getString(R.string.Round, battleObject.roundCounter)
             setupFragments(battleObject,supportFragmentManager)
-            if (battleObject.roundCounter == 5){
+            if (battleObject.roundCounter > 5){
                 startActivity(Intent(this,MainActivity::class.java))
             }
 

@@ -12,6 +12,7 @@ data class Secondary(
     4 = Charge
     5 = Fight
      */
+
     val triggerPhases : List<Int>,
     val hint : String,
     val fragmentType: String,
@@ -77,7 +78,8 @@ class SecondaryList {
                 listOf(1, 2, 3, 4),
                 "Determine your 3 most expensive individual models." +
                         " At the end of the game, score 5 VP for each that survived the battle.",
-                "Counter"
+                "ThreeOneTimeCheckMarks",
+                listOf("Is your Expensive unit alive?", "Is your Expensive unit alive?", "Is your Expensive unit alive?")
             ),
             Secondary(
                 "No Mercy, No Respite",
@@ -87,7 +89,7 @@ class SecondaryList {
                         "Score an extra 3 VP if you slay more units than your opponent in the first round.",
                 "Counter"
             ),
-
+            //TODO 2 check mark fragment permanent
             Secondary(
                 "Battlefield Supremacy",
                 "Engage On All Fronts",
@@ -96,6 +98,7 @@ class SecondaryList {
                         "Score 3 VP instead if you’re in all 4 table quarters.",
                 "Counter"
             ),
+            //TODO 2 check mark fragment temp
             Secondary(
                 "Battlefield Supremacy",
                 "Line Breaker",
@@ -118,6 +121,7 @@ class SecondaryList {
                 "Action, non-Character Infantry only. Any Infantry unit can take this action if they are within 6” of the center of the board and there are no enemy units within 6” of the board. The action completed at the end of your turn, and every time you do you score 3VP.",
                 "Counter"
             ),
+            //TODO some action shenanigans
             Secondary(
                 "Shadow Operations",
                 "Repair Teleporter Homer",
@@ -132,7 +136,7 @@ class SecondaryList {
                 "Action, Infantry Only. If your Infantry unit controls an objective and there are no enemy units nearby, you may take the Action. It completes at the end of your turn, leaving a banner on that objective. You score 1VP at the end of every Command Phase and the end of the game for every objective with a Banner. If the enemy gains control of an objective with a banner, that banner is removed and no longer scores VP.",
                 "Counter"
             ),
-
+            //TODO banners
             Secondary(
                 "Warpcraft",
                 "Mental Interrogation",

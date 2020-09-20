@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_one_checkmark.*
 
 class FragmentSecondaryOnetimeCheckMark(private val battleObject: Battle, private val secondary: Secondary, private var secondaryCounter: Int, private val counterNumber: Int) : Fragment(R.layout.fragment_one_checkmark){
+
     private fun updateVP (){
         battleObject.secondaryToVpOneTimeCheckMark(secondary,counterNumber,secondaryCounter)
         textViewSecondaryVp.text = battleObject.getSecondaryVpCounter(counterNumber).toString()
