@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity(), OnBattleClickListener{
         battleViewModel.allBattles.observe(this, Observer {battles ->
 
             //update the ui
-            battles?.let { battleAdapter.submitList(it)}
+            battles?.let {battleAdapter.submitList(it)}
         })
 
         //create new battle
