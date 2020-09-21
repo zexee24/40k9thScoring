@@ -1,4 +1,4 @@
-package com.erej.a40k9thscoring
+package com.erej.a40k9thScoring
 
 
 import android.content.Intent
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity(), OnBattleClickListener{
         battleViewModel.allBattles.observe(this, Observer {battles ->
 
             //update the ui
-            battles?.let { battleAdapter.submitList(it)}
+            battles?.let {battleAdapter.submitList(it)}
         })
 
         //create new battle

@@ -1,4 +1,4 @@
-package com.erej.a40k9thscoring
+package com.erej.a40k9thScoring
 
 import android.content.Context
 import androidx.room.Database
@@ -76,12 +76,20 @@ abstract class BattleRoomDatabase: RoomDatabase() {
             testBattle.p2Secondary1 = 4
 =======
             testBattle.p1Secondary1 = 7
+<<<<<<< HEAD:app/src/main/java/com/erej/a40k9thscoring/BattleRoomDatabase.kt
             testBattle.p1Secondary2 = 0
             testBattle.p1Secondary3 = 0
             testBattle.p2Secondary1 = 0
 >>>>>>> 5c39fd9... 3 Check Mark counter done
             testBattle.p2Secondary2 = 0
             testBattle.p2Secondary3 = 0
+=======
+            testBattle.p1Secondary2 = 8
+            testBattle.p1Secondary3 = 9
+            testBattle.p2Secondary1 = 10
+            testBattle.p2Secondary2 = 11
+            testBattle.p2Secondary3 = 12
+>>>>>>> f308786... Renamed as shit:app/src/main/java/com/erej/a40k9thScoring/BattleRoomDatabase.kt
             battleDAO.insert(testBattle)
 
 >>>>>>> 1fc6641... Merge remote-tracking branch 'origin/master'
