@@ -162,7 +162,7 @@ class Battle(
         }
     }
 
-    fun secondaryToVpTwoCheckMarks(secondary: Secondary, counterNumber: Int, secondaryCounter: Int){
+    fun secondaryToVpTwoCheckMarks(secondary: Secondary, counterNumber: Int, secondaryCounter: Int, secondaryCounter2: Int){
         when (secondary.name){
             "First Strike" -> {
 
@@ -173,6 +173,7 @@ class Battle(
                     this.setSecondaryVpCounter(counterNumber, 8)
                 }
             }
+            "Engage On All Fronts" -> this.setSecondaryVpCounter(counterNumber, 2 * secondaryCounter + secondaryCounter2)
         }
     }
 

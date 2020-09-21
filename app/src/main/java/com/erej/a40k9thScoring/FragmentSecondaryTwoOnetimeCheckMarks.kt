@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.fragment_two_checkmarks.*
 class FragmentSecondaryTwoOnetimeCheckMarks(private val battleObject: Battle, private val secondary: Secondary, private var secondaryCounter: Int, private val counterNumber: Int) : Fragment(R.layout.fragment_two_checkmarks){
 
     private fun updateVP (){
-        battleObject.secondaryToVpTwoCheckMarks(secondary,counterNumber,secondaryCounter)
+        battleObject.secondaryToVpTwoCheckMarks(secondary,counterNumber,secondaryCounter, 0)
         textViewSecondaryVp.text = battleObject.getSecondaryVpCounter(counterNumber).toString()
     }
 
