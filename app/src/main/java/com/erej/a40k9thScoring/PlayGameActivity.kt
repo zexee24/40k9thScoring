@@ -1,4 +1,4 @@
-package com.erej.a40k9thscoring
+package com.erej.a40k9thScoring
 
 import android.content.Intent
 import android.os.Bundle
@@ -46,8 +46,10 @@ class PlayGameActivity:AppCompatActivity() {
             "OneTimeCheckMark" -> FragmentSecondaryOnetimeCheckMark(battleObject,secondary,secondaryCounter, counterNumber)
             "OneCheckMark" -> FragmentSecondaryOneCheckMark(battleObject,secondary,secondaryCounter, counterNumber)
             "ThreeOneTimeCheckMarks" -> FragmentSecondaryThreeOnetimeCheckMarks(battleObject, secondary, secondaryCounter, counterNumber)
+            "TwoOneTimeCheckMarks" -> FragmentSecondaryTwoOnetimeCheckMarks(battleObject, secondary, secondaryCounter, counterNumber)
+            "TwoCheckMarks" -> FragmentSecondaryTwoCheckMarks(battleObject, secondary, secondaryCounter, counterNumber)
             "Empty" -> FragmentSecondaryNone()
-            else -> FragmentSecondaryCounter(battleObject, secondary, secondaryCounter, counterNumber)
+            else -> FragmentSecondaryNone()
 
         }
 
@@ -66,7 +68,7 @@ class PlayGameActivity:AppCompatActivity() {
         //Fetch the battle date from MainActivity
         val battleObject = intent.getSerializableExtra("battle") as Battle
 
-        //get a super ugly list of secondaries ... but it works ... for now
+        //get a super ugly list of secondaries ... but it works ... i guess ... for now
         val secondaryList = SecondaryList().getSecondaries()
 
         setupFragments(battleObject, supportFragmentManager)

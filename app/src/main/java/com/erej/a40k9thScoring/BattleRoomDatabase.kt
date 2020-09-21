@@ -1,4 +1,4 @@
-package com.erej.a40k9thscoring
+package com.erej.a40k9thScoring
 
 import android.content.Context
 import androidx.room.Database
@@ -61,11 +61,11 @@ abstract class BattleRoomDatabase: RoomDatabase() {
 
             val testBattle = Battle(null,"Testi Jere","Ei jere","ei mitään")
             testBattle.p1Secondary1 = 7
-            testBattle.p1Secondary2 = 0
-            testBattle.p1Secondary3 = 0
-            testBattle.p2Secondary1 = 0
-            testBattle.p2Secondary2 = 0
-            testBattle.p2Secondary3 = 0
+            testBattle.p1Secondary2 = 8
+            testBattle.p1Secondary3 = 9
+            testBattle.p2Secondary1 = 10
+            testBattle.p2Secondary2 = 11
+            testBattle.p2Secondary3 = 12
             battleDAO.insert(testBattle)
 
 

@@ -1,4 +1,4 @@
-package com.erej.a40k9thscoring
+package com.erej.a40k9thScoring
 
 import android.os.Bundle
 import android.view.View
@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.fragment_one_checkmark.*
 class FragmentSecondaryOnetimeCheckMark(private val battleObject: Battle, private val secondary: Secondary, private var secondaryCounter: Int, private val counterNumber: Int) : Fragment(R.layout.fragment_one_checkmark){
 
     private fun updateVP (){
-        battleObject.secondaryToVpOneTimeCheckMark(secondary,counterNumber,secondaryCounter)
+        battleObject.secondaryToVpOneCheckMark(secondary,counterNumber,secondaryCounter)
         textViewSecondaryVp.text = battleObject.getSecondaryVpCounter(counterNumber).toString()
     }
 

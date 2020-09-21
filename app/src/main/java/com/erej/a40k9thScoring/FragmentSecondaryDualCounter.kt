@@ -1,4 +1,4 @@
-package com.erej.a40k9thscoring
+package com.erej.a40k9thScoring
 
 import android.os.Bundle
 import android.view.View

@@ -1,4 +1,4 @@
-package com.erej.a40k9thscoring
+package com.erej.a40k9thScoring
 
 data class Secondary(
     val category : String,
@@ -87,9 +87,8 @@ class SecondaryList {
                 listOf(1, 2, 3, 4),
                 "Score 5 VP if you destroy an enemy unit on the first round. " +
                         "Score an extra 3 VP if you slay more units than your opponent in the first round.",
-                "Counter"
+                "TwoOneTimeCheckMarks"
             ),
-            //TODO 2 check mark fragment permanent
             Secondary(
                 "Battlefield Supremacy",
                 "Engage On All Fronts",

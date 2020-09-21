@@ -1,4 +1,4 @@
-package com.erej.a40k9thscoring
+package com.erej.a40k9thScoring
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -154,20 +154,29 @@ class Battle(
         }
     }
 
-    fun secondaryToVpOneTimeCheckMark(secondary: Secondary, counterNumber: Int, secondaryCounter: Int){
-        when (secondary.name){
-            "Slay The Warlord" -> this.setSecondaryVpCounter(counterNumber, 6 * secondaryCounter)
-        }
-    }
-
     fun secondaryToVpOneCheckMark(secondary: Secondary, counterNumber: Int, secondaryCounter: Int){
         when (secondary.name){
             "Attrition" -> this.setSecondaryVpCounter(counterNumber, 4 * secondaryCounter)
+            "Slay The Warlord" -> this.setSecondaryVpCounter(counterNumber, 6 * secondaryCounter)
 
         }
     }
 
-    fun secondaryToVpThreeOneTimeCheckMarks(secondary: Secondary, counterNumber: Int, secondaryCounter: Int){
+    fun secondaryToVpTwoCheckMarks(secondary: Secondary, counterNumber: Int, secondaryCounter: Int){
+        when (secondary.name){
+            "First Strike" -> {
+
+                if (secondaryCounter <= 1){
+                    this.setSecondaryVpCounter(counterNumber, 5 * secondaryCounter)
+                }
+                if (secondaryCounter == 2){
+                    this.setSecondaryVpCounter(counterNumber, 8)
+                }
+            }
+        }
+    }
+
+    fun secondaryToVpThreeCheckMarks(secondary: Secondary, counterNumber: Int, secondaryCounter: Int){
         when (secondary.name){
             "While We Stand, We Fight" -> this.setSecondaryVpCounter(counterNumber, 5 * secondaryCounter)
         }
