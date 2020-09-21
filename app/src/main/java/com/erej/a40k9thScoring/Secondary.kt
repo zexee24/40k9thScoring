@@ -19,7 +19,7 @@ data class Secondary(
 =======
     val hint : String,
     val fragmentType: String,
-    var counterHints : List<String> = listOf("no Hints", "no Hints 2")
+    var counterHints : List<String> = listOf("no Hints", "no Hints", "no Hints")
 )
 >>>>>>> c3fa666... Merge remote-tracking branch 'origin/master'
 
@@ -124,9 +124,9 @@ class SecondaryList {
                 listOf(1, 2, 3, 4),
                 "Score 2 VP if you have a unit wholly within 3 of the 4 table quarters and they are also more than 6” from the center at the end of every round. " +
                         "Score 3 VP instead if you’re in all 4 table quarters.",
-                "Counter"
+                "TwoCheckMarks"
             ),
-            //TODO 2 check mark fragment temp
+
             Secondary(
                 "Battlefield Supremacy",
                 "Line Breaker",
@@ -147,7 +147,7 @@ class SecondaryList {
                 "Investigate Sites",
                 listOf(1, 2, 3, 4),
                 "Action, non-Character Infantry only. Any Infantry unit can take this action if they are within 6” of the center of the board and there are no enemy units within 6” of the board. The action completed at the end of your turn, and every time you do you score 3VP.",
-                "Counter"
+                "OneCheckMark"
             ),
             //TODO some action shenanigans
             Secondary(
@@ -155,7 +155,7 @@ class SecondaryList {
                 "Repair Teleporter Homer",
                 listOf(1, 2, 3, 4),
                 "Much like Investigate Sites, except you have to be wholly within the enemy deployment zone and the action completes at the end of your next  Command Phase. Scores 5VP if completed.",
-                "Counter"
+                "OneCheckMark"
             ),
             Secondary(
                 "Shadow Operations",
@@ -177,7 +177,7 @@ class SecondaryList {
                 "Psychic Ritual",
                 listOf(2),
                 "Psychic Action, Warp Charge 3. Action can only be taken if you’re wholly within 6” of the battlefield. If completed 3 times, score 15VP",
-                "Counter"
+                "OneCheckMark"
             ),
             Secondary(
                 "Warpcraft",

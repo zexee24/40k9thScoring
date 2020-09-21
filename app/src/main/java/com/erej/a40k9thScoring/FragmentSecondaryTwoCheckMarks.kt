@@ -8,8 +8,10 @@ import kotlinx.android.synthetic.main.fragment_two_checkmarks.*
 
 class FragmentSecondaryTwoCheckMarks(private val battleObject: Battle, private val secondary: Secondary, private var secondaryCounter: Int, private val counterNumber: Int) : Fragment(R.layout.fragment_two_checkmarks){
 
+    private var secondaryCounter2 = battleObject.getSecondaryCounter(10 + counterNumber)
+
     private fun updateVP (){
-        battleObject.secondaryToVpTwoCheckMarks(secondary,counterNumber,secondaryCounter)
+        battleObject.secondaryToVpTwoCheckMarks(secondary,counterNumber,secondaryCounter, secondaryCounter2)
         textViewSecondaryVp.text = battleObject.getSecondaryVpCounter(counterNumber).toString()
     }
 
@@ -18,6 +20,7 @@ class FragmentSecondaryTwoCheckMarks(private val battleObject: Battle, private v
 
 
         secondaryCounter = battleObject.getSecondaryCounter(counterNumber)
+        secondaryCounter2 = battleObject.getSecondaryCounter(10 + counterNumber)
         textViewTitle.text = secondary.name
         textViewdescription.text = secondary.hint
 
@@ -28,8 +31,8 @@ class FragmentSecondaryTwoCheckMarks(private val battleObject: Battle, private v
 
         textViewSecondaryVp.text = battleObject.getSecondaryVpCounter(counterNumber).toString()
 
-        checkBox0.setOnClickListener {
-            if (checkBox0.isChecked) {
+        checkBox1.setOnClickListener {
+            if (checkBox1.isChecked) {
                     secondaryCounter++
                     battleObject.setSecondaryCounter(counterNumber, secondaryCounter)
             } else {
@@ -39,13 +42,13 @@ class FragmentSecondaryTwoCheckMarks(private val battleObject: Battle, private v
             updateVP()
             }
 
-        checkBox1.setOnClickListener {
-            if (checkBox1.isChecked) {
-                secondaryCounter++
-                battleObject.setSecondaryCounter(counterNumber, secondaryCounter)
+        checkBox0.setOnClickListener {
+            if (checkBox0.isChecked) {
+                secondaryCounter2++
+                battleObject.setSecondaryCounter(10 + counterNumber, secondaryCounter)
             } else {
-                secondaryCounter--
-                battleObject.setSecondaryCounter(counterNumber, secondaryCounter)
+                secondaryCounter2--
+                battleObject.setSecondaryCounter(10 + counterNumber, secondaryCounter)
             }
             updateVP()
         }
