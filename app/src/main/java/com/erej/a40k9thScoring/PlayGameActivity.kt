@@ -72,6 +72,12 @@ class PlayGameActivity:AppCompatActivity() {
 
     }
 
+    private fun setTextView(battleObject: Battle){
+        textViewRoundCounter.text = resources.getString(R.string.Round, battleObject.roundCounter)
+        textViewP1Vp.text = battleObject.p1Vp.toString()
+        textViewP2Vp.text = battleObject.p2Vp.toString()
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         //do something idk
@@ -134,10 +140,14 @@ class PlayGameActivity:AppCompatActivity() {
 >>>>>>> dc6b797... Merge remote-tracking branch 'origin/master'
 =======
         setupFragments(battleObject, supportFragmentManager)
+<<<<<<< HEAD
 >>>>>>> 6a5579d... Merge remote-tracking branch 'origin/master'
 
         //set roundCounter
         textViewRoundCounter.text = resources.getString(R.string.Round, battleObject.roundCounter)
+=======
+        setTextView(battleObject)
+>>>>>>> 83b5257... All exept banners working.
 
 <<<<<<< HEAD
 
@@ -171,6 +181,7 @@ class PlayGameActivity:AppCompatActivity() {
             battleObject.roundCounter++
 >>>>>>> dc6b797... Merge remote-tracking branch 'origin/master'
             battleViewModel.update(battleObject)
+<<<<<<< HEAD
             textViewRoundCounter.text = resources.getString(R.string.Round, battleObject.roundCounter)
 <<<<<<< HEAD
 
@@ -182,6 +193,9 @@ class PlayGameActivity:AppCompatActivity() {
             startActivity(Intent(this,MainActivity::class.java))
 =======
 =======
+=======
+            setTextView(battleObject)
+>>>>>>> 83b5257... All exept banners working.
             setupFragments(battleObject,supportFragmentManager)
 <<<<<<< HEAD
 >>>>>>> 6a5579d... Merge remote-tracking branch 'origin/master'

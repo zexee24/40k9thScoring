@@ -50,7 +50,6 @@ abstract class BattleRoomDatabase: RoomDatabase() {
             INSTANCE?.let { database ->
                 scope.launch {
                 populate(database.battleDao())
-
                 }
             }
         }
@@ -68,6 +67,7 @@ abstract class BattleRoomDatabase: RoomDatabase() {
 =======
 
             val testBattle = Battle(null,"Testi Jere","Ei jere","ei mitään")
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> dc6b797... Merge remote-tracking branch 'origin/master'
             testBattle.p1Secondary1 = 1
@@ -90,6 +90,14 @@ abstract class BattleRoomDatabase: RoomDatabase() {
             testBattle.p2Secondary2 = 11
             testBattle.p2Secondary3 = 12
 >>>>>>> f308786... Renamed as shit:app/src/main/java/com/erej/a40k9thScoring/BattleRoomDatabase.kt
+=======
+            testBattle.p1Secondary1 = 13
+            testBattle.p1Secondary2 = 14
+            testBattle.p1Secondary3 = 15
+            testBattle.p2Secondary1 = 16
+            testBattle.p2Secondary2 = 17
+            testBattle.p2Secondary3 = 0
+>>>>>>> 83b5257... All exept banners working.
             battleDAO.insert(testBattle)
 
 >>>>>>> 1fc6641... Merge remote-tracking branch 'origin/master'
