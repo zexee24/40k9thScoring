@@ -150,7 +150,7 @@ class Battle(
         when (secondary.name){
             "Assassinate" -> this.setSecondaryVpCounter(counterNumber, 3 * secondaryCounter)
             "Titan Slayers" -> this.setSecondaryVpCounter(counterNumber,10 * secondaryCounter)
-            "Mental Interrogation" -> this.setSecondaryVpCounter(counterNumber, 3 * secondaryCounter)
+
         }
     }
 
@@ -158,6 +158,12 @@ class Battle(
         when (secondary.name){
             "Attrition" -> this.setSecondaryVpCounter(counterNumber, 4 * secondaryCounter)
             "Slay The Warlord" -> this.setSecondaryVpCounter(counterNumber, 6 * secondaryCounter)
+            "Line Breaker" -> this.setSecondaryVpCounter(counterNumber, 4 * secondaryCounter)
+            "Domination" -> this.setSecondaryVpCounter(counterNumber, 3 * secondaryCounter)
+            "Investigate Sites" -> this.setSecondaryVpCounter(counterNumber, 3 * secondaryCounter)
+            "Repair Teleporter Homer" -> this.setSecondaryVpCounter(counterNumber, 5 * secondaryCounter)
+            "Mental Interrogation" -> this.setSecondaryVpCounter(counterNumber, 3 * secondaryCounter)
+            "Psychic Ritual" -> this.setSecondaryCounter(counterNumber, (secondaryCounter / 3) * 15)
 
         }
     }

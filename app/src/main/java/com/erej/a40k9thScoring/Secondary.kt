@@ -141,7 +141,7 @@ class SecondaryList {
                 "Mental Interrogation",
                 listOf(2),
                 "Psychic Action, Warp Charge 4. Action is taken in the Psychic phase, requires you to be within 18” of an enemy character. Every successful completion scores 3VP.",
-                "Counter"
+                "OneCheckMark"
             ),
             Secondary(
                 "Warpcraft",
