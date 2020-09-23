@@ -48,7 +48,9 @@
         app:layout_constraintBottom_toTopOf="@+id/flSecondFragment"
         app:layout_constraintEnd_toStartOf="@+id/flFourthFragment"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewRoundCounter" />
+        app:layout_constraintTop_toBottomOf="@id/textViewRoundCounter" >
+
+    </FrameLayout>
 
     <FrameLayout
         android:id="@+id/flSecondFragment"
@@ -154,4 +156,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewRoundCounter"
         app:layout_constraintTop_toTopOf="@+id/textViewRoundCounter" />
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="75dp"
+        android:layout_height="37dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/menu_battle_interface" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
