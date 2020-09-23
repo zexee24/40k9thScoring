@@ -1,8 +1,11 @@
-package com.erej.a40k9thScoring
+package com.erej.a40k9thScoring.secondaryfragments
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import com.erej.a40k9thScoring.Battle
+import com.erej.a40k9thScoring.R
+import com.erej.a40k9thScoring.Secondary
 import kotlinx.android.synthetic.main.fragment_secondary_counter.buttonDecrease
 import kotlinx.android.synthetic.main.fragment_secondary_counter.buttonIncrease
 import kotlinx.android.synthetic.main.fragment_secondary_counter.counterView1
@@ -11,7 +14,9 @@ import kotlinx.android.synthetic.main.fragment_secondary_counter.textViewdescrip
 import kotlinx.android.synthetic.main.fragment_secondary_dualcounter.*
 
 class FragmentSecondaryDualCounter(
-    private val battleObject: Battle, private val secondary: Secondary, private var secondaryCounter: Int, private val counterNumber: Int) : Fragment(R.layout.fragment_secondary_dualcounter)  {
+    private val battleObject: Battle, private val secondary: Secondary, private var secondaryCounter: Int, private val counterNumber: Int) : Fragment(
+    R.layout.fragment_secondary_dualcounter
+)  {
 
     private var secondaryCounter2 = battleObject.getSecondaryCounter(10 + counterNumber)
 

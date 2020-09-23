@@ -4,7 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD:app/src/main/res/layout/fragment_assasinate.xml
     tools:context=".AssassinateFragment">
+=======
+    android:clickable="false"
+    tools:context=".secondaryfragments.FragmentSecondaryCounter">
+>>>>>>> 8fe89ef... Interface switching implemented - next the interfaces:app/src/main/res/layout/fragment_secondary_counter.xml
 
     <ImageView
         android:id="@+id/imageView"

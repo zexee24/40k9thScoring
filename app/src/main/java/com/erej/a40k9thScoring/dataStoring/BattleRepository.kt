@@ -1,6 +1,7 @@
-package com.erej.a40k9thScoring
+package com.erej.a40k9thScoring.dataStoring
 
 import androidx.lifecycle.LiveData
+import com.erej.a40k9thScoring.Battle
 
 class BattleRepository(private val battleDAO: BattleDAO) {
     // Room executes all queries on a separate thread.

@@ -1,10 +1,11 @@
-package com.erej.a40k9thScoring
+package com.erej.a40k9thScoring.dataStoring
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.erej.a40k9thScoring.Battle
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -20,7 +21,7 @@ abstract class BattleRoomDatabase: RoomDatabase() {
         @Volatile
         private var INSTANCE: BattleRoomDatabase? = null
 
-        fun getDatabase(context: Context, scope: CoroutineScope):BattleRoomDatabase{
+        fun getDatabase(context: Context, scope: CoroutineScope): BattleRoomDatabase {
             val tempInstance = INSTANCE
 
             if (tempInstance != null){

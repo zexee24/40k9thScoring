@@ -2,7 +2,9 @@ package com.erej.a40k9thScoring
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 import kotlinx.android.synthetic.main.fragment_battle.*
@@ -20,59 +22,28 @@ import kotlin.reflect.KClass
 >>>>>>> 1fac747... Working...
 =======
 import androidx.fragment.app.FragmentManager
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
+=======
+import androidx.core.view.GravityCompat
+import com.erej.a40k9thScoring.battleFragments.FragmentSecondaries
+>>>>>>> 8fe89ef... Interface switching implemented - next the interfaces
+import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.layout_battle_big.*
 >>>>>>> dc6b797... Merge remote-tracking branch 'origin/master'
 
 
-class PlayGameActivity:AppCompatActivity() {
+class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    private fun setupFragments(battleObject: Battle, supportFragmentManager: FragmentManager){
+    private lateinit var battleObject: Battle
 
-        val secondaryList = SecondaryList().getSecondaries()
-
-        //store fragments
-        val p1Fragment1 = getFragment(battleObject,secondaryList[battleObject.p1Secondary1],battleObject.p1Secondary1Counter1, 1, secondaryList[battleObject.p1Secondary1].fragmentType)
-        val p1Fragment2 = getFragment(battleObject,secondaryList[battleObject.p1Secondary2],battleObject.p1Secondary1Counter1, 2, secondaryList[battleObject.p1Secondary2].fragmentType)
-        val p1Fragment3 = getFragment(battleObject,secondaryList[battleObject.p1Secondary3],battleObject.p1Secondary1Counter1, 3, secondaryList[battleObject.p1Secondary3].fragmentType)
-
-        val p2Fragment1 = getFragment(battleObject,secondaryList[battleObject.p2Secondary1],battleObject.p1Secondary1Counter1, 4, secondaryList[battleObject.p2Secondary1].fragmentType)
-        val p2Fragment2 = getFragment(battleObject,secondaryList[battleObject.p2Secondary2],battleObject.p1Secondary1Counter1, 5, secondaryList[battleObject.p2Secondary2].fragmentType)
-        val p2Fragment3 = getFragment(battleObject,secondaryList[battleObject.p2Secondary3],battleObject.p1Secondary1Counter1, 6, secondaryList[battleObject.p2Secondary3].fragmentType)
-
-
-
-
-        //set fragments
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.flFirstFragment,p1Fragment1)
-            replace(R.id.flSecondFragment,p1Fragment2)
-            replace(R.id.flThirdFragment,p1Fragment3)
-
-            replace(R.id.flFourthFragment,p2Fragment1)
-            replace(R.id.flFifthFragment,p2Fragment2)
-            replace(R.id.flSixthFragment,p2Fragment3)
-            commit()
-        }
-    }
-
-    private fun getFragment(battleObject: Battle, secondary : Secondary, secondaryCounter: Int, counterNumber:Int, FragmentType : String): Fragment {
-        return when(FragmentType){
-            "Counter" -> FragmentSecondaryCounter(battleObject, secondary, secondaryCounter, counterNumber)
-            "DualCounter" -> FragmentSecondaryDualCounter(battleObject, secondary, secondaryCounter,counterNumber)
-            "OneTimeCheckMark" -> FragmentSecondaryOnetimeCheckMark(battleObject,secondary,secondaryCounter, counterNumber)
-            "OneCheckMark" -> FragmentSecondaryOneCheckMark(battleObject,secondary,secondaryCounter, counterNumber)
-            "ThreeOneTimeCheckMarks" -> FragmentSecondaryThreeOnetimeCheckMarks(battleObject, secondary, secondaryCounter, counterNumber)
-            "TwoOneTimeCheckMarks" -> FragmentSecondaryTwoOnetimeCheckMarks(battleObject, secondary, secondaryCounter, counterNumber)
-            "TwoCheckMarks" -> FragmentSecondaryTwoCheckMarks(battleObject, secondary, secondaryCounter, counterNumber)
-            "Empty" -> FragmentSecondaryNone()
-            else -> FragmentSecondaryNone()
-
-        }
-
-
-    }
-
-    private fun setTextView(battleObject: Battle){
+    private fun setTextView(battleObject: Battle) {
         textViewRoundCounter.text = resources.getString(R.string.Round, battleObject.roundCounter)
         textViewP1Vp.text = battleObject.p1Vp.toString()
         textViewP2Vp.text = battleObject.p2Vp.toString()
@@ -86,13 +57,21 @@ class PlayGameActivity:AppCompatActivity() {
 =======
         setTheme(R.style.AppTheme_NoActionBar)
 
+<<<<<<< HEAD
 >>>>>>> dc6b797... Merge remote-tracking branch 'origin/master'
+=======
+
+>>>>>>> 367b9bc... Menu very much in progress
         //set contentView
         setContentView(R.layout.layout_battle_big)
 
         //Fetch the battle date from MainActivity
-        val battleObject = intent.getSerializableExtra("battle") as Battle
+        battleObject = intent.getSerializableExtra("battle") as Battle
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD:app/src/main/java/com/erej/a40k9thscoring/PlayGameActivity.kt
 <<<<<<< HEAD
         val firstFragment = BattleFragment(battleObject)
@@ -206,9 +185,86 @@ class PlayGameActivity:AppCompatActivity() {
                 startActivity(Intent(this,MainActivity::class.java))
             }
 >>>>>>> dc6b797... Merge remote-tracking branch 'origin/master'
+=======
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentNav) as NavHostFragment
+        val navController = navHostFragment.navController
+        findViewById<NavigationView>(R.id.drawerBattleMenu).setupWithNavController(navController)
+=======
+        //navController = findNavController(R.id.fragmentNav)
+        //appBarConfiguration = AppBarConfiguration(navController.graph, drawer_layout)
+>>>>>>> b006708... Such buggy
+=======
+>>>>>>> 0bb401c... Got to actually learn drawer navigation
+=======
+        drawerBattleMenu.setNavigationItemSelectedListener(this)
+>>>>>>> 8fe89ef... Interface switching implemented - next the interfaces
 
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.navHostFragment, FragmentSecondaries(battleObject,supportFragmentManager))
+            commit()
         }
 
+
+        setTextView(battleObject)
+
+        buttonPrevious.setOnClickListener {
+            battleViewModel.update(battleObject)
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
+        buttonNext.setOnClickListener {
+            battleObject.roundCounter++
+            battleViewModel.update(battleObject)
+            setTextView(battleObject)
+
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.navHostFragment, FragmentSecondaries(battleObject,supportFragmentManager))
+                commit()
+            }
+
+            if (battleObject.roundCounter > 5) {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
+
+<<<<<<< HEAD
+<<<<<<< HEAD
+       /* val fragment = FragmentSecondaries(battleObject, supportFragmentManager)
+>>>>>>> 367b9bc... Menu very much in progress
+=======
+>>>>>>> b006708... Such buggy
+=======
+        }
+>>>>>>> 0bb401c... Got to actually learn drawer navigation
+
+
     }
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId){
+            R.id.fragment_battle_secondaries -> {
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.navHostFragment, FragmentSecondaries(battleObject,supportFragmentManager))
+                    commit()
+                }
+            }
+            R.id.fragment_battle_primaries->{
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.navHostFragment, FragmentSecondaries(battleObject,supportFragmentManager))
+                    commit()
+                }
+            }
+            R.id.fragment_battle_cp -> {
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.navHostFragment, FragmentSecondaries(battleObject,supportFragmentManager))
+                    commit()
+                }
+            }
+        }
+        drawer_layout.closeDrawer(GravityCompat.START)
+        return true
+    }
+
+
 
 }

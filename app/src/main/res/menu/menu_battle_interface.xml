@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/fragment_battle_secondaries"
+        android:title="@string/secondaries" />
+
+    <item
+        android:id="@+id/fragment_battle_primaries"
+        android:title="@string/primaries" />
+
+    <item
+        android:id="@+id/fragment_battle_cp"
+        android:title="@string/cp" />
+
+</menu>

@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity(), OnBattleClickListener{
         //init BattleViewModel
         battleViewModel = ViewModelProvider(this).get(BattleViewModel::class.java)
 
-        //initialise recycler view
+        // initialise recycler view
         initRecyclerView()
 
         //on data update
@@ -39,7 +39,6 @@ class MainActivity : AppCompatActivity(), OnBattleClickListener{
         //create new battle
         addNewBattle.setOnClickListener{
         startActivity(Intent(this,CreateBattle::class.java))
-
         }
 
         //delete battle

@@ -1,12 +1,17 @@
-package com.erej.a40k9thScoring
+package com.erej.a40k9thScoring.secondaryfragments
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import com.erej.a40k9thScoring.Battle
+import com.erej.a40k9thScoring.R
+import com.erej.a40k9thScoring.Secondary
 import kotlinx.android.synthetic.main.fragment_two_checkmarks.*
 
 
-class FragmentSecondaryTwoOnetimeCheckMarks(private val battleObject: Battle, private val secondary: Secondary, private var secondaryCounter: Int, private val counterNumber: Int) : Fragment(R.layout.fragment_two_checkmarks){
+class FragmentSecondaryTwoOnetimeCheckMarks(private val battleObject: Battle, private val secondary: Secondary, private var secondaryCounter: Int, private val counterNumber: Int) : Fragment(
+    R.layout.fragment_two_checkmarks
+){
 
     private fun updateVP (){
         battleObject.secondaryToVpTwoCheckMarks(secondary,counterNumber,secondaryCounter, 0)
