@@ -141,7 +141,7 @@ class Battle(
     fun secondaryToVpDual(secondary: Secondary, counterNumber: Int, secondaryCounter: Int, secondaryCounter2: Int){
         when (secondary.name){
             "Bring It Down" -> this.setSecondaryVpCounter(counterNumber, 2 * secondaryCounter + 3 * secondaryCounter2)
-            "Thin Their Ranks" -> this.setSecondaryVpCounter(counterNumber, secondaryCounter + 10 * secondaryCounter2)
+            "Thin Their Ranks" -> this.setSecondaryVpCounter(counterNumber, (secondaryCounter + 10 * secondaryCounter2)/10)
             "Abhor The Witch" -> this.setSecondaryVpCounter(counterNumber, 3 * secondaryCounter + 5 * secondaryCounter2)
         }
     }
@@ -163,7 +163,7 @@ class Battle(
             "Investigate Sites" -> this.setSecondaryVpCounter(counterNumber, 3 * secondaryCounter)
             "Repair Teleporter Homer" -> this.setSecondaryVpCounter(counterNumber, 5 * secondaryCounter)
             "Mental Interrogation" -> this.setSecondaryVpCounter(counterNumber, 3 * secondaryCounter)
-            "Psychic Ritual" -> this.setSecondaryCounter(counterNumber, (secondaryCounter / 3) * 15)
+            "Psychic Ritual" -> this.setSecondaryVpCounter(counterNumber, (secondaryCounter / 3) * 15)
 
         }
     }

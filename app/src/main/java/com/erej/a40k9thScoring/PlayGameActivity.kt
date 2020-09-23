@@ -56,6 +56,12 @@ class PlayGameActivity:AppCompatActivity() {
 
     }
 
+    private fun setTextView(battleObject: Battle){
+        textViewRoundCounter.text = resources.getString(R.string.Round, battleObject.roundCounter)
+        textViewP1Vp.text = battleObject.p1Vp.toString()
+        textViewP2Vp.text = battleObject.p2Vp.toString()
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         //do something idk
@@ -72,9 +78,7 @@ class PlayGameActivity:AppCompatActivity() {
         val secondaryList = SecondaryList().getSecondaries()
 
         setupFragments(battleObject, supportFragmentManager)
-
-        //set roundCounter
-        textViewRoundCounter.text = resources.getString(R.string.Round, battleObject.roundCounter)
+        setTextView(battleObject)
 
         buttonPrevious.setOnClickListener{
             battleViewModel.update(battleObject)
@@ -84,7 +88,7 @@ class PlayGameActivity:AppCompatActivity() {
         buttonNext.setOnClickListener{
             battleObject.roundCounter++
             battleViewModel.update(battleObject)
-            textViewRoundCounter.text = resources.getString(R.string.Round, battleObject.roundCounter)
+            setTextView(battleObject)
             setupFragments(battleObject,supportFragmentManager)
             if (battleObject.roundCounter > 5){
                 startActivity(Intent(this,MainActivity::class.java))

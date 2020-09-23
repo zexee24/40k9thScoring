@@ -50,7 +50,6 @@ abstract class BattleRoomDatabase: RoomDatabase() {
             INSTANCE?.let { database ->
                 scope.launch {
                 populate(database.battleDao())
-
                 }
             }
         }
@@ -60,12 +59,12 @@ abstract class BattleRoomDatabase: RoomDatabase() {
 
 
             val testBattle = Battle(null,"Testi Jere","Ei jere","ei mitään")
-            testBattle.p1Secondary1 = 7
-            testBattle.p1Secondary2 = 8
-            testBattle.p1Secondary3 = 9
-            testBattle.p2Secondary1 = 10
-            testBattle.p2Secondary2 = 11
-            testBattle.p2Secondary3 = 12
+            testBattle.p1Secondary1 = 13
+            testBattle.p1Secondary2 = 14
+            testBattle.p1Secondary3 = 15
+            testBattle.p2Secondary1 = 16
+            testBattle.p2Secondary2 = 17
+            testBattle.p2Secondary3 = 0
             battleDAO.insert(testBattle)
 
 
