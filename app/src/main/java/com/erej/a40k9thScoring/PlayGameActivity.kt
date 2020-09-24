@@ -7,8 +7,13 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.fragment_battle_secondaries.*
@@ -17,6 +22,8 @@ import kotlinx.android.synthetic.main.layout_battle_big.*
 
 class PlayGameActivity:AppCompatActivity() {
 
+    private lateinit var navController: NavController
+    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         //do something idk
@@ -30,19 +37,12 @@ class PlayGameActivity:AppCompatActivity() {
         //Fetch the battle date from MainActivity
         val battleObject = intent.getSerializableExtra("battle") as Battle
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentNav) as NavHostFragment
-        val navController = navHostFragment.navController
-        findViewById<NavigationView>(R.id.drawerBattleMenu).setupWithNavController(navController)
+        //navController = findNavController(R.id.fragmentNav)
+        //appBarConfiguration = AppBarConfiguration(navController.graph, drawer_layout)
+
+        //drawerBattleMenu.setupWithNavController(navController)
 
 
-       /* val fragment = FragmentSecondaries(battleObject, supportFragmentManager)
-
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.fragmentNav, fragment)
-            commit()
-        }
-
-        */
 
     }
 

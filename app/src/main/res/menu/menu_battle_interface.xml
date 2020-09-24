@@ -3,7 +3,7 @@
 
     <group >
         <item android:title="Secondaries"
-            android:id="@+id/fragmentNav"/>
+            android:id="@+id/fragment_battle_secondaries"/>
         <item android:title="Primaries" />
         <item android:title="Cp" />
     </group>
