@@ -9,39 +9,6 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-
-
-
-        <Button
-            android:id="@+id/buttonNext"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="8dp"
-            android:text="@string/next"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/buttonPrevious" />
-
-        <Button
-            android:id="@+id/buttonPrevious"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="@string/exit"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/buttonNext"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent" />
-
         <FrameLayout
             android:id="@+id/flFirstFragment"
             android:layout_width="0dp"
@@ -55,7 +22,7 @@
             app:layout_constraintBottom_toTopOf="@+id/flSecondFragment"
             app:layout_constraintEnd_toStartOf="@+id/flFourthFragment"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textViewRoundCounter">
+            app:layout_constraintTop_toTopOf="parent">
 
         </FrameLayout>
 
@@ -82,7 +49,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="4dp"
-            app:layout_constraintBottom_toTopOf="@id/buttonPrevious"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/flSecondFragment"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/flSecondFragment">
@@ -102,7 +69,7 @@
             app:layout_constraintBottom_toTopOf="@id/flFifthFragment"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/flFirstFragment"
-            app:layout_constraintTop_toBottomOf="@id/textViewRoundCounter">
+            app:layout_constraintTop_toTopOf="parent">
 
         </FrameLayout>
 
@@ -129,40 +96,12 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="4dp"
-            app:layout_constraintBottom_toTopOf="@+id/buttonNext"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/flFifthFragment"
             app:layout_constraintTop_toBottomOf="@id/flFifthFragment">
 
         </FrameLayout>
 
-        <TextView
-            android:id="@+id/textViewRoundCounter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Rounderror"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textViewP1Vp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0"
-            app:layout_constraintEnd_toStartOf="@+id/textViewRoundCounter"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textViewRoundCounter" />
-
-        <TextView
-            android:id="@+id/textViewP2Vp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textViewRoundCounter"
-            app:layout_constraintTop_toTopOf="@+id/textViewRoundCounter" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,6 +25,13 @@ class PlayGameActivity:AppCompatActivity() {
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
 
+    private fun setTextView(battleObject: Battle) {
+        textViewRoundCounter.text = resources.getString(R.string.Round, battleObject.roundCounter)
+        textViewP1Vp.text = battleObject.p1Vp.toString()
+        textViewP2Vp.text = battleObject.p2Vp.toString()
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         //do something idk
         super.onCreate(savedInstanceState)
@@ -37,11 +44,37 @@ class PlayGameActivity:AppCompatActivity() {
         //Fetch the battle date from MainActivity
         val battleObject = intent.getSerializableExtra("battle") as Battle
 
-        //navController = findNavController(R.id.fragmentNav)
-        //appBarConfiguration = AppBarConfiguration(navController.graph, drawer_layout)
 
-        //drawerBattleMenu.setupWithNavController(navController)
+        /*
+        navController = findNavController(R.id.fragmentNav)
+        appBarConfiguration = AppBarConfiguration(navController.graph, drawer_layout)
 
+        drawerBattleMenu.setupWithNavController(navController)*/
+
+        supportFragmentManager.beginTransaction().apply{
+            replace(R.id.fragmentNav,FragmentSecondaries(battleObject,supportFragmentManager))
+            commit()
+        }
+
+        setTextView(battleObject)
+
+        buttonPrevious.setOnClickListener {
+            battleViewModel.update(battleObject)
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
+        buttonNext.setOnClickListener {
+            battleObject.roundCounter++
+            battleViewModel.update(battleObject)
+            setTextView(battleObject)
+
+            if (battleObject.roundCounter > 5) {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
+
+        }
 
 
     }

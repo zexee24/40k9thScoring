@@ -70,11 +70,6 @@ class FragmentSecondaries(
 
     }
 
-    private fun setTextView(battleObject: Battle) {
-        textViewRoundCounter.text = resources.getString(R.string.Round, battleObject.roundCounter)
-        textViewP1Vp.text = battleObject.p1Vp.toString()
-        textViewP2Vp.text = battleObject.p2Vp.toString()
-    }
 
     private fun setupFragments(battleObject: Battle, supportFragmentManager: FragmentManager) {
 
@@ -146,26 +141,6 @@ class FragmentSecondaries(
         val secondaryList = SecondaryList().getSecondaries()
 
         setupFragments(battleObject, supportFragmentManager)
-        setTextView(battleObject)
-
-
-        buttonPrevious.setOnClickListener {
-            battleViewModel.update(battleObject)
-            val intent = Intent(activity, MainActivity::class.java)
-            startActivity(intent)
-        }
-
-        buttonNext.setOnClickListener {
-            battleObject.roundCounter++
-            battleViewModel.update(battleObject)
-            setTextView(battleObject)
-            setupFragments(battleObject, supportFragmentManager)
-            if (battleObject.roundCounter > 5) {
-                val intent = Intent(activity, MainActivity::class.java)
-                startActivity(intent)
-            }
-
-        }
 
     }
 }
