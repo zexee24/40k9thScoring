@@ -1,7 +1,8 @@
-package com.erej.a40k9thScoring
+package com.erej.a40k9thScoring.dataStoring
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.erej.a40k9thScoring.Battle
 
 
 @Dao

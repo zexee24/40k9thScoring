@@ -1,13 +1,18 @@
-package com.erej.a40k9thScoring
+package com.erej.a40k9thScoring.secondaryfragments
 
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import com.erej.a40k9thScoring.Battle
+import com.erej.a40k9thScoring.R
+import com.erej.a40k9thScoring.Secondary
 import kotlinx.android.synthetic.main.fragment_secondary_counter.*
 
 
-class FragmentSecondaryCounter(private val battleObject: Battle, private val secondary: Secondary, private var secondaryCounter: Int, private val counterNumber: Int) : Fragment(R.layout.fragment_secondary_counter) {
+class FragmentSecondaryCounter(private val battleObject: Battle, private val secondary: Secondary, private var secondaryCounter: Int, private val counterNumber: Int) : Fragment(
+    R.layout.fragment_secondary_counter
+) {
 
     private fun updateVP (){
         battleObject.secondaryToVpCounter(secondary,counterNumber,secondaryCounter)

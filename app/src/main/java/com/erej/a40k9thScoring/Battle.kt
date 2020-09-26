@@ -28,24 +28,29 @@ class Battle(
     var p1Vp = 0
     var p2Vp = 0
 
+
     var p1Secondary1Vp: Int = 0
     var p1Secondary2Vp: Int = 0
     var p1Secondary3Vp: Int = 0
+
     var p2Secondary1Vp: Int = 0
     var p2Secondary2Vp: Int = 0
-
     var p2Secondary3Vp: Int = 0
+
 
     var p1Secondary1: Int = 0
     var p1Secondary2: Int = 0
     var p1Secondary3: Int = 0
+
     var p2Secondary1: Int = 0
     var p2Secondary2: Int = 0
     var p2Secondary3: Int = 0
 
+
     var p1Secondary1Counter1: Int = 0
     var p1Secondary2Counter1: Int = 0
     var p1Secondary3Counter1: Int = 0
+
     var p2Secondary1Counter1: Int = 0
     var p2Secondary2Counter1: Int = 0
     var p2Secondary3Counter1: Int = 0
@@ -53,6 +58,7 @@ class Battle(
     var p1Secondary1Counter2: Int = 0
     var p1Secondary2Counter2: Int = 0
     var p1Secondary3Counter2: Int = 0
+
     var p2Secondary1Counter2: Int = 0
     var p2Secondary2Counter2: Int = 0
     var p2Secondary3Counter2: Int = 0
@@ -190,10 +196,8 @@ class Battle(
     }
 
     private fun updateVp() {
-        p1Vp = p1PrimaryVp + p1Secondary1Vp + p1Secondary2Vp + p1Secondary3Vp
-        p2Vp = p2PrimaryVp + p2Secondary1Vp + p2Secondary2Vp + p2Secondary3Vp
+        p1Vp = p1PrimaryVp + p1Secondary1Vp + p1Secondary2Vp + p1Secondary3Vp + p1PrimaryVp
+        p2Vp = p2PrimaryVp + p2Secondary1Vp + p2Secondary2Vp + p2Secondary3Vp + p2PrimaryVp
         battleViewModel.update(this)
     }
-
-
 }

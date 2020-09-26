@@ -2,28 +2,17 @@ package com.erej.a40k9thScoring
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
-import androidx.appcompat.app.ActionBarDrawerToggle
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import androidx.core.view.GravityCompat
+import com.erej.a40k9thScoring.battleFragments.FragmentSecondaries
 import com.google.android.material.navigation.NavigationView
-import kotlinx.android.synthetic.main.fragment_battle_secondaries.*
 import kotlinx.android.synthetic.main.layout_battle_big.*
 
 
-class PlayGameActivity:AppCompatActivity() {
+class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    private lateinit var navController: NavController
-    private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var battleObject: Battle
 
     private fun setTextView(battleObject: Battle) {
         textViewRoundCounter.text = resources.getString(R.string.Round, battleObject.roundCounter)
@@ -42,19 +31,15 @@ class PlayGameActivity:AppCompatActivity() {
         setContentView(R.layout.layout_battle_big)
 
         //Fetch the battle date from MainActivity
-        val battleObject = intent.getSerializableExtra("battle") as Battle
+        battleObject = intent.getSerializableExtra("battle") as Battle
 
+        drawerBattleMenu.setNavigationItemSelectedListener(this)
 
-        /*
-        navController = findNavController(R.id.fragmentNav)
-        appBarConfiguration = AppBarConfiguration(navController.graph, drawer_layout)
-
-        drawerBattleMenu.setupWithNavController(navController)*/
-
-        supportFragmentManager.beginTransaction().apply{
-            replace(R.id.fragmentNav,FragmentSecondaries(battleObject,supportFragmentManager))
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.navHostFragment, FragmentSecondaries(battleObject,supportFragmentManager))
             commit()
         }
+
 
         setTextView(battleObject)
 
@@ -69,6 +54,11 @@ class PlayGameActivity:AppCompatActivity() {
             battleViewModel.update(battleObject)
             setTextView(battleObject)
 
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.navHostFragment, FragmentSecondaries(battleObject,supportFragmentManager))
+                commit()
+            }
+
             if (battleObject.roundCounter > 5) {
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
@@ -78,5 +68,31 @@ class PlayGameActivity:AppCompatActivity() {
 
 
     }
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId){
+            R.id.fragment_battle_secondaries -> {
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.navHostFragment, FragmentSecondaries(battleObject,supportFragmentManager))
+                    commit()
+                }
+            }
+            R.id.fragment_battle_primaries->{
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.navHostFragment, FragmentSecondaries(battleObject,supportFragmentManager))
+                    commit()
+                }
+            }
+            R.id.fragment_battle_cp -> {
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.navHostFragment, FragmentSecondaries(battleObject,supportFragmentManager))
+                    commit()
+                }
+            }
+        }
+        drawer_layout.closeDrawer(GravityCompat.START)
+        return true
+    }
+
+
 
 }

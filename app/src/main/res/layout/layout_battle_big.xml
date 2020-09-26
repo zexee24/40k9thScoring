@@ -2,7 +2,6 @@
 
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,23 +13,12 @@
         android:layout_height="match_parent">
 
 
-        <FrameLayout
-            android:id="@+id/fragmentNav"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/buttonPrevious"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewRoundCounter">
-
-        </FrameLayout>
-
         <TextView
             android:id="@+id/textViewRoundCounter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Rounderror"
+            android:text="RoundError"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -83,15 +71,26 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent" />
 
+        <FrameLayout
+            android:id="@+id/navHostFragment"
+            android:layout_width="409dp"
+            android:layout_height="638dp"
+            app:layout_constraintBottom_toTopOf="@+id/buttonPrevious"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewRoundCounter">
+
+        </FrameLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/drawerBattleMenu"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:menu="@menu/menu_battle_interface" />
+
 
 </androidx.drawerlayout.widget.DrawerLayout>
