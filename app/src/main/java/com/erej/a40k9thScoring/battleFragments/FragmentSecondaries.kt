@@ -73,7 +73,6 @@ class FragmentSecondaries(
 
     }
 
-
     private fun setupFragments(battleObject: Battle, supportFragmentManager: FragmentManager) {
 
         val secondaryList = SecondaryList().getSecondaries()

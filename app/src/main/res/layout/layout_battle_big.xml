@@ -82,6 +82,19 @@
 
         </FrameLayout>
 
+        <Button
+            android:id="@+id/buttonOpenDrawer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/navHostFragment"
+            app:layout_constraintEnd_toStartOf="@+id/textViewP1Vp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

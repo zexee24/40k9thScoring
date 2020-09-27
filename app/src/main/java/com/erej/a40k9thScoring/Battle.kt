@@ -23,6 +23,8 @@ class Battle(
     var p1PrimaryVp: Int = 0
     var p2PrimaryVp: Int = 0
 
+    var openedFragment: Int = 0
+
     var p1Cp = 0
     var p2Cp = 0
     var p1Vp = 0

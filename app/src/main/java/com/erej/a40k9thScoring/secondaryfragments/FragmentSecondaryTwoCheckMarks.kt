@@ -8,7 +8,6 @@ import com.erej.a40k9thScoring.R
 import com.erej.a40k9thScoring.Secondary
 import kotlinx.android.synthetic.main.fragment_two_checkmarks.*
 
-
 class FragmentSecondaryTwoCheckMarks(private val battleObject: Battle, private val secondary: Secondary, private var secondaryCounter: Int, private val counterNumber: Int) : Fragment(
     R.layout.fragment_two_checkmarks
 ){
