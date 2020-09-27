@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.erej.a40k9thScoring.Battle
+import com.erej.a40k9thScoring.classes.Battle
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -56,6 +56,7 @@ abstract class BattleRoomDatabase: RoomDatabase() {
         }
 
         suspend fun populate(battleDAO: BattleDAO){
+<<<<<<< HEAD
             battleDAO.deleteAll()
 
 <<<<<<< HEAD
@@ -102,6 +103,8 @@ abstract class BattleRoomDatabase: RoomDatabase() {
             battleDAO.insert(testBattle)
 
 >>>>>>> 1fc6641... Merge remote-tracking branch 'origin/master'
+=======
+>>>>>>> 6308e89... Primaries implemented time to A. go fuck myself and B. do it well next time because this shit is unmainteinable
 
         }
 

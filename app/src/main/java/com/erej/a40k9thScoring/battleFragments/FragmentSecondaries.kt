@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import com.erej.a40k9thScoring.Battle
 import com.erej.a40k9thScoring.R
-import com.erej.a40k9thScoring.Secondary
-import com.erej.a40k9thScoring.SecondaryList
+import com.erej.a40k9thScoring.classes.Battle
+import com.erej.a40k9thScoring.classes.Secondary
+import com.erej.a40k9thScoring.classes.SecondaryList
 import com.erej.a40k9thScoring.secondaryfragments.*
 
 class FragmentSecondaries(
@@ -73,10 +73,9 @@ class FragmentSecondaries(
 
     }
 
-
     private fun setupFragments(battleObject: Battle, supportFragmentManager: FragmentManager) {
 
-        val secondaryList = SecondaryList().getSecondaries()
+        val secondaryList = SecondaryList().getSecondaries
 
         //store fragments
         val p1Fragment1 = getFragment(
@@ -140,10 +139,6 @@ class FragmentSecondaries(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //get a super ugly list of secondaries ... but it works ... i guess ... for now
-        val secondaryList = SecondaryList().getSecondaries()
-
         setupFragments(battleObject, supportFragmentManager)
-
     }
 }

@@ -12,5 +12,8 @@
     <item
         android:id="@+id/fragment_battle_cp"
         android:title="@string/cp" />
+    <item
+        android:id="@+id/fragment_battle_setup"
+        android:title="@string/setup"/>
 
 </menu>

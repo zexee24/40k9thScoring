@@ -32,8 +32,18 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 =======
 import androidx.core.view.GravityCompat
+import com.erej.a40k9thScoring.battleFragments.FragmentCp
+import com.erej.a40k9thScoring.battleFragments.FragmentPrimaries
 import com.erej.a40k9thScoring.battleFragments.FragmentSecondaries
+<<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 8fe89ef... Interface switching implemented - next the interfaces
+=======
+=======
+import com.erej.a40k9thScoring.battleFragments.FragmentSetup
+>>>>>>> a3e2bc7... Added BattleSetup images + flavour
+import com.erej.a40k9thScoring.classes.Battle
+>>>>>>> 69259f0... Primaries implemented time to A. go fuck myself and B. do it well next time because this shit is unmainteinable
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.layout_battle_big.*
 >>>>>>> dc6b797... Merge remote-tracking branch 'origin/master'
@@ -43,12 +53,56 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
 
     private lateinit var battleObject: Battle
 
+    private fun setupFragment(){
+        battleViewModel.update(battleObject)
+        when(battleObject.openedFragment){
+            0 -> {
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.navHostFragment, FragmentSecondaries(battleObject,supportFragmentManager))
+                    commit()
+                    }
+                }
+            1 -> {
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.navHostFragment, FragmentPrimaries(battleObject,supportFragmentManager))
+                    commit()
+                    }
+                }
+            2 -> {
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.navHostFragment, FragmentCp(battleObject))
+                    commit()
+                    }
+                }
+            3 -> {
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.navHostFragment, FragmentSetup(battleObject))
+                    commit()
+                }
+            }
+        }
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId){
+            R.id.fragment_battle_secondaries -> battleObject.openedFragment = 0
+
+            R.id.fragment_battle_primaries -> battleObject.openedFragment = 1
+
+            R.id.fragment_battle_cp -> battleObject.openedFragment = 2
+
+            R.id.fragment_battle_setup -> battleObject.openedFragment = 3
+        }
+        setupFragment()
+        drawer_layout.closeDrawer(GravityCompat.START)
+        return true
+    }
+
     private fun setTextView(battleObject: Battle) {
         textViewRoundCounter.text = resources.getString(R.string.Round, battleObject.roundCounter)
         textViewP1Vp.text = battleObject.p1Vp.toString()
         textViewP2Vp.text = battleObject.p2Vp.toString()
     }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         //do something idk
@@ -199,13 +253,15 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
         drawerBattleMenu.setNavigationItemSelectedListener(this)
 >>>>>>> 8fe89ef... Interface switching implemented - next the interfaces
 
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.navHostFragment, FragmentSecondaries(battleObject,supportFragmentManager))
-            commit()
-        }
+
+        setupFragment()
 
 
         setTextView(battleObject)
+
+        buttonOpenDrawer.setOnClickListener{
+        drawer_layout.openDrawer(GravityCompat.START)
+        }
 
         buttonPrevious.setOnClickListener {
             battleViewModel.update(battleObject)
@@ -217,10 +273,10 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
             battleObject.roundCounter++
             battleViewModel.update(battleObject)
             setTextView(battleObject)
+            setupFragment()
 
-            supportFragmentManager.beginTransaction().apply {
-                replace(R.id.navHostFragment, FragmentSecondaries(battleObject,supportFragmentManager))
-                commit()
+            for (i in 1..100){
+                battleObject.unCheck(i)
             }
 
             if (battleObject.roundCounter > 5) {
@@ -240,30 +296,7 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
 
 
     }
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when (item.itemId){
-            R.id.fragment_battle_secondaries -> {
-                supportFragmentManager.beginTransaction().apply {
-                    replace(R.id.navHostFragment, FragmentSecondaries(battleObject,supportFragmentManager))
-                    commit()
-                }
-            }
-            R.id.fragment_battle_primaries->{
-                supportFragmentManager.beginTransaction().apply {
-                    replace(R.id.navHostFragment, FragmentSecondaries(battleObject,supportFragmentManager))
-                    commit()
-                }
-            }
-            R.id.fragment_battle_cp -> {
-                supportFragmentManager.beginTransaction().apply {
-                    replace(R.id.navHostFragment, FragmentSecondaries(battleObject,supportFragmentManager))
-                    commit()
-                }
-            }
-        }
-        drawer_layout.closeDrawer(GravityCompat.START)
-        return true
-    }
+
 
 
 
