@@ -21,8 +21,7 @@ data class Secondary(
 
 class SecondaryList {
 
-  fun getSecondaries(): List<Secondary> {
-        return listOf(
+    val getSecondaries = listOf(
             Secondary("None", "None", listOf(), "Be Empty","Empty"),
 
             Secondary(
@@ -163,4 +162,3 @@ class SecondaryList {
 
     }
 
-}

@@ -8,8 +8,6 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.createbattle.*
-import java.lang.NumberFormatException
-
 
 
 class CreateBattle : AppCompatActivity() {
@@ -25,7 +23,7 @@ class CreateBattle : AppCompatActivity() {
 
             selectMissonType.adapter = ArrayAdapter<String>(this,android.R.layout.simple_expandable_list_item_1,missionTypes)
 
-            val secondaryList = SecondaryList().getSecondaries()
+            val secondaryList = SecondaryList().getSecondaries
 
             val secondaryNameList = secondaryList.map { it.name }
 

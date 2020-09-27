@@ -17,6 +17,9 @@ class Battle(
 
 ) : Serializable {
 
+    var missionType: String = ""
+    var primaryMission: String = ""
+
     var roundCounter: Int = 1
     var phaseCounter: Int = 0
 
@@ -64,6 +67,143 @@ class Battle(
     var p2Secondary1Counter2: Int = 0
     var p2Secondary2Counter2: Int = 0
     var p2Secondary3Counter2: Int = 0
+
+
+    var p1Secondary1Check1: Boolean = false
+    var p1Secondary2Check1: Boolean = false
+    var p1Secondary3Check1: Boolean = false
+
+    var p2Secondary1Check1: Boolean = false
+    var p2Secondary2Check1: Boolean = false
+    var p2Secondary3Check1: Boolean = false
+
+    var p1Secondary1Check2: Boolean = false
+    var p1Secondary2Check2: Boolean = false
+    var p1Secondary3Check2: Boolean = false
+
+    var p2Secondary1Check2: Boolean = false
+    var p2Secondary2Check2: Boolean = false
+    var p2Secondary3Check2: Boolean = false
+
+    var p1Secondary1Check3: Boolean = false
+    var p1Secondary2Check3: Boolean = false
+    var p1Secondary3Check3: Boolean = false
+
+    var p2Secondary1Check3: Boolean = false
+    var p2Secondary2Check3: Boolean = false
+    var p2Secondary3Check3: Boolean = false
+
+    var permanentP1Secondary1Check1: Boolean = false
+    var permanentP1Secondary2Check1: Boolean = false
+    var permanentP1Secondary3Check1: Boolean = false
+
+    var permanentP2Secondary1Check1: Boolean = false
+    var permanentP2Secondary2Check1: Boolean = false
+    var permanentP2Secondary3Check1: Boolean = false
+
+    var permanentP1Secondary1Check2: Boolean = false
+    var permanentP1Secondary2Check2: Boolean = false
+    var permanentP1Secondary3Check2: Boolean = false
+
+    var permanentP2Secondary1Check2: Boolean = false
+    var permanentP2Secondary2Check2: Boolean = false
+    var permanentP2Secondary3Check2: Boolean = false
+
+    var permanentP1Secondary1Check3: Boolean = false
+    var permanentP1Secondary2Check3: Boolean = false
+    var permanentP1Secondary3Check3: Boolean = false
+
+    var permanentP2Secondary1Check3: Boolean = false
+    var permanentP2Secondary2Check3: Boolean = false
+    var permanentP2Secondary3Check3: Boolean = false
+
+    fun getCheck(counterNumber: Int) : Boolean{
+
+        return when(counterNumber){
+            1 -> this.p1Secondary1Check1
+            2 -> this.p1Secondary2Check1
+            3 -> this.p1Secondary3Check1
+
+            4 -> this.p2Secondary1Check1
+            5 -> this.p2Secondary2Check1
+            6 -> this.p2Secondary3Check1
+
+            11 -> this.p1Secondary1Check2
+            12 -> this.p1Secondary2Check2
+            13 -> this.p1Secondary3Check2
+
+            14 -> this.p2Secondary1Check2
+            15 -> this.p2Secondary2Check2
+            16 -> this.p2Secondary3Check2
+
+            21 -> this.p1Secondary1Check3
+            22 -> this.p1Secondary2Check3
+            23 -> this.p1Secondary3Check3
+
+            24 -> this.p2Secondary1Check3
+            25 -> this.p2Secondary2Check3
+            26 -> this.p2Secondary3Check3
+            else -> throw error("Problem in counter Indexing")
+        }
+    }
+
+    fun setCheck(counterNumber: Int) {
+         when(counterNumber){
+             1 -> this.p1Secondary1Check1 = true
+             2 -> this.p1Secondary2Check1 = true
+             3 -> this.p1Secondary3Check1 = true
+
+             4 -> this.p2Secondary1Check1 = true
+             5 -> this.p2Secondary2Check1 = true
+             6 -> this.p2Secondary3Check1 = true
+
+             11 -> this.p1Secondary1Check2 = true
+             12 -> this.p1Secondary2Check2 = true
+             13 -> this.p1Secondary3Check2 = true
+
+             14 -> this.p2Secondary1Check2 = true
+             15 -> this.p2Secondary2Check2 = true
+             16 -> this.p2Secondary3Check2 = true
+
+             21 -> this.p1Secondary1Check3 = true
+             22 -> this.p1Secondary2Check3 = true
+             23 -> this.p1Secondary3Check3 = true
+
+             24 -> this.p2Secondary1Check3 = true
+             25 -> this.p2Secondary2Check3 = true
+             26 -> this.p2Secondary3Check3 = true
+            else -> throw error("Problem in counter Indexing")
+        }
+    }
+
+    fun unCheck(counterNumber: Int) {
+
+        when(counterNumber){
+            1 -> this.p1Secondary1Check1 = false
+            2 -> this.p1Secondary2Check1 = false
+            3 -> this.p1Secondary3Check1 = false
+
+            4 -> this.p2Secondary1Check1 = false
+            5 -> this.p2Secondary2Check1 = false
+            6 -> this.p2Secondary3Check1 = false
+
+            11 -> this.p1Secondary1Check2 = false
+            12 -> this.p1Secondary2Check2 = false
+            13 -> this.p1Secondary3Check2 = false
+
+            14 -> this.p2Secondary1Check2 = false
+            15 -> this.p2Secondary2Check2 = false
+            16 -> this.p2Secondary3Check2 = false
+
+            21 -> this.p1Secondary1Check3 = false
+            22 -> this.p1Secondary2Check3 = false
+            23 -> this.p1Secondary3Check3 = false
+
+            24 -> this.p2Secondary1Check3 = false
+            25 -> this.p2Secondary2Check3 = false
+            26 -> this.p2Secondary3Check3 = false
+        }
+    }
 
     fun getSecondaryCounter(counterNumber: Int):Int{
 

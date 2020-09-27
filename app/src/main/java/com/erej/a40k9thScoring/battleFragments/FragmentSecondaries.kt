@@ -75,7 +75,7 @@ class FragmentSecondaries(
 
     private fun setupFragments(battleObject: Battle, supportFragmentManager: FragmentManager) {
 
-        val secondaryList = SecondaryList().getSecondaries()
+        val secondaryList = SecondaryList().getSecondaries
 
         //store fragments
         val p1Fragment1 = getFragment(
@@ -140,9 +140,7 @@ class FragmentSecondaries(
         super.onViewCreated(view, savedInstanceState)
 
         //get a super ugly list of secondaries ... but it works ... i guess ... for now
-        val secondaryList = SecondaryList().getSecondaries()
 
         setupFragments(battleObject, supportFragmentManager)
-
     }
 }

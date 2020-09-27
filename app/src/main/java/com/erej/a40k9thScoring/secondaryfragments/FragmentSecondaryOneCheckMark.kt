@@ -20,6 +20,8 @@ class FragmentSecondaryOneCheckMark(private val battleObject: Battle, private va
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        checkBox0.isChecked = battleObject.getCheck(counterNumber)
+
         secondaryCounter = battleObject.getSecondaryCounter(counterNumber)
         textViewTitle.text = secondary.name
         textViewdescription.text = secondary.hint
@@ -30,9 +32,11 @@ class FragmentSecondaryOneCheckMark(private val battleObject: Battle, private va
                 if (checkBox0.isChecked) {
                     secondaryCounter++
                     battleObject.setSecondaryCounter(counterNumber, secondaryCounter)
+                    battleObject.setCheck(counterNumber)
                 } else {
                     secondaryCounter--
                     battleObject.setSecondaryCounter(counterNumber, secondaryCounter)
+                    battleObject.unCheck(counterNumber)
                 }
                 updateVP()
             }

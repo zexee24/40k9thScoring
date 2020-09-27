@@ -29,7 +29,9 @@ class FragmentSecondaryTwoCheckMarks(private val battleObject: Battle, private v
         textViewdescription.text = secondary.hint
 
         //hints
+        checkBox0.isChecked = battleObject.getCheck(counterNumber)
         checkBox0.text = secondary.counterHints[0]
+        checkBox1.isChecked = battleObject.getCheck(10 + counterNumber)
         checkBox1.text = secondary.counterHints[1]
 
 
@@ -37,11 +39,13 @@ class FragmentSecondaryTwoCheckMarks(private val battleObject: Battle, private v
 
         checkBox1.setOnClickListener {
             if (checkBox1.isChecked) {
-                    secondaryCounter++
-                    battleObject.setSecondaryCounter(counterNumber, secondaryCounter)
+                secondaryCounter++
+                battleObject.setSecondaryCounter(counterNumber, secondaryCounter)
+                battleObject.setCheck(10 + counterNumber)
             } else {
-                    secondaryCounter--
-                    battleObject.setSecondaryCounter(counterNumber, secondaryCounter)
+                secondaryCounter--
+                battleObject.setSecondaryCounter(counterNumber, secondaryCounter)
+                battleObject.unCheck(10 + counterNumber)
             }
             updateVP()
             }
@@ -50,9 +54,11 @@ class FragmentSecondaryTwoCheckMarks(private val battleObject: Battle, private v
             if (checkBox0.isChecked) {
                 secondaryCounter2++
                 battleObject.setSecondaryCounter(10 + counterNumber, secondaryCounter)
+                battleObject.setCheck(counterNumber)
             } else {
                 secondaryCounter2--
                 battleObject.setSecondaryCounter(10 + counterNumber, secondaryCounter)
+                battleObject.unCheck(counterNumber)
             }
             updateVP()
         }
