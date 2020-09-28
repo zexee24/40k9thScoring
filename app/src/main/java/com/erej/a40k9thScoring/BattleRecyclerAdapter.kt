@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.erej.a40k9thScoring.classes.Battle
 import kotlinx.android.synthetic.main.layout_battle_list.view.*
 
 class BattleRecyclerAdapter(private var clickListener: OnBattleClickListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
@@ -43,7 +44,7 @@ fun  getBattleAtPosition(position : Int): Battle {
     ):RecyclerView.ViewHolder(itemView) {
 
 
-        fun bind(battle: Battle,action: OnBattleClickListener){
+        fun bind(battle: Battle, action: OnBattleClickListener){
             itemView.name1.text = battle.yourName
             itemView.name2.text = battle.opponentName
             itemView.cp1.text = battle.p1Cp.toString()

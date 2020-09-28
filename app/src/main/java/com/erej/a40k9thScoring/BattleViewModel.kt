@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import com.erej.a40k9thScoring.classes.Battle
 import com.erej.a40k9thScoring.dataStoring.BattleRepository
 import com.erej.a40k9thScoring.dataStoring.BattleRoomDatabase
 import kotlinx.coroutines.Dispatchers

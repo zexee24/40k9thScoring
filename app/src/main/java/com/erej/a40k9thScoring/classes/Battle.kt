@@ -1,8 +1,9 @@
-package com.erej.a40k9thScoring
+package com.erej.a40k9thScoring.classes
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.erej.a40k9thScoring.battleViewModel
 import java.io.Serializable
 
 @Entity(tableName = "battle_table")
@@ -18,7 +19,7 @@ class Battle(
 ) : Serializable {
 
     var missionType: String = ""
-    var primaryMission: String = ""
+    var primaryMission: Int = 1
 
     var roundCounter: Int = 1
     var phaseCounter: Int = 0
@@ -33,6 +34,21 @@ class Battle(
     var p1Vp = 0
     var p2Vp = 0
 
+    var p1PrimaryCounter1: Int = 0
+    var p1PrimaryCounter2: Int = 0
+    var p1PrimaryCounter3: Int = 0
+
+    var p2PrimaryCounter1: Int = 0
+    var p2PrimaryCounter2: Int = 0
+    var p2PrimaryCounter3: Int = 0
+
+    var p1PrimaryCheck1: Boolean = false
+    var p1PrimaryCheck2: Boolean = false
+    var p1PrimaryCheck3: Boolean = false
+
+    var p2PrimaryCheck1: Boolean = false
+    var p2PrimaryCheck2: Boolean = false
+    var p2PrimaryCheck3: Boolean = false
 
     var p1Secondary1Vp: Int = 0
     var p1Secondary2Vp: Int = 0
@@ -68,6 +84,13 @@ class Battle(
     var p2Secondary2Counter2: Int = 0
     var p2Secondary3Counter2: Int = 0
 
+    var p1Secondary1Counter3: Int = 0
+    var p1Secondary2Counter3: Int = 0
+    var p1Secondary3Counter3: Int = 0
+
+    var p2Secondary1Counter3: Int = 0
+    var p2Secondary2Counter3: Int = 0
+    var p2Secondary3Counter3: Int = 0
 
     var p1Secondary1Check1: Boolean = false
     var p1Secondary2Check1: Boolean = false
@@ -143,7 +166,24 @@ class Battle(
             24 -> this.p2Secondary1Check3
             25 -> this.p2Secondary2Check3
             26 -> this.p2Secondary3Check3
+
+            31 -> this.p1PrimaryCheck1
+            41 -> this.p1PrimaryCheck2
+            51 -> this.p1PrimaryCheck3
+
+            32 -> this.p2PrimaryCheck1
+            42 -> this.p2PrimaryCheck2
+            52 -> this.p2PrimaryCheck3
+
             else -> throw error("Problem in counter Indexing")
+        }
+    }
+
+    fun getPrimaryVpCounter(counterNumber: Int): Int{
+        return when (counterNumber){
+            31 -> this.p1PrimaryVp
+            32 -> this.p2PrimaryVp
+            else -> throw error("FUCKTREOAWJRAWEIHJAWET")
         }
     }
 
@@ -172,6 +212,14 @@ class Battle(
              24 -> this.p2Secondary1Check3 = true
              25 -> this.p2Secondary2Check3 = true
              26 -> this.p2Secondary3Check3 = true
+
+             31 -> this.p1PrimaryCheck1 = true
+             41 -> this.p1PrimaryCheck2 = true
+             51 -> this.p1PrimaryCheck3 = true
+
+             32 -> this.p2PrimaryCheck1 = true
+             42 -> this.p2PrimaryCheck2 = true
+             52 -> this.p2PrimaryCheck3 = true
             else -> throw error("Problem in counter Indexing")
         }
     }
@@ -202,6 +250,14 @@ class Battle(
             24 -> this.p2Secondary1Check3 = false
             25 -> this.p2Secondary2Check3 = false
             26 -> this.p2Secondary3Check3 = false
+
+            31 -> this.p1PrimaryCheck1 = false
+            41 -> this.p1PrimaryCheck2 = false
+            51 -> this.p1PrimaryCheck3 = false
+
+            32 -> this.p2PrimaryCheck1 = false
+            42 -> this.p2PrimaryCheck2 = false
+            52 -> this.p2PrimaryCheck3 = false
         }
     }
 
@@ -223,6 +279,23 @@ class Battle(
             14 -> this.p2Secondary1Counter2
             15 -> this.p2Secondary2Counter2
             16 -> this.p2Secondary3Counter2
+
+            21 -> this.p1Secondary1Counter3
+            22 -> this.p1Secondary2Counter3
+            23 -> this.p1Secondary3Counter3
+
+            24 -> this.p2Secondary1Counter3
+            25 -> this.p2Secondary2Counter3
+            26 -> this.p2Secondary3Counter3
+
+            31 -> this.p1PrimaryCounter1
+            32 -> this.p2PrimaryCounter1
+
+            41 -> this.p1PrimaryCounter1
+            42 -> this.p2PrimaryCounter1
+
+            51 -> this.p1PrimaryCounter1
+            52 -> this.p2PrimaryCounter1
             else -> throw error("Problem in counter Indexing")
         }
     }
@@ -240,6 +313,8 @@ class Battle(
             else -> throw error("Problem in counter Indexing")
         }
     }
+
+    //TODO secondary to vp reasonably
 
     fun setSecondaryCounter(counterNumber: Int, secondaryCounter: Int){
 
@@ -260,6 +335,22 @@ class Battle(
             15 -> this.p2Secondary2Counter2 = secondaryCounter
             16 -> this.p2Secondary3Counter2 = secondaryCounter
 
+            21 -> this.p1Secondary1Counter3 = secondaryCounter
+            22 -> this.p1Secondary2Counter3 = secondaryCounter
+            23 -> this.p1Secondary3Counter3 = secondaryCounter
+
+            24 -> this.p2Secondary1Counter3 = secondaryCounter
+            25 -> this.p2Secondary2Counter3 = secondaryCounter
+            26 -> this.p2Secondary3Counter3 = secondaryCounter
+
+            31 -> this.p1PrimaryCounter1 = secondaryCounter
+            32 -> this.p2PrimaryCounter1 = secondaryCounter
+
+            41 -> this.p1PrimaryCounter1 = secondaryCounter
+            42 -> this.p2PrimaryCounter1 = secondaryCounter
+
+            51 -> this.p1PrimaryCounter1 = secondaryCounter
+            52 -> this.p2PrimaryCounter1 = secondaryCounter
             else -> throw error("Problem in counter Indexing")
         }
         battleViewModel.update(this)
@@ -283,6 +374,23 @@ class Battle(
         if(this.getSecondaryVpCounter(counterNumber) < 0){
           throw error("Vp counter is under 0")
         }
+        this.updateVp()
+    }
+
+    private fun setPrimaryVpCounter(counterNumber: Int, secondaryCounter: Int){
+        when (counterNumber){
+            31 -> p1PrimaryVp = secondaryCounter
+            32 -> p2PrimaryVp = secondaryCounter
+            else -> throw error("how did we get here?")
+        }
+        if(this.getPrimaryVpCounter(counterNumber) > 45){
+            this.setPrimaryVpCounter(counterNumber, 45)
+        }
+        if(this.getPrimaryVpCounter(counterNumber) < 0){
+            throw error("Vp counter is under 0")
+        }
+
+
         this.updateVp()
     }
 
@@ -331,15 +439,16 @@ class Battle(
         }
     }
 
-    fun secondaryToVpThreeCheckMarks(secondary: Secondary, counterNumber: Int, secondaryCounter: Int){
+    fun secondaryToVpThreeCheckMarks(secondary: Secondary, counterNumber: Int, secondaryCounter: Int, secondaryCounter2: Int, secondaryCounter3: Int){
         when (secondary.name){
             "While We Stand, We Fight" -> this.setSecondaryVpCounter(counterNumber, 5 * secondaryCounter)
+            "Take and Hold" -> this.setPrimaryVpCounter(counterNumber, 5 * secondaryCounter + 5 * secondaryCounter2 + 5 * secondaryCounter3)
         }
     }
 
     private fun updateVp() {
-        p1Vp = p1PrimaryVp + p1Secondary1Vp + p1Secondary2Vp + p1Secondary3Vp + p1PrimaryVp
-        p2Vp = p2PrimaryVp + p2Secondary1Vp + p2Secondary2Vp + p2Secondary3Vp + p2PrimaryVp
+        p1Vp = p1PrimaryVp + p1Secondary1Vp + p1Secondary2Vp + p1Secondary3Vp
+        p2Vp = p2PrimaryVp + p2Secondary1Vp + p2Secondary2Vp + p2Secondary3Vp
         battleViewModel.update(this)
     }
 }

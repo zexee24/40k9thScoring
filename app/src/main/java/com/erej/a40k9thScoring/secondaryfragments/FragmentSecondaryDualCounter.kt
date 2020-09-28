@@ -3,9 +3,9 @@ package com.erej.a40k9thScoring.secondaryfragments
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.erej.a40k9thScoring.Battle
 import com.erej.a40k9thScoring.R
-import com.erej.a40k9thScoring.Secondary
+import com.erej.a40k9thScoring.classes.Battle
+import com.erej.a40k9thScoring.classes.Secondary
 import kotlinx.android.synthetic.main.fragment_secondary_counter.buttonDecrease
 import kotlinx.android.synthetic.main.fragment_secondary_counter.buttonIncrease
 import kotlinx.android.synthetic.main.fragment_secondary_counter.counterView1

@@ -1,6 +1,7 @@
-package com.erej.a40k9thScoring
+package com.erej.a40k9thScoring.classes
 
 data class Secondary(
+
     val category : String,
     val name : String,
 
@@ -11,6 +12,7 @@ data class Secondary(
     3 = Shooting
     4 = Charge
     5 = Fight
+    6 = End of round
      */
 
     val triggerPhases : List<Int>,

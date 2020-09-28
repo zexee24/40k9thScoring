@@ -6,7 +6,9 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import com.erej.a40k9thScoring.battleFragments.FragmentCp
+import com.erej.a40k9thScoring.battleFragments.FragmentPrimaries
 import com.erej.a40k9thScoring.battleFragments.FragmentSecondaries
+import com.erej.a40k9thScoring.classes.Battle
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.layout_battle_big.*
 
@@ -26,7 +28,7 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
                 }
                 1 -> {
                     supportFragmentManager.beginTransaction().apply {
-                        replace(R.id.navHostFragment, FragmentSecondaries(battleObject,supportFragmentManager))
+                        replace(R.id.navHostFragment, FragmentPrimaries(battleObject,supportFragmentManager))
                         commit()
                     }
                 }
@@ -94,7 +96,7 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
             setTextView(battleObject)
             setupFragment()
 
-            for (i in 1..26){
+            for (i in 1..100){
                 battleObject.unCheck(i)
             }
 

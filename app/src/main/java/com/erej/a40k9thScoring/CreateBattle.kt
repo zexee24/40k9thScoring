@@ -7,6 +7,8 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.erej.a40k9thScoring.classes.Battle
+import com.erej.a40k9thScoring.classes.SecondaryList
 import kotlinx.android.synthetic.main.createbattle.*
 
 

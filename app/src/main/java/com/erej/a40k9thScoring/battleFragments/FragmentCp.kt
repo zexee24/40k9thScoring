@@ -3,9 +3,9 @@ package com.erej.a40k9thScoring.battleFragments
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.erej.a40k9thScoring.Battle
 import com.erej.a40k9thScoring.R
 import com.erej.a40k9thScoring.battleViewModel
+import com.erej.a40k9thScoring.classes.Battle
 import kotlinx.android.synthetic.main.fragment_cp.*
 
 class FragmentCp (val battleObject: Battle) :Fragment(R.layout.fragment_cp) {
