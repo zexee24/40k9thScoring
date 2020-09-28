@@ -56,18 +56,6 @@ abstract class BattleRoomDatabase: RoomDatabase() {
         }
 
         suspend fun populate(battleDAO: BattleDAO){
-            battleDAO.deleteAll()
-
-
-            val testBattle = Battle(null,"Testi Jere","Ei jere","ei mitään")
-            testBattle.p1Secondary1 = 13
-            testBattle.p1Secondary2 = 14
-            testBattle.p1Secondary3 = 15
-            testBattle.p2Secondary1 = 16
-            testBattle.p2Secondary2 = 17
-            testBattle.p2Secondary3 = 0
-            battleDAO.insert(testBattle)
-
 
         }
 

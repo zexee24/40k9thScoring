@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.erej.a40k9thScoring.classes.Battle
+import com.erej.a40k9thScoring.classes.PrimaryList
 import com.erej.a40k9thScoring.classes.SecondaryList
 import kotlinx.android.synthetic.main.createbattle.*
 
@@ -24,6 +25,7 @@ class CreateBattle : AppCompatActivity() {
             val missionTypes = listOf("Combat Patrol", "Incursion", "Strike force", "Onslaught")
 
             selectMissonType.adapter = ArrayAdapter<String>(this,android.R.layout.simple_expandable_list_item_1,missionTypes)
+            spinnerSelectPrimary.adapter = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, PrimaryList().missions)
 
             val secondaryList = SecondaryList().getSecondaries
 
@@ -108,12 +110,25 @@ class CreateBattle : AppCompatActivity() {
 
 
             var battleType = "none"
+            var mission = 0
 
             selectMissonType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
                 override fun onNothingSelected(p0: AdapterView<*>?){}
 
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
                       battleType = missionTypes[position]
+                }
+            }
+
+            spinnerSelectPrimary.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+                override fun onNothingSelected(parent: AdapterView<*>?) {}
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    mission = position
                 }
             }
 
@@ -133,6 +148,7 @@ class CreateBattle : AppCompatActivity() {
                     battle.p2Secondary1 = p2Secondary1
                     battle.p2Secondary2 = p2Secondary2
                     battle.p2Secondary3 = p2Secondary3
+                    battle.primaryMission = mission
 
 
                     battleViewModel.insert(battle)
