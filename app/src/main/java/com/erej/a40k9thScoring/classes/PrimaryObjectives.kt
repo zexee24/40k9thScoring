@@ -2,11 +2,11 @@ package com.erej.a40k9thScoring.classes
 
 class PrimaryObjectives{
 
-    val primaryObjectives: List<Secondary> = listOf(
+    val primaryObjectives: List<Objective> = listOf(
 
-        Secondary("None", "None", listOf(), "Be Empty","Empty"),
+        Objective("None", "None", listOf(), "Be Empty","Empty"),
 
-        Secondary(
+        Objective(
             "None",
             "Take and Hold",
             listOf(6),

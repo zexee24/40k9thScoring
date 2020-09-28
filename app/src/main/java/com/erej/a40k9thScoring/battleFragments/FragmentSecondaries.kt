@@ -6,9 +6,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.erej.a40k9thScoring.R
 import com.erej.a40k9thScoring.classes.Battle
-import com.erej.a40k9thScoring.classes.Secondary
+import com.erej.a40k9thScoring.classes.Objective
 import com.erej.a40k9thScoring.classes.SecondaryList
-import com.erej.a40k9thScoring.secondaryfragments.*
+import com.erej.a40k9thScoring.objectiveFragments.*
 
 class FragmentSecondaries(
     private val battleObject: Battle,
@@ -17,7 +17,7 @@ class FragmentSecondaries(
 
     private fun getFragment(
         battleObject: Battle,
-        secondary: Secondary,
+        objective: Objective,
         secondaryCounter: Int,
         counterNumber: Int,
         FragmentType: String
@@ -25,43 +25,43 @@ class FragmentSecondaries(
         return when (FragmentType) {
             "Counter" -> FragmentSecondaryCounter(
                 battleObject,
-                secondary,
+                objective,
                 secondaryCounter,
                 counterNumber
             )
             "DualCounter" -> FragmentSecondaryDualCounter(
                 battleObject,
-                secondary,
+                objective,
                 secondaryCounter,
                 counterNumber
             )
             "OneTimeCheckMark" -> FragmentSecondaryOnetimeCheckMark(
                 battleObject,
-                secondary,
+                objective,
                 secondaryCounter,
                 counterNumber
             )
             "OneCheckMark" -> FragmentSecondaryOneCheckMark(
                 battleObject,
-                secondary,
+                objective,
                 secondaryCounter,
                 counterNumber
             )
             "ThreeOneTimeCheckMarks" -> FragmentSecondaryThreeOnetimeCheckMarks(
                 battleObject,
-                secondary,
+                objective,
                 secondaryCounter,
                 counterNumber
             )
             "TwoOneTimeCheckMarks" -> FragmentSecondaryTwoOnetimeCheckMarks(
                 battleObject,
-                secondary,
+                objective,
                 secondaryCounter,
                 counterNumber
             )
             "TwoCheckMarks" -> FragmentSecondaryTwoCheckMarks(
                 battleObject,
-                secondary,
+                objective,
                 secondaryCounter,
                 counterNumber
             )

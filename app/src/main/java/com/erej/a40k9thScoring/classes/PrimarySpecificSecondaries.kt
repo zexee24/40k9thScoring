@@ -2,10 +2,10 @@ package com.erej.a40k9thScoring.classes
 
 class PrimarySpecificSecondaries{
 
-     val secondaryList: List<Secondary> = listOf(
-        Secondary("None", "None", listOf(), "Be Empty","Empty"),
+     val secondaryList: List<Objective> = listOf(
+        Objective("None", "None", listOf(), "Be Empty","Empty"),
 
-        Secondary(
+        Objective(
             "Specific",
             "Lines Of Demarcation", listOf(6),
             "At the end of your turn, you score 4 victory points if you control both objective markers labelled A, or 2 victory points if you control both  objective markers labelled B.",

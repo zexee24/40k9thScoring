@@ -1,6 +1,11 @@
 package com.erej.a40k9thScoring.classes
 
-data class Secondary(
+import androidx.fragment.app.Fragment
+import com.erej.a40k9thScoring.battleFragments.FragmentSecondaries
+import java.io.Serializable
+
+
+data class Objective(
 
     val category : String,
     val name : String,
@@ -22,8 +27,49 @@ data class Secondary(
     val hint : String,
     val fragmentType: String,
     var counterHints : List<String> = listOf("no Hints", "no Hints", "no Hints")
+<<<<<<< HEAD
+<<<<<<< HEAD:app/src/main/java/com/erej/a40k9thScoring/classes/Secondary.kt
 )
 >>>>>>> c3fa666... Merge remote-tracking branch 'origin/master'
+=======
+) : Serializable
+>>>>>>> 1de02ff... Started the massive cleanup from Battle.kt:app/src/main/java/com/erej/a40k9thScoring/classes/Objective.kt
+=======
+) : Serializable {
+
+    var counter1: Int = 0
+    var counter2: Int = 0
+    var counter3: Int = 0
+    var counterCheck1: Boolean = false
+    var counterCheck2: Boolean = false
+    var counterCheck3: Boolean = false
+    var vp: Int = 0
+
+    fun counterToVp(){
+         when (this.name) {
+            "Attrition", "Line Breaker" -> this.vp = 4 * counter1
+            "Slay The Warlord" -> this.vp = 6 * counter1
+            "Domination", "Investigate Sites", "Mental Interrogation", "Assassinate" -> this.vp = 3 * counter1
+            "Repair Teleporter Homer" -> this.vp = 5 * counter1
+            "Psychic Ritual" -> this.vp = (3 / counter1) * 15
+            "Titan Slayers" -> this.vp = counter1 * 10
+            "Bring It Down" -> this.vp = counter1 * 2 + counter2 * 3
+            "Thin Their Ranks" -> this.vp = (counter1 + counter2 * 10) / 10
+            "Abhor The Witch" -> this.vp = counter1 * 3 + counter2 * 5
+            "First Strike" -> this.vp = counter1 * 5 + counter2 * 3
+            "Engage On All Fronts" -> this.vp = counter1 * 2 + counter2
+            "While We Stand, We Fight" -> this.vp = counter1 * 5 + counter2 * 5 + counter3 * 5
+            "Take and Hold" -> this.vp = counter1 * 5 + counter2 * 5 + counter3 * 5
+        }
+    }
+
+    fun unCheck(){
+        counterCheck1 = false
+        counterCheck2 = false
+        counterCheck3 = false
+    }
+}
+>>>>>>> 8ced4de... TODO basically all objectiveFragments
 
 <<<<<<< HEAD
 
@@ -53,10 +99,14 @@ class SecondaryList {
         return listOf(
 =======
     val getSecondaries = listOf(
+<<<<<<< HEAD:app/src/main/java/com/erej/a40k9thScoring/classes/Secondary.kt
 >>>>>>> 75dcba5... secondary/ primary interface persistence implemented, TODO implement the primaries in Primary.kt
             Secondary("None", "None", listOf(), "Be Empty","Empty"),
+=======
+            Objective("None", "None", listOf(), "Be Empty","Empty"),
+>>>>>>> 1de02ff... Started the massive cleanup from Battle.kt:app/src/main/java/com/erej/a40k9thScoring/classes/Objective.kt
 
-            Secondary(
+            Objective(
                 "Purge The Enemy",
                 "Assassinate",
                 listOf(1, 2, 3, 4),
@@ -68,7 +118,7 @@ class SecondaryList {
                 listOf("Killed Characters")
 >>>>>>> c3fa666... Merge remote-tracking branch 'origin/master'
             ),
-            Secondary(
+            Objective(
                 "Purge The Enemy",
                 "Bring It Down",
                 listOf(1, 2, 3, 4),
@@ -76,14 +126,14 @@ class SecondaryList {
                 "DualCounter",
                 listOf("slain monsters/vehicles", "slain monsters/vehicles with >10 wounds")
             ),
-            Secondary(
+            Objective(
                 "Purge The Enemy",
                 "Titan Slayers",
                 listOf(1, 2, 3, 4),
                 "Score 10 VP if you slay a TITANIC model, or 15 if you slay two.",
                 "Counter"
             ),
-            Secondary(
+            Objective(
                 "Purge The Enemy",
                 "Slay The Warlord",
                 listOf(1, 2, 3, 4),
@@ -91,7 +141,7 @@ class SecondaryList {
                 "OneTimeCheckMark"
             ),
 
-            Secondary(
+            Objective(
                 "No Mercy, No Respite",
                 "Thin Their Ranks",
                 listOf(1, 2, 3, 4),
@@ -100,14 +150,14 @@ class SecondaryList {
                         "divide your tally by 10 and round down, then score that many VP.( E.G. a tally of 109 would yield 10 VP)",
                 "DualCounter"
             ),
-            Secondary(
+            Objective(
                 "No Mercy, No Respite",
                 "Attrition",
                 listOf(1, 2, 3, 4),
                 "At the end of every battle round, score 4 VP if you destroyed more units than your opponent.",
                 "OneCheckMark"
             ),
-            Secondary(
+            Objective(
                 "No Mercy, No Respite",
                 "While We Stand, We Fight",
                 listOf(1, 2, 3, 4),
@@ -116,7 +166,7 @@ class SecondaryList {
                 "ThreeOneTimeCheckMarks",
                 listOf("Is your Expensive unit alive?", "Is your Expensive unit alive?", "Is your Expensive unit alive?")
             ),
-            Secondary(
+            Objective(
                 "No Mercy, No Respite",
                 "First Strike",
                 listOf(1, 2, 3, 4),
@@ -124,7 +174,7 @@ class SecondaryList {
                         "Score an extra 3 VP if you slay more units than your opponent in the first round.",
                 "TwoOneTimeCheckMarks"
             ),
-            Secondary(
+            Objective(
                 "Battlefield Supremacy",
                 "Engage On All Fronts",
                 listOf(1, 2, 3, 4),
@@ -133,14 +183,14 @@ class SecondaryList {
                 "TwoCheckMarks"
             ),
 
-            Secondary(
+            Objective(
                 "Battlefield Supremacy",
                 "Line Breaker",
                 listOf(1, 2, 3, 4),
                 "Score 4VP if you have two non-Aircraft units wholly within the enemy deployment zone. Score this at the end of every round.",
                 "OneCheckMark"
             ),
-            Secondary(
+            Objective(
                 "Battlefield Supremacy",
                 "Domination",
                 listOf(1, 2, 3, 4),
@@ -148,7 +198,7 @@ class SecondaryList {
                 "OneCheckMark"
             ),
 
-            Secondary(
+            Objective(
                 "Shadow Operations",
                 "Investigate Sites",
                 listOf(1, 2, 3, 4),
@@ -156,14 +206,14 @@ class SecondaryList {
                 "OneCheckMark"
             ),
             //TODO some action shenanigans
-            Secondary(
+            Objective(
                 "Shadow Operations",
                 "Repair Teleporter Homer",
                 listOf(1, 2, 3, 4),
                 "Much like Investigate Sites, except you have to be wholly within the enemy deployment zone and the action completes at the end of your next  Command Phase. Scores 5VP if completed.",
                 "OneCheckMark"
             ),
-            Secondary(
+            Objective(
                 "Shadow Operations",
                 "Raise The Banners High",
                 listOf(1, 2, 3, 4),
@@ -171,21 +221,21 @@ class SecondaryList {
                 "Counter"
             ),
             //TODO banners
-            Secondary(
+            Objective(
                 "Warpcraft",
                 "Mental Interrogation",
                 listOf(2),
                 "Psychic Action, Warp Charge 4. Action is taken in the Psychic phase, requires you to be within 18” of an enemy character. Every successful completion scores 3VP.",
                 "OneCheckMark"
             ),
-            Secondary(
+            Objective(
                 "Warpcraft",
                 "Psychic Ritual",
                 listOf(2),
                 "Psychic Action, Warp Charge 3. Action can only be taken if you’re wholly within 6” of the battlefield. If completed 3 times, score 15VP",
                 "OneCheckMark"
             ),
-            Secondary(
+            Objective(
                 "Warpcraft",
                 "Abhor The Witch",
                 listOf(2),

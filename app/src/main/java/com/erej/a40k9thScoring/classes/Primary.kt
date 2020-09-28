@@ -1,15 +1,16 @@
 package com.erej.a40k9thScoring.classes
 
 import com.erej.a40k9thScoring.R
+import java.io.Serializable
 
 
 data class Primary(
     val name: String,
     val briefing: String,
-    val primaryObjective: Secondary,
-    val secondary: Secondary,
+    val primaryObjective: Objective,
+    val secondaryObjective: Objective,
     val setupImage: Int
-)
+): Serializable
 
 class PrimaryList {
 

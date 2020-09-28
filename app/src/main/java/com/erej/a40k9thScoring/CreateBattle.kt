@@ -7,15 +7,22 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.erej.a40k9thScoring.classes.Battle
-import com.erej.a40k9thScoring.classes.PrimaryList
-import com.erej.a40k9thScoring.classes.SecondaryList
+import com.erej.a40k9thScoring.classes.*
 import kotlinx.android.synthetic.main.createbattle.*
 
 
 class CreateBattle : AppCompatActivity() {
 
-        override fun onCreate(savedInstanceState: Bundle?) {
+    lateinit var p1Secondary1: Objective
+    lateinit var p1Secondary2: Objective
+    lateinit var p1Secondary3: Objective
+    lateinit var p2Secondary1: Objective
+    lateinit var p2Secondary2: Objective
+    lateinit var p2Secondary3: Objective
+    var battleType = "none"
+    lateinit var mission: Primary
+
+    override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.createbattle)
 
@@ -31,23 +38,13 @@ class CreateBattle : AppCompatActivity() {
 
             val secondaryNameList = secondaryList.map { it.name }
 
-            var p1Secondary1 = 0
-            var p1Secondary2 = 0
-            var p1Secondary3 = 0
-            var p2Secondary1 = 0
-            var p2Secondary2 = 0
-            var p2Secondary3 = 0
-
-
-
-
             //P1 Sec 1
             spinnerP1Sec1.adapter = ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, secondaryNameList)
             spinnerP1Sec1.onItemSelectedListener = object  :  AdapterView.OnItemSelectedListener{
                 override fun onNothingSelected(p0: AdapterView<*>?){}
 
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                     p1Secondary1 = position
+                     p1Secondary1 = secondaryList[position]
                 }
             }
 
@@ -57,7 +54,7 @@ class CreateBattle : AppCompatActivity() {
                 override fun onNothingSelected(p0: AdapterView<*>?){}
 
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                     p1Secondary2 = position
+                     p1Secondary2 = secondaryList[position]
                 }
             }
 
@@ -68,7 +65,7 @@ class CreateBattle : AppCompatActivity() {
                 override fun onNothingSelected(p0: AdapterView<*>?){}
 
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                     p1Secondary3 = position
+                     p1Secondary3 = secondaryList[position]
                 }
             }
 
@@ -79,7 +76,7 @@ class CreateBattle : AppCompatActivity() {
                 override fun onNothingSelected(p0: AdapterView<*>?){}
 
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                     p2Secondary1 = position
+                     p2Secondary1 = secondaryList[position]
                 }
             }
 
@@ -90,7 +87,7 @@ class CreateBattle : AppCompatActivity() {
                 override fun onNothingSelected(p0: AdapterView<*>?){}
 
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                     p2Secondary2 = position
+                     p2Secondary2 = secondaryList[position]
                 }
             }
 
@@ -101,7 +98,7 @@ class CreateBattle : AppCompatActivity() {
                 override fun onNothingSelected(p0: AdapterView<*>?){}
 
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                     p2Secondary3 = position
+                     p2Secondary3 = secondaryList[position]
                 }
             }
 
@@ -109,8 +106,7 @@ class CreateBattle : AppCompatActivity() {
 
 
 
-            var battleType = "none"
-            var mission = 0
+
 
             selectMissonType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
                 override fun onNothingSelected(p0: AdapterView<*>?){}
@@ -128,7 +124,7 @@ class CreateBattle : AppCompatActivity() {
                     position: Int,
                     id: Long
                 ) {
-                    mission = position
+                    mission = PrimaryList().missions[position]
                 }
             }
 
@@ -136,7 +132,7 @@ class CreateBattle : AppCompatActivity() {
             addBattleDoneButton.setOnClickListener{
 
 
-                //in case of väärä inputti
+                //in case of wrong input
                 try {
                     val battle = Battle(null,editYourName.text.toString(),editOpponentName.text.toString(), battleType)
                     battle.p1Cp = editYourCp.text.toString().toInt()
@@ -157,16 +153,10 @@ class CreateBattle : AppCompatActivity() {
                 }
                 catch (e: NumberFormatException){
                     Toast.makeText(applicationContext, "Please fill all fields", Toast.LENGTH_SHORT).show()
-
                 }
-
-
             }
-
-        }
-
-
     }
+}
 
 
 
