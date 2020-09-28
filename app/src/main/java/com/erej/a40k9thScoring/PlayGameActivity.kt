@@ -8,6 +8,7 @@ import androidx.core.view.GravityCompat
 import com.erej.a40k9thScoring.battleFragments.FragmentCp
 import com.erej.a40k9thScoring.battleFragments.FragmentPrimaries
 import com.erej.a40k9thScoring.battleFragments.FragmentSecondaries
+import com.erej.a40k9thScoring.battleFragments.FragmentSetup
 import com.erej.a40k9thScoring.classes.Battle
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.layout_battle_big.*
@@ -20,24 +21,30 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
     private fun setupFragment(){
         battleViewModel.update(battleObject)
         when(battleObject.openedFragment){
-                0 -> {
-                    supportFragmentManager.beginTransaction().apply {
-                        replace(R.id.navHostFragment, FragmentSecondaries(battleObject,supportFragmentManager))
-                        commit()
+            0 -> {
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.navHostFragment, FragmentSecondaries(battleObject,supportFragmentManager))
+                    commit()
                     }
                 }
-                1 -> {
-                    supportFragmentManager.beginTransaction().apply {
-                        replace(R.id.navHostFragment, FragmentPrimaries(battleObject,supportFragmentManager))
-                        commit()
+            1 -> {
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.navHostFragment, FragmentPrimaries(battleObject,supportFragmentManager))
+                    commit()
                     }
                 }
-                2 -> {
-                    supportFragmentManager.beginTransaction().apply {
-                        replace(R.id.navHostFragment, FragmentCp(battleObject))
-                        commit()
+            2 -> {
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.navHostFragment, FragmentCp(battleObject))
+                    commit()
                     }
                 }
+            3 -> {
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.navHostFragment, FragmentSetup(battleObject))
+                    commit()
+                }
+            }
         }
     }
 
@@ -48,6 +55,8 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
             R.id.fragment_battle_primaries -> battleObject.openedFragment = 1
 
             R.id.fragment_battle_cp -> battleObject.openedFragment = 2
+
+            R.id.fragment_battle_setup -> battleObject.openedFragment = 3
         }
         setupFragment()
         drawer_layout.closeDrawer(GravityCompat.START)

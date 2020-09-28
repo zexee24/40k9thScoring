@@ -44,8 +44,8 @@ class FragmentPrimaries(
    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        textViewMissionName.text = mission.name
-        setupFragments()
+       textViewMissionName.text = mission.name
+       setupFragments()
 
     }
 }

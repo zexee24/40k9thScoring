@@ -25,7 +25,7 @@ class CreateBattle : AppCompatActivity() {
             val missionTypes = listOf("Combat Patrol", "Incursion", "Strike force", "Onslaught")
 
             selectMissonType.adapter = ArrayAdapter<String>(this,android.R.layout.simple_expandable_list_item_1,missionTypes)
-            spinnerSelectPrimary.adapter = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, PrimaryList().missions)
+            spinnerSelectPrimary.adapter = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, PrimaryList().missions.map { it.name })
 
             val secondaryList = SecondaryList().getSecondaries
 
