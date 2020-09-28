@@ -20,8 +20,6 @@ class FragmentSetup(val battleObject: Battle) : Fragment(R.layout.fragment_battl
         imageViewBattleSetup.setImageResource(mission.setupImage)
         textViewMissionName.text = mission.name
         textViewBriefing.text = mission.briefing
-
-
     }
 
 }
