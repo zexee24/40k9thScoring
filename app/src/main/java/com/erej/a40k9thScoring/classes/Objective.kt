@@ -1,6 +1,9 @@
 package com.erej.a40k9thScoring.classes
 
-data class Secondary(
+import java.io.Serializable
+
+
+data class Objective(
 
     val category : String,
     val name : String,
@@ -19,14 +22,14 @@ data class Secondary(
     val hint : String,
     val fragmentType: String,
     var counterHints : List<String> = listOf("no Hints", "no Hints", "no Hints")
-)
+) : Serializable
 
 class SecondaryList {
 
     val getSecondaries = listOf(
-            Secondary("None", "None", listOf(), "Be Empty","Empty"),
+            Objective("None", "None", listOf(), "Be Empty","Empty"),
 
-            Secondary(
+            Objective(
                 "Purge The Enemy",
                 "Assassinate",
                 listOf(1, 2, 3, 4),
@@ -34,7 +37,7 @@ class SecondaryList {
                 "Counter",
                 listOf("Killed Characters")
             ),
-            Secondary(
+            Objective(
                 "Purge The Enemy",
                 "Bring It Down",
                 listOf(1, 2, 3, 4),
@@ -42,14 +45,14 @@ class SecondaryList {
                 "DualCounter",
                 listOf("slain monsters/vehicles", "slain monsters/vehicles with >10 wounds")
             ),
-            Secondary(
+            Objective(
                 "Purge The Enemy",
                 "Titan Slayers",
                 listOf(1, 2, 3, 4),
                 "Score 10 VP if you slay a TITANIC model, or 15 if you slay two.",
                 "Counter"
             ),
-            Secondary(
+            Objective(
                 "Purge The Enemy",
                 "Slay The Warlord",
                 listOf(1, 2, 3, 4),
@@ -57,7 +60,7 @@ class SecondaryList {
                 "OneTimeCheckMark"
             ),
 
-            Secondary(
+            Objective(
                 "No Mercy, No Respite",
                 "Thin Their Ranks",
                 listOf(1, 2, 3, 4),
@@ -66,14 +69,14 @@ class SecondaryList {
                         "divide your tally by 10 and round down, then score that many VP.( E.G. a tally of 109 would yield 10 VP)",
                 "DualCounter"
             ),
-            Secondary(
+            Objective(
                 "No Mercy, No Respite",
                 "Attrition",
                 listOf(1, 2, 3, 4),
                 "At the end of every battle round, score 4 VP if you destroyed more units than your opponent.",
                 "OneCheckMark"
             ),
-            Secondary(
+            Objective(
                 "No Mercy, No Respite",
                 "While We Stand, We Fight",
                 listOf(1, 2, 3, 4),
@@ -82,7 +85,7 @@ class SecondaryList {
                 "ThreeOneTimeCheckMarks",
                 listOf("Is your Expensive unit alive?", "Is your Expensive unit alive?", "Is your Expensive unit alive?")
             ),
-            Secondary(
+            Objective(
                 "No Mercy, No Respite",
                 "First Strike",
                 listOf(1, 2, 3, 4),
@@ -90,7 +93,7 @@ class SecondaryList {
                         "Score an extra 3 VP if you slay more units than your opponent in the first round.",
                 "TwoOneTimeCheckMarks"
             ),
-            Secondary(
+            Objective(
                 "Battlefield Supremacy",
                 "Engage On All Fronts",
                 listOf(1, 2, 3, 4),
@@ -99,14 +102,14 @@ class SecondaryList {
                 "TwoCheckMarks"
             ),
 
-            Secondary(
+            Objective(
                 "Battlefield Supremacy",
                 "Line Breaker",
                 listOf(1, 2, 3, 4),
                 "Score 4VP if you have two non-Aircraft units wholly within the enemy deployment zone. Score this at the end of every round.",
                 "OneCheckMark"
             ),
-            Secondary(
+            Objective(
                 "Battlefield Supremacy",
                 "Domination",
                 listOf(1, 2, 3, 4),
@@ -114,7 +117,7 @@ class SecondaryList {
                 "OneCheckMark"
             ),
 
-            Secondary(
+            Objective(
                 "Shadow Operations",
                 "Investigate Sites",
                 listOf(1, 2, 3, 4),
@@ -122,14 +125,14 @@ class SecondaryList {
                 "OneCheckMark"
             ),
             //TODO some action shenanigans
-            Secondary(
+            Objective(
                 "Shadow Operations",
                 "Repair Teleporter Homer",
                 listOf(1, 2, 3, 4),
                 "Much like Investigate Sites, except you have to be wholly within the enemy deployment zone and the action completes at the end of your next  Command Phase. Scores 5VP if completed.",
                 "OneCheckMark"
             ),
-            Secondary(
+            Objective(
                 "Shadow Operations",
                 "Raise The Banners High",
                 listOf(1, 2, 3, 4),
@@ -137,21 +140,21 @@ class SecondaryList {
                 "Counter"
             ),
             //TODO banners
-            Secondary(
+            Objective(
                 "Warpcraft",
                 "Mental Interrogation",
                 listOf(2),
                 "Psychic Action, Warp Charge 4. Action is taken in the Psychic phase, requires you to be within 18” of an enemy character. Every successful completion scores 3VP.",
                 "OneCheckMark"
             ),
-            Secondary(
+            Objective(
                 "Warpcraft",
                 "Psychic Ritual",
                 listOf(2),
                 "Psychic Action, Warp Charge 3. Action can only be taken if you’re wholly within 6” of the battlefield. If completed 3 times, score 15VP",
                 "OneCheckMark"
             ),
-            Secondary(
+            Objective(
                 "Warpcraft",
                 "Abhor The Witch",
                 listOf(2),

@@ -6,16 +6,16 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.erej.a40k9thScoring.R
 import com.erej.a40k9thScoring.classes.Battle
-import com.erej.a40k9thScoring.classes.Secondary
+import com.erej.a40k9thScoring.classes.Objective
 import kotlinx.android.synthetic.main.fragment_secondary_counter.*
 
 
-class FragmentSecondaryCounter(private val battleObject: Battle, private val secondary: Secondary, private var secondaryCounter: Int, private val counterNumber: Int) : Fragment(
+class FragmentSecondaryCounter(private val battleObject: Battle, private val objective: Objective, private var secondaryCounter: Int, private val counterNumber: Int) : Fragment(
     R.layout.fragment_secondary_counter
 ) {
 
     private fun updateVP (){
-        battleObject.secondaryToVpCounter(secondary,counterNumber,secondaryCounter)
+        battleObject.secondaryToVpCounter(objective,counterNumber,secondaryCounter)
         textViewSecondaryVp.text = battleObject.getSecondaryVpCounter(counterNumber).toString()
     }
 
@@ -25,10 +25,10 @@ class FragmentSecondaryCounter(private val battleObject: Battle, private val sec
         secondaryCounter = battleObject.getSecondaryCounter(counterNumber)
 
         //setup secondary names
-        textViewTitle.text = secondary.name
-        textViewdescription.text = secondary.hint
+        textViewTitle.text = objective.name
+        textViewdescription.text = objective.hint
         counterView1.text = secondaryCounter.toString()
-        textViewCounterHint.text = secondary.counterHints[0]
+        textViewCounterHint.text = objective.counterHints[0]
         textViewSecondaryVp.text = battleObject.getSecondaryVpCounter(counterNumber).toString()
 
         buttonIncrease.setOnClickListener{

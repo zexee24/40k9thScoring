@@ -3,6 +3,7 @@ package com.erej.a40k9thScoring.classes
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
 import com.erej.a40k9thScoring.battleViewModel
 import java.io.Serializable
 
@@ -19,7 +20,9 @@ class Battle(
 ) : Serializable {
 
     var missionType: String = ""
-    var primaryMission: Int = 1
+
+    @TypeConverters(PrimaryConverter::class)
+    lateinit var primaryMission: Primary
 
     var roundCounter: Int = 1
     var phaseCounter: Int = 0
@@ -38,9 +41,11 @@ class Battle(
     var p1PrimaryCounter2: Int = 0
     var p1PrimaryCounter3: Int = 0
 
+
     var p2PrimaryCounter1: Int = 0
     var p2PrimaryCounter2: Int = 0
     var p2PrimaryCounter3: Int = 0
+
 
     var p1PrimaryCheck1: Boolean = false
     var p1PrimaryCheck2: Boolean = false
@@ -394,24 +399,24 @@ class Battle(
         this.updateVp()
     }
 
-    fun secondaryToVpDual(secondary: Secondary, counterNumber: Int, secondaryCounter: Int, secondaryCounter2: Int){
-        when (secondary.name){
+    fun secondaryToVpDual(objective: Objective, counterNumber: Int, secondaryCounter: Int, secondaryCounter2: Int){
+        when (objective.name){
             "Bring It Down" -> this.setSecondaryVpCounter(counterNumber, 2 * secondaryCounter + 3 * secondaryCounter2)
             "Thin Their Ranks" -> this.setSecondaryVpCounter(counterNumber, (secondaryCounter + 10 * secondaryCounter2)/10)
             "Abhor The Witch" -> this.setSecondaryVpCounter(counterNumber, 3 * secondaryCounter + 5 * secondaryCounter2)
         }
     }
 
-    fun secondaryToVpCounter(secondary: Secondary, counterNumber: Int, secondaryCounter: Int){
-        when (secondary.name){
+    fun secondaryToVpCounter(objective: Objective, counterNumber: Int, secondaryCounter: Int){
+        when (objective.name){
             "Assassinate" -> this.setSecondaryVpCounter(counterNumber, 3 * secondaryCounter)
             "Titan Slayers" -> this.setSecondaryVpCounter(counterNumber,10 * secondaryCounter)
 
         }
     }
 
-    fun secondaryToVpOneCheckMark(secondary: Secondary, counterNumber: Int, secondaryCounter: Int){
-        when (secondary.name){
+    fun secondaryToVpOneCheckMark(objective: Objective, counterNumber: Int, secondaryCounter: Int){
+        when (objective.name){
             "Attrition" -> this.setSecondaryVpCounter(counterNumber, 4 * secondaryCounter)
             "Slay The Warlord" -> this.setSecondaryVpCounter(counterNumber, 6 * secondaryCounter)
             "Line Breaker" -> this.setSecondaryVpCounter(counterNumber, 4 * secondaryCounter)
@@ -424,8 +429,8 @@ class Battle(
         }
     }
 
-    fun secondaryToVpTwoCheckMarks(secondary: Secondary, counterNumber: Int, secondaryCounter: Int, secondaryCounter2: Int){
-        when (secondary.name){
+    fun secondaryToVpTwoCheckMarks(objective: Objective, counterNumber: Int, secondaryCounter: Int, secondaryCounter2: Int){
+        when (objective.name){
             "First Strike" -> {
 
                 if (secondaryCounter <= 1){
@@ -439,8 +444,8 @@ class Battle(
         }
     }
 
-    fun secondaryToVpThreeCheckMarks(secondary: Secondary, counterNumber: Int, secondaryCounter: Int, secondaryCounter2: Int, secondaryCounter3: Int){
-        when (secondary.name){
+    fun secondaryToVpThreeCheckMarks(objective: Objective, counterNumber: Int, secondaryCounter: Int, secondaryCounter2: Int, secondaryCounter3: Int){
+        when (objective.name){
             "While We Stand, We Fight" -> this.setSecondaryVpCounter(counterNumber, 5 * secondaryCounter)
             "Take and Hold" -> this.setPrimaryVpCounter(counterNumber, 5 * secondaryCounter + 5 * secondaryCounter2 + 5 * secondaryCounter3)
         }

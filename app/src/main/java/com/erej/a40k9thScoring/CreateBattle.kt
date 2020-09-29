@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.erej.a40k9thScoring.classes.Battle
+import com.erej.a40k9thScoring.classes.Primary
 import com.erej.a40k9thScoring.classes.PrimaryList
 import com.erej.a40k9thScoring.classes.SecondaryList
 import kotlinx.android.synthetic.main.createbattle.*
@@ -15,7 +16,11 @@ import kotlinx.android.synthetic.main.createbattle.*
 
 class CreateBattle : AppCompatActivity() {
 
-        override fun onCreate(savedInstanceState: Bundle?) {
+
+    var battleType = "none"
+    lateinit var mission: Primary
+
+    override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.createbattle)
 
@@ -109,8 +114,7 @@ class CreateBattle : AppCompatActivity() {
 
 
 
-            var battleType = "none"
-            var mission = 0
+
 
             selectMissonType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
                 override fun onNothingSelected(p0: AdapterView<*>?){}
@@ -128,7 +132,7 @@ class CreateBattle : AppCompatActivity() {
                     position: Int,
                     id: Long
                 ) {
-                    mission = position
+                    mission = PrimaryList().missions[position]
                 }
             }
 

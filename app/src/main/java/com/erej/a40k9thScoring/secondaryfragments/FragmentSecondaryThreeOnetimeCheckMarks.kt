@@ -5,15 +5,15 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.erej.a40k9thScoring.R
 import com.erej.a40k9thScoring.classes.Battle
-import com.erej.a40k9thScoring.classes.Secondary
+import com.erej.a40k9thScoring.classes.Objective
 import kotlinx.android.synthetic.main.fragment_three_checkmarks.*
 
-class FragmentSecondaryThreeOnetimeCheckMarks(private val battleObject: Battle, private val secondary: Secondary, private var secondaryCounter: Int, private val counterNumber: Int) : Fragment(
+class FragmentSecondaryThreeOnetimeCheckMarks(private val battleObject: Battle, private val objective: Objective, private var secondaryCounter: Int, private val counterNumber: Int) : Fragment(
     R.layout.fragment_three_checkmarks
 ){
 
     private fun updateVP (){
-        battleObject.secondaryToVpThreeCheckMarks(secondary,counterNumber,secondaryCounter, 0,0)
+        battleObject.secondaryToVpThreeCheckMarks(objective,counterNumber,secondaryCounter, 0,0)
         textViewSecondaryVp.text = battleObject.getSecondaryVpCounter(counterNumber).toString()
     }
 
@@ -23,13 +23,13 @@ class FragmentSecondaryThreeOnetimeCheckMarks(private val battleObject: Battle, 
 
 
         secondaryCounter = battleObject.getSecondaryCounter(counterNumber)
-        textViewTitle.text = secondary.name
-        textViewdescription.text = secondary.hint
+        textViewTitle.text = objective.name
+        textViewdescription.text = objective.hint
 
         //hints
-        checkBox0.text = secondary.counterHints[0]
-        checkBox1.text = secondary.counterHints[1]
-        checkBox2.text = secondary.counterHints[2]
+        checkBox0.text = objective.counterHints[0]
+        checkBox1.text = objective.counterHints[1]
+        checkBox2.text = objective.counterHints[2]
 
         textViewSecondaryVp.text = battleObject.getSecondaryVpCounter(counterNumber).toString()
 
