@@ -8,7 +8,7 @@ import com.erej.a40k9thScoring.R
 import com.erej.a40k9thScoring.classes.Battle
 import com.erej.a40k9thScoring.classes.Objective
 import com.erej.a40k9thScoring.classes.SecondaryList
-import com.erej.a40k9thScoring.secondaryfragments.*
+import com.erej.a40k9thScoring.objectiveFragments.*
 
 class FragmentSecondaries(
     private val battleObject: Battle,

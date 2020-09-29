@@ -105,9 +105,12 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
             setTextView(battleObject)
             setupFragment()
 
-            for (i in 1..100){
-                battleObject.unCheck(i)
-            }
+            battleObject.p1Secondary1.unCheck()
+            battleObject.p1Secondary2.unCheck()
+            battleObject.p1Secondary3.unCheck()
+            battleObject.p2Secondary1.unCheck()
+            battleObject.p2Secondary2.unCheck()
+            battleObject.p2Secondary3.unCheck()
 
             if (battleObject.roundCounter > 5) {
                 val intent = Intent(this, MainActivity::class.java)

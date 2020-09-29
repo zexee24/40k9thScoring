@@ -1,5 +1,7 @@
 package com.erej.a40k9thScoring.classes
 
+import androidx.fragment.app.Fragment
+import com.erej.a40k9thScoring.battleFragments.FragmentSecondaries
 import java.io.Serializable
 
 
@@ -22,7 +24,40 @@ data class Objective(
     val hint : String,
     val fragmentType: String,
     var counterHints : List<String> = listOf("no Hints", "no Hints", "no Hints")
-) : Serializable
+) : Serializable {
+
+    var counter1: Int = 0
+    var counter2: Int = 0
+    var counter3: Int = 0
+    var counterCheck1: Boolean = false
+    var counterCheck2: Boolean = false
+    var counterCheck3: Boolean = false
+    var vp: Int = 0
+
+    fun counterToVp(){
+         when (this.name) {
+            "Attrition", "Line Breaker" -> this.vp = 4 * counter1
+            "Slay The Warlord" -> this.vp = 6 * counter1
+            "Domination", "Investigate Sites", "Mental Interrogation", "Assassinate" -> this.vp = 3 * counter1
+            "Repair Teleporter Homer" -> this.vp = 5 * counter1
+            "Psychic Ritual" -> this.vp = (3 / counter1) * 15
+            "Titan Slayers" -> this.vp = counter1 * 10
+            "Bring It Down" -> this.vp = counter1 * 2 + counter2 * 3
+            "Thin Their Ranks" -> this.vp = (counter1 + counter2 * 10) / 10
+            "Abhor The Witch" -> this.vp = counter1 * 3 + counter2 * 5
+            "First Strike" -> this.vp = counter1 * 5 + counter2 * 3
+            "Engage On All Fronts" -> this.vp = counter1 * 2 + counter2
+            "While We Stand, We Fight" -> this.vp = counter1 * 5 + counter2 * 5 + counter3 * 5
+            "Take and Hold" -> this.vp = counter1 * 5 + counter2 * 5 + counter3 * 5
+        }
+    }
+
+    fun unCheck(){
+        counterCheck1 = false
+        counterCheck2 = false
+        counterCheck3 = false
+    }
+}
 
 class SecondaryList {
 
