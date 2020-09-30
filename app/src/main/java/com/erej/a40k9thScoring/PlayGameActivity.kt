@@ -41,12 +41,14 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
                 }
             3 -> {
                 supportFragmentManager.beginTransaction().apply {
-                    replace(R.id.navHostFragment, FragmentSetup(battleObject))
+                    replace(R.id.navHostFragment, FragmentSetup(battleObject.primaryMission))
                     commit()
                 }
             }
         }
     }
+
+    private fun updateVP(){}
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId){
@@ -65,6 +67,7 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
 
     private fun setTextView(battleObject: Battle) {
         textViewRoundCounter.text = resources.getString(R.string.Round, battleObject.roundCounter)
+        updateVP()
         textViewP1Vp.text = battleObject.p1Vp.toString()
         textViewP2Vp.text = battleObject.p2Vp.toString()
     }
@@ -105,12 +108,14 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
             setTextView(battleObject)
             setupFragment()
 
-            battleObject.p1Secondary1.unCheck()
-            battleObject.p1Secondary2.unCheck()
-            battleObject.p1Secondary3.unCheck()
-            battleObject.p2Secondary1.unCheck()
-            battleObject.p2Secondary2.unCheck()
-            battleObject.p2Secondary3.unCheck()
+            if (battleObject.p1Secondary1.progressive) {battleObject.p1Secondary1.unCheck()}
+            if (battleObject.p1Secondary2.progressive) {battleObject.p1Secondary2.unCheck()}
+            if (battleObject.p1Secondary3.progressive) {battleObject.p1Secondary3.unCheck()}
+            if (battleObject.p2Secondary1.progressive) {battleObject.p2Secondary1.unCheck()}
+            if (battleObject.p2Secondary2.progressive) {battleObject.p2Secondary2.unCheck()}
+            if (battleObject.p2Secondary3.progressive) {battleObject.p2Secondary3.unCheck()}
+
+            if(battleObject.primaryMission.primaryObjective.progressive) {battleObject.primaryMission.primaryObjective.unCheck()}
 
             if (battleObject.roundCounter > 5) {
                 val intent = Intent(this, MainActivity::class.java)

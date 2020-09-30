@@ -145,6 +145,8 @@ class CreateBattle : AppCompatActivity() {
                     battle.p2Secondary2 = p2Secondary2
                     battle.p2Secondary3 = p2Secondary3
                     battle.primaryMission = mission
+                    battle.primaryMissionP1 = mission
+                    battle.primaryMissionP2 = mission
 
 
                     battleViewModel.insert(battle)

@@ -7,8 +7,6 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.erej.a40k9thScoring.classes.Battle
-import com.erej.a40k9thScoring.classes.ObjectiveConverter
-import com.erej.a40k9thScoring.classes.PrimaryConverter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
