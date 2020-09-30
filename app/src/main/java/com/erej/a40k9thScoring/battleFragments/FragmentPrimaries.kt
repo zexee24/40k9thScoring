@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.erej.a40k9thScoring.R
 import com.erej.a40k9thScoring.classes.Battle
+import com.erej.a40k9thScoring.classes.Objective
 import com.erej.a40k9thScoring.objectiveFragments.FragmentSecondaryNone
 import com.erej.a40k9thScoring.objectiveFragments.FragmentSecondaryThreeCheckMarks
 import kotlinx.android.synthetic.main.fragment_battle_primary.*
@@ -19,18 +20,19 @@ class FragmentPrimaries(
 
 
     private fun getFragment(
+        mission: Objective
     ): Fragment{
 
-        return when (primary.primaryObjective.fragmentType){
+        return when (mission.fragmentType){
             "Empty" ->  FragmentSecondaryNone()
-            "ThreeCheckMarks" -> FragmentSecondaryThreeCheckMarks(battleObject, primary.primaryObjective)
+            "ThreeCheckMarks" -> FragmentSecondaryThreeCheckMarks(mission)
             else -> throw error("Wrong primary fragment type")
         }
     }
 
     private fun setupFragments(){
-        val p1Fragment = getFragment()
-        val p2Fragment = getFragment()
+        val p1Fragment = getFragment(battleObject.primaryMissionP1.primaryObjective)
+        val p2Fragment = getFragment(battleObject.primaryMissionP2.primaryObjective)
 
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.fl_missionObjectiveP1, p1Fragment)

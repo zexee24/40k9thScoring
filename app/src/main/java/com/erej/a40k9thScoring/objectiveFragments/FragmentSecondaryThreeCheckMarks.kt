@@ -4,12 +4,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.erej.a40k9thScoring.R
-import com.erej.a40k9thScoring.classes.Battle
 import com.erej.a40k9thScoring.classes.Objective
 import kotlinx.android.synthetic.main.fragment_three_checkmarks.*
 
 
-class FragmentSecondaryThreeCheckMarks(private val battleObject: Battle, private val objective: Objective) : Fragment(
+class FragmentSecondaryThreeCheckMarks(private val objective: Objective) : Fragment(
     R.layout.fragment_three_checkmarks
 ){
 
@@ -41,7 +40,7 @@ class FragmentSecondaryThreeCheckMarks(private val battleObject: Battle, private
             } else {
                 objective.counter3--
             }
-            objective.counterCheck3 != objective.counterCheck3
+            objective.counterCheck3 = !objective.counterCheck3
             updateVP()
         }
 
@@ -51,7 +50,7 @@ class FragmentSecondaryThreeCheckMarks(private val battleObject: Battle, private
             } else {
                 objective.counter2--
             }
-            objective.counterCheck2 != objective.counterCheck2
+            objective.counterCheck2 = !objective.counterCheck2
             updateVP()
         }
 
@@ -62,7 +61,7 @@ class FragmentSecondaryThreeCheckMarks(private val battleObject: Battle, private
             } else {
                 objective.counter1--
             }
-            objective.counterCheck1 != objective.counterCheck1
+            objective.counterCheck1 = !objective.counterCheck1
             updateVP()
         }
 
