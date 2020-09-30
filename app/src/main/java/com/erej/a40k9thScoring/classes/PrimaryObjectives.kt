@@ -17,6 +17,34 @@ class PrimaryObjectives{
                     "• They control more objective markers than their\n" +
                     "opponent controls. This primary objective cannot be scored in the first battle round.",
             "ThreeCheckMarks",
-            listOf("You control one or more objective markers", "You control two or more objective markers", "You control more objective markers than your opponent" ))
+            listOf("You control one or more objective markers", "You control two or more objective markers", "You control more objective markers than your opponent" )),
+
+        Objective(
+            "None",
+            "Domination",
+            true,
+            listOf(6),
+            "At the end of each player's Command phase, the player whose turn it is scores 5 victory points for each of the following conditions they satisfy (for a maximum of 1 5 victory points):\n" +
+                    "• They control two or more objective markers.\n" +
+                    "• They control three or more objective markers.\n" +
+                    "• They control more objective markers than their\n" +
+                    "opponent controls. This primary objective cannot be scored in the first battle round.",
+            "ThreeCheckMarks",
+            listOf("You control two or more objective markers", "You control three or more objective markers", "You control more objective markers than your opponent" )),
+
+        Objective(
+            "None",
+            "Unified Advance",
+            true,
+            listOf(6),
+            "At the end of each player's Command phase, the player whose turn it is scores 5 victory points for each of the following conditions they satisfy (for a maximum of 1 5 victory points):\n" +
+                    "• They control one or more objective markers.\n" +
+                    "• They control at least one objective marker labelled A and at least one objective marker labelled C.\n" +
+                    "• They control at least one objective marker labelled A, at least one objective marker labelled B and at least one objective marker labelled C.\n" +
+                    "This primary objective cannot be scored in the first battle round.",
+            "ThreeCheckMarks",
+            listOf("You control one or more objective markers", "You control at least one objective marker labelled A and at least one objective marker labelled C.", "You control at least one objective marker labelled A, at least one objective marker labelled B and at least one objective marker labelled C." ))
+
     )
+
 }

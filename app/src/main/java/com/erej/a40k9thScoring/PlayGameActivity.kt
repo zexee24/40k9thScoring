@@ -115,7 +115,8 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
             if (battleObject.p2Secondary2.progressive) {battleObject.p2Secondary2.unCheck()}
             if (battleObject.p2Secondary3.progressive) {battleObject.p2Secondary3.unCheck()}
 
-            if(battleObject.primaryMission.primaryObjective.progressive) {battleObject.primaryMission.primaryObjective.unCheck()}
+            if(battleObject.primaryMission.primaryObjective.progressive) {battleObject.primaryMissionP1.primaryObjective.unCheck()}
+            if(battleObject.primaryMission.primaryObjective.progressive) {battleObject.primaryMissionP2.primaryObjective.unCheck()}
 
             if (battleObject.roundCounter > 5) {
                 val intent = Intent(this, MainActivity::class.java)

@@ -6,9 +6,9 @@ import androidx.fragment.app.Fragment
 import com.erej.a40k9thScoring.R
 import com.erej.a40k9thScoring.battleViewModel
 import com.erej.a40k9thScoring.classes.Battle
-import kotlinx.android.synthetic.main.fragment_cp.*
+import kotlinx.android.synthetic.main.fragment_battle_cp.*
 
-class FragmentCp (val battleObject: Battle) :Fragment(R.layout.fragment_cp) {
+class FragmentCp (val battleObject: Battle) :Fragment(R.layout.fragment_battle_cp) {
 
 
     fun setTextViews(){
