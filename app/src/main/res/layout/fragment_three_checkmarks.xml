@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clickable="false"
-    tools:context=".secondaryfragments.FragmentSecondaryCounter">
+    tools:context=".objectiveFragments.FragmentSecondaryCounter">
 
 
     <CheckBox

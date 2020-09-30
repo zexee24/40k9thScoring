@@ -1,4 +1,4 @@
-package com.erej.a40k9thScoring.secondaryfragments
+package com.erej.a40k9thScoring.objectiveFragments
 
 import androidx.fragment.app.Fragment
 import com.erej.a40k9thScoring.R

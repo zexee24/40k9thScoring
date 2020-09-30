@@ -6,9 +6,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.erej.a40k9thScoring.R
 import com.erej.a40k9thScoring.classes.Battle
-import com.erej.a40k9thScoring.classes.Secondary
+import com.erej.a40k9thScoring.classes.Objective
 import com.erej.a40k9thScoring.classes.SecondaryList
-import com.erej.a40k9thScoring.secondaryfragments.*
+import com.erej.a40k9thScoring.objectiveFragments.*
 
 class FragmentSecondaries(
     private val battleObject: Battle,
@@ -16,55 +16,15 @@ class FragmentSecondaries(
 ) :Fragment(R.layout.fragment_battle_secondaries) {
 
     private fun getFragment(
-        battleObject: Battle,
-        secondary: Secondary,
-        secondaryCounter: Int,
-        counterNumber: Int,
+        objective: Objective,
         FragmentType: String
     ): Fragment {
         return when (FragmentType) {
-            "Counter" -> FragmentSecondaryCounter(
-                battleObject,
-                secondary,
-                secondaryCounter,
-                counterNumber
-            )
-            "DualCounter" -> FragmentSecondaryDualCounter(
-                battleObject,
-                secondary,
-                secondaryCounter,
-                counterNumber
-            )
-            "OneTimeCheckMark" -> FragmentSecondaryOnetimeCheckMark(
-                battleObject,
-                secondary,
-                secondaryCounter,
-                counterNumber
-            )
-            "OneCheckMark" -> FragmentSecondaryOneCheckMark(
-                battleObject,
-                secondary,
-                secondaryCounter,
-                counterNumber
-            )
-            "ThreeOneTimeCheckMarks" -> FragmentSecondaryThreeOnetimeCheckMarks(
-                battleObject,
-                secondary,
-                secondaryCounter,
-                counterNumber
-            )
-            "TwoOneTimeCheckMarks" -> FragmentSecondaryTwoOnetimeCheckMarks(
-                battleObject,
-                secondary,
-                secondaryCounter,
-                counterNumber
-            )
-            "TwoCheckMarks" -> FragmentSecondaryTwoCheckMarks(
-                battleObject,
-                secondary,
-                secondaryCounter,
-                counterNumber
-            )
+            "Counter" -> FragmentSecondaryCounter(objective)
+            "DualCounter" -> FragmentSecondaryDualCounter(objective)
+            "ThreeCheckMarks" -> FragmentSecondaryThreeCheckMarks(objective)
+            "OneCheckMark" -> FragmentSecondaryOneCheckMark(objective)
+            "TwoCheckMarks" -> FragmentSecondaryTwoCheckMarks(objective)
             "Empty" -> FragmentSecondaryNone()
             else -> FragmentSecondaryNone()
 
@@ -79,47 +39,33 @@ class FragmentSecondaries(
 
         //store fragments
         val p1Fragment1 = getFragment(
-            battleObject,
-            secondaryList[battleObject.p1Secondary1],
-            battleObject.p1Secondary1Counter1,
-            1,
-            secondaryList[battleObject.p1Secondary1].fragmentType
+            battleObject.p1Secondary1,
+            battleObject.p1Secondary1.fragmentType
         )
+
         val p1Fragment2 = getFragment(
-            battleObject,
-            secondaryList[battleObject.p1Secondary2],
-            battleObject.p1Secondary1Counter1,
-            2,
-            secondaryList[battleObject.p1Secondary2].fragmentType
+            battleObject.p1Secondary2,
+            battleObject.p1Secondary2.fragmentType
         )
+
         val p1Fragment3 = getFragment(
-            battleObject,
-            secondaryList[battleObject.p1Secondary3],
-            battleObject.p1Secondary1Counter1,
-            3,
-            secondaryList[battleObject.p1Secondary3].fragmentType
+            battleObject.p1Secondary3,
+            battleObject.p1Secondary3.fragmentType
         )
 
         val p2Fragment1 = getFragment(
-            battleObject,
-            secondaryList[battleObject.p2Secondary1],
-            battleObject.p1Secondary1Counter1,
-            4,
-            secondaryList[battleObject.p2Secondary1].fragmentType
+            battleObject.p2Secondary1,
+            battleObject.p2Secondary1.fragmentType
         )
+
         val p2Fragment2 = getFragment(
-            battleObject,
-            secondaryList[battleObject.p2Secondary2],
-            battleObject.p1Secondary1Counter1,
-            5,
-            secondaryList[battleObject.p2Secondary2].fragmentType
+            battleObject.p2Secondary2,
+            battleObject.p2Secondary2.fragmentType
         )
+
         val p2Fragment3 = getFragment(
-            battleObject,
-            secondaryList[battleObject.p2Secondary3],
-            battleObject.p1Secondary1Counter1,
-            6,
-            secondaryList[battleObject.p2Secondary3].fragmentType
+            battleObject.p2Secondary3,
+            battleObject.p2Secondary3.fragmentType
         )
 
 

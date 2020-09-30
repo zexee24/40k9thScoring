@@ -2,13 +2,14 @@ package com.erej.a40k9thScoring.classes
 
 class PrimaryObjectives{
 
-    val primaryObjectives: List<Secondary> = listOf(
+    val primaryObjectives: List<Objective> = listOf(
 
-        Secondary("None", "None", listOf(), "Be Empty","Empty"),
+        Objective("None", "None",false, listOf(), "Be Empty","Empty"),
 
-        Secondary(
+        Objective(
             "None",
             "Take and Hold",
+            true,
             listOf(6),
             "At the end of each player's Command phase, the player whose turn it is scores 5 victory points for each of the following conditions they satisfy (for a maximum of 1 5 victory points):\n" +
                     "• They control one or more objective markers.\n" +
