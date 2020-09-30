@@ -20,6 +20,7 @@ class FragmentSetup(private val primaryMission: Primary) : Fragment(R.layout.fra
         imageViewBattleSetup.setImageResource(primaryMission.setupImage)
         textViewMissionName.text = primaryMission.name
         textViewBriefing.text = primaryMission.briefing
+        textViewMissionRules.text = primaryMission.missionRules
     }
 
 }

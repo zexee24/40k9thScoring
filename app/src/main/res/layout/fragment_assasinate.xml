@@ -9,11 +9,15 @@
 =======
     android:clickable="false"
 <<<<<<< HEAD:app/src/main/res/layout/fragment_assasinate.xml
+<<<<<<< HEAD:app/src/main/res/layout/fragment_assasinate.xml
     tools:context=".secondaryfragments.FragmentSecondaryCounter">
 >>>>>>> 8fe89ef... Interface switching implemented - next the interfaces:app/src/main/res/layout/fragment_secondary_counter.xml
 =======
     tools:context=".objectiveFragments.FragmentSecondaryCounter">
 >>>>>>> 8ced4de... TODO basically all objectiveFragments:app/src/main/res/layout/fragment_secondary_counter.xml
+=======
+    tools:context=".objectiveFragments.FragmentObjectiveCounter">
+>>>>>>> 223e35e... Starting to add more missions:app/src/main/res/layout/fragment_secondary_counter.xml
 
     <ImageView
         android:id="@+id/imageView"

@@ -7,8 +7,8 @@ import androidx.fragment.app.FragmentManager
 import com.erej.a40k9thScoring.R
 import com.erej.a40k9thScoring.classes.Battle
 import com.erej.a40k9thScoring.classes.Objective
-import com.erej.a40k9thScoring.objectiveFragments.FragmentSecondaryNone
-import com.erej.a40k9thScoring.objectiveFragments.FragmentSecondaryThreeCheckMarks
+import com.erej.a40k9thScoring.objectiveFragments.FragmentObjectiveNone
+import com.erej.a40k9thScoring.objectiveFragments.FragmentObjectiveThreeCheckMarks
 import kotlinx.android.synthetic.main.fragment_battle_primary.*
 
 class FragmentPrimaries(
@@ -24,8 +24,8 @@ class FragmentPrimaries(
     ): Fragment{
 
         return when (mission.fragmentType){
-            "Empty" ->  FragmentSecondaryNone()
-            "ThreeCheckMarks" -> FragmentSecondaryThreeCheckMarks(mission)
+            "Empty" ->  FragmentObjectiveNone()
+            "ThreeCheckMarks" -> FragmentObjectiveThreeCheckMarks(mission)
             else -> throw error("Wrong primary fragment type")
         }
     }
