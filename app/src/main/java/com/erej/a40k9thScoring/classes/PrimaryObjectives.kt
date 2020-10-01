@@ -11,7 +11,7 @@ class PrimaryObjectives{
             "Take and Hold",
             true,
             listOf(6),
-            "At the end of each player's Command phase, the player whose turn it is scores 5 victory points for each of the following conditions they satisfy (for a maximum of 1 5 victory points):\n" +
+            "At the end of each player's Command phase, the player whose turn it is scores 5 victory points for each of the following conditions they satisfy (for a maximum of 15 victory points):\n" +
                     "• They control one or more objective markers.\n" +
                     "• They control two or more objective markers.\n" +
                     "• They control more objective markers than their\n" +
@@ -24,7 +24,7 @@ class PrimaryObjectives{
             "Domination",
             true,
             listOf(6),
-            "At the end of each player's Command phase, the player whose turn it is scores 5 victory points for each of the following conditions they satisfy (for a maximum of 1 5 victory points):\n" +
+            "At the end of each player's Command phase, the player whose turn it is scores 5 victory points for each of the following conditions they satisfy (for a maximum of 15 victory points):\n" +
                     "• They control two or more objective markers.\n" +
                     "• They control three or more objective markers.\n" +
                     "• They control more objective markers than their\n" +
@@ -37,7 +37,7 @@ class PrimaryObjectives{
             "Unified Advance",
             true,
             listOf(6),
-            "At the end of each player's Command phase, the player whose turn it is scores 5 victory points for each of the following conditions they satisfy (for a maximum of 1 5 victory points):\n" +
+            "At the end of each player's Command phase, the player whose turn it is scores 5 victory points for each of the following conditions they satisfy (for a maximum of 15 victory points):\n" +
                     "• They control one or more objective markers.\n" +
                     "• They control at least one objective marker labelled A and at least one objective marker labelled C.\n" +
                     "• They control at least one objective marker labelled A, at least one objective marker labelled B and at least one objective marker labelled C.\n" +
