@@ -25,10 +25,10 @@ class CreateBattle : AppCompatActivity() {
     private lateinit var secondaryNameList: List<String>
 
     private fun setSecondaryLists(){
-
         secondaryNameList = secondaryList.map {
             it.name
         }
+
         val secondaryNameAdapter = ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, secondaryNameList)
 
         spinnerP1Sec1.adapter = secondaryNameAdapter

@@ -146,7 +146,7 @@ class SecondaryList {
                 false,
                 listOf(1, 2, 3, 4),
                 "Score 6 VP for killing the enemy Warlord.",
-                "OneTimeCheckMark"
+                "OneCheckMark"
             ),
 
             Objective(
@@ -174,7 +174,7 @@ class SecondaryList {
                 listOf(1, 2, 3, 4),
                 "Determine your 3 most expensive individual models." +
                         " At the end of the game, score 5 VP for each that survived the battle.",
-                "ThreeOneTimeCheckMarks",
+                "ThreeCheckMarks",
                 listOf("Is your Expensive unit alive?", "Is your Expensive unit alive?", "Is your Expensive unit alive?")
             ),
             Objective(
@@ -184,7 +184,7 @@ class SecondaryList {
                 listOf(1, 2, 3, 4),
                 "Score 5 VP if you destroy an enemy unit on the first round. " +
                         "Score an extra 3 VP if you slay more units than your opponent in the first round.",
-                "TwoOneTimeCheckMarks"
+                "TwoCheckMarks"
             ),
             Objective(
                 "Battlefield Supremacy",

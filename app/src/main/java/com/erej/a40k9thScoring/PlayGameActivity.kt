@@ -83,7 +83,10 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
         }
     }
 
-    private fun updateVP(){}
+    private fun updateVP(){
+        battleObject.p1Vp = battleObject.p1Secondary1.vp + battleObject.p1Secondary2.vp + battleObject.p1Secondary3.vp + battleObject.primaryMissionP1.primaryObjective.vp
+        battleObject.p2Vp = battleObject.p2Secondary1.vp + battleObject.p2Secondary2.vp + battleObject.p2Secondary3.vp + battleObject.primaryMissionP2.primaryObjective.vp
+    }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId){
@@ -100,7 +103,7 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
         return true
     }
 
-    private fun setTextView(battleObject: Battle) {
+    private fun setTextView() {
         textViewRoundCounter.text = resources.getString(R.string.Round, battleObject.roundCounter)
         updateVP()
         textViewP1Vp.text = battleObject.p1Vp.toString()
@@ -258,9 +261,7 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
 
 
         setupFragment()
-
-
-        setTextView(battleObject)
+        setTextView()
 
         buttonOpenDrawer.setOnClickListener{
         drawer_layout.openDrawer(GravityCompat.START)
@@ -275,7 +276,7 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
         buttonNext.setOnClickListener {
             battleObject.roundCounter++
             battleViewModel.update(battleObject)
-            setTextView(battleObject)
+            setTextView()
             setupFragment()
 
             if (battleObject.p1Secondary1.progressive) {battleObject.p1Secondary1.unCheck()}
@@ -287,6 +288,8 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
 
             if(battleObject.primaryMission.primaryObjective.progressive) {battleObject.primaryMissionP1.primaryObjective.unCheck()}
             if(battleObject.primaryMission.primaryObjective.progressive) {battleObject.primaryMissionP2.primaryObjective.unCheck()}
+
+
 
             if (battleObject.roundCounter > 5) {
                 val intent = Intent(this, MainActivity::class.java)
