@@ -24,7 +24,7 @@ class FragmentObjectiveOneCheckMark(private val objective: Objective) : Fragment
         textViewTitle.text = objective.name
         textViewdescription.text = objective.hint
         checkBox0.text = objective.counterHints[0]
-        textViewSecondaryVp.text = objective.counter1.toString()
+        textViewSecondaryVp.text = objective.vp.toString()
 
             checkBox0.setOnClickListener {
                 if (checkBox0.isChecked) {
