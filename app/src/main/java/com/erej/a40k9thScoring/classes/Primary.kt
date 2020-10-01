@@ -38,8 +38,7 @@ class PrimaryList {
                     "ground and defeat the enemy with surgical assaults across " +
                     "the front..",
             primaries[1],
-            secondaries[0],
-            //TODO surgical assault page 286
+            secondaries[1],
             R.drawable.incisive_attack
         ),
 
@@ -54,7 +53,7 @@ class PrimaryList {
                     "locations that will prove vital to hold in the larger battle " +
                     "to come.",
             primaries[1],
-            secondaries[0],
+            secondaries[2],
             //TODO survey page 287
             R.drawable.ouriders
         ),
@@ -70,7 +69,7 @@ class PrimaryList {
                     "will open up a brutal crossfire leaving the objectives for " +
                     "the taking.",
             primaries[1],
-            secondaries[0],
+            secondaries[3],
             //TODO encircle page 288
             R.drawable.encircle
         ),
@@ -82,7 +81,7 @@ class PrimaryList {
             "",
             "The enemy's advance forces are seeking to expand into our territory, but they risk overextending themselves. If  you strike quickly and capture key battlefield locations you can drive a wedge between the fo e's warriors, divorcing them fr om their support units and making them easy prey to dispatch at your leisure.",
             primaries[1],
-            secondaries[1],
+            secondaries[4],
             R.drawable.divide_and_conquer
         ),
 
@@ -107,6 +106,66 @@ class PrimaryList {
         primaries[1],
         secondaries[0],
         R.drawable.crossfire
-    )
+    ),
+        Primary(
+            "Eternal War",
+            "Incursion",
+            "Centre ground",
+            "",
+            "You must advance swiftly into contested territory to seize " +
+                "the battlefield while maintaining a strong rearguard to " +
+                "protect your supply lines. The battleground is won and lost " +
+                "one yard at a time, and a commander must simultaneously " +
+                "master offensive and defensive tactics if they are to prevail.", primaries[1], secondaries[0],
+            //TODO centre ground p.291
+            R.drawable.centre_ground
+        ),
+        Primary(
+            "Eternal War",
+            "Incursion",
+            "Forward push",
+            "Quick March: Any Advance rolls of less than 3 made in " +
+                    "the first battle round instead count as 3.",
+            "This area is of extreme importance and you have been " +
+                    "ordered to push forward and lead an immediate all-out " +
+                    "assault to capture it. Storm every site of tactical import and " +
+                    "leave the foe with no place to hide.",
+            primaries[1], secondaries[0],
+            //TODO forward push p.292
+            R.drawable.forward_push
+        ),
+        Primary(
+            "Eternal War",
+            "Incursion",
+            "Ransack",
+            "",
+            "With reinforcements on the way, both forces hastily attempt " +
+                    "to establish a fortified position. Whoever secures the line " +
+                    "will be able to dig in and outlast their enemy. However, if " +
+                    "the enemy's position can be overrun, a brutal grinding war " +
+                    "could be avoided.",
+            primaries[2], secondaries[0],
+            //TODO ransack p.293
+            R.drawable.ransack
+        ),
+        Primary(
+            "Eternal War",
+            "Incursion",
+            "Shifting front",
+            "Supply Lines: In this mission, a player only receives the " +
+                    "Battle-forged CP bonus at the start of their Command " +
+                    "phase if they control the objective marker in their " +
+                    "deployment zone.",
+            "Both forces strike out from their positions, probing the front " +
+                    "for vulnerable weak points ahead of an all-out offensive. " +
+                    "The slightest gap in the opponent's defensive line could give " +
+                    "our forces the breakthrough needed to cut off the enemy's " +
+                    "supply lines.",
+            primaries[1], secondaries[0],
+            //TODO test their lines p.293
+            R.drawable.shifting_front
+        )
+
+
     )
 }
