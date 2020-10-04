@@ -18,8 +18,8 @@ class FragmentCp (val battleObject: Battle) :Fragment(R.layout.fragment_battle_c
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        textViewYourName.text = battleObject.yourName
-        textViewOpponentsName.text = battleObject.opponentName
+        textViewYourName.text = battleObject.p1Name
+        textViewOpponentsName.text = battleObject.p2Name
 
         setTextViews()
 

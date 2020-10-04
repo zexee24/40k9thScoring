@@ -152,15 +152,15 @@
             android:id="@+id/textViewRoundCounter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="RoundError"
+            android:layout_marginTop="8dp"
+            android:text="roundError"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textViewP1Vp"
-            android:layout_width="wrap_content"
+            android:layout_width="8dp"
             android:layout_height="wrap_content"
             android:text="0"
             app:layout_constraintEnd_toStartOf="@+id/textViewRoundCounter"
@@ -169,7 +169,7 @@
 
         <TextView
             android:id="@+id/textViewP2Vp"
-            android:layout_width="wrap_content"
+            android:layout_width="8dp"
             android:layout_height="wrap_content"
             android:text="0"
             app:layout_constraintEnd_toEndOf="parent"
@@ -210,6 +210,7 @@
             android:id="@+id/navHostFragment"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintBottom_toTopOf="@+id/buttonPrevious"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -221,8 +222,6 @@
             android:id="@+id/buttonOpenDrawer"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             app:layout_constraintBottom_toTopOf="@+id/navHostFragment"
