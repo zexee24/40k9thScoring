@@ -151,6 +151,7 @@ class CreateBattle : AppCompatActivity() {
             //done
             addBattleDoneButton.setOnClickListener{
 
+                //TODO battle start and en interface
 
                 //in case of wrong input
                 try {
@@ -167,6 +168,7 @@ class CreateBattle : AppCompatActivity() {
                     battle.primaryMission = mission
                     battle.primaryMissionP1 = mission
                     battle.primaryMissionP2 = mission
+                    battle.turnCounter = 0
 
 
                     battleViewModel.insert(battle)
