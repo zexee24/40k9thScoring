@@ -157,7 +157,8 @@ class SecondaryList {
                 "Set aside a tally of the number of models that you destroy." +
                         " Add 10 to the tally if you destroy a model with 10 or more wounds. At the end of the game, " +
                         "divide your tally by 10 and round down, then score that many VP.( E.G. a tally of 109 would yield 10 VP)",
-                "DualCounter"
+                "DualCounter",
+                listOf("Killed models", "Killed models with 10+ wounds")
             ),
             Objective(
                 "No Mercy, No Respite",
