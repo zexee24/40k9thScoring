@@ -52,26 +52,26 @@
             android:text="@string/next"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/button"/>
+            app:layout_constraintStart_toEndOf="@id/buttonPrevious"/>
 
         <Button
-            android:id="@+id/buttonPrevious"
-            android:layout_width="0dp"
+            android:id="@+id/buttonExit"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginBottom="8dp"
             android:text="@string/exit"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/button"/>
+            app:layout_constraintEnd_toStartOf="@id/buttonPrevious"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <FrameLayout
             android:id="@+id/navHostFragment"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/buttonPrevious"
+            app:layout_constraintBottom_toTopOf="@+id/buttonExit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewRoundCounter">
@@ -90,13 +90,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonPrevious"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
+            android:text="@string/previous"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/buttonNext"
-            app:layout_constraintStart_toEndOf="@+id/buttonPrevious"
+            app:layout_constraintStart_toEndOf="@+id/buttonExit"
             app:layout_constraintTop_toBottomOf="@+id/navHostFragment" />
 
 
