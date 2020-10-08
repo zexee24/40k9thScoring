@@ -4,6 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
+import com.erej.a40k9thScoring.dataStoring.PrimaryConverter
 import java.io.Serializable
 
 @Entity(tableName = "battle_table")
