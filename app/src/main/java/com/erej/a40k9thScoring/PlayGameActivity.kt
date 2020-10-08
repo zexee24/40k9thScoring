@@ -315,7 +315,7 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
         drawer_layout.openDrawer(GravityCompat.START)
         }
 
-        buttonPrevious.setOnClickListener {
+        buttonExit.setOnClickListener {
             battleViewModel.update(battleObject)
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
