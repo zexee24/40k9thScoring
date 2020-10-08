@@ -151,7 +151,7 @@ class CreateBattle : AppCompatActivity() {
             //done
             addBattleDoneButton.setOnClickListener{
 
-                //TODO battle start and en interface
+                //TODO battle start and end interface
 
                 //in case of wrong input
                 try {
