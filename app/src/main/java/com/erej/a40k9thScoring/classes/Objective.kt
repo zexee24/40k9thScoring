@@ -60,6 +60,7 @@ data class Objective(
             "Engage On All Fronts" -> this.vp = counter1 * 2 + counter2
             "While We Stand, We Fight" -> this.vp = counter1 * 5 + counter2 * 5 + counter3 * 5
             "Take and Hold" -> this.vp = counter1 * 5 + counter2 * 5 + counter3 * 5
+             else -> this.vp = counter1 + counter2 + counter3
         }
     }
 
