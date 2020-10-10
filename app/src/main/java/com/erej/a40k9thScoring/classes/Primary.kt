@@ -104,7 +104,7 @@ class PrimaryList {
                     "in unacceptable casualties, but victory can be assured by " +
                     "outflanking the foe and catching them in a deadly crossfire",
         primaries[1],
-        secondaries[0],
+        secondaries[5],
         R.drawable.crossfire
     ),
         Primary(
@@ -116,7 +116,7 @@ class PrimaryList {
                 "the battlefield while maintaining a strong rearguard to " +
                 "protect your supply lines. The battleground is won and lost " +
                 "one yard at a time, and a commander must simultaneously " +
-                "master offensive and defensive tactics if they are to prevail.", primaries[1], secondaries[0],
+                "master offensive and defensive tactics if they are to prevail.", primaries[1], secondaries[6],
             //TODO centre ground p.291
             R.drawable.centre_ground
         ),
@@ -130,7 +130,7 @@ class PrimaryList {
                     "ordered to push forward and lead an immediate all-out " +
                     "assault to capture it. Storm every site of tactical import and " +
                     "leave the foe with no place to hide.",
-            primaries[1], secondaries[0],
+            primaries[1], secondaries[7],
             //TODO forward push p.292
             R.drawable.forward_push
         ),
@@ -144,7 +144,7 @@ class PrimaryList {
                     "will be able to dig in and outlast their enemy. However, if " +
                     "the enemy's position can be overrun, a brutal grinding war " +
                     "could be avoided.",
-            primaries[2], secondaries[0],
+            primaries[2], secondaries[8],
             //TODO ransack p.293
             R.drawable.ransack
         ),
@@ -161,7 +161,7 @@ class PrimaryList {
                     "The slightest gap in the opponent's defensive line could give " +
                     "our forces the breakthrough needed to cut off the enemy's " +
                     "supply lines.",
-            primaries[1], secondaries[0],
+            primaries[1], secondaries[9],
             //TODO test their lines p.293
             R.drawable.shifting_front
         )
