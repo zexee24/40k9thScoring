@@ -39,7 +39,7 @@ class FragmentObjectiveTwoCheckMarks(private val objective: Objective) : Fragmen
             } else {
                 objective.counter1--
             }
-            objective.counterCheck1 = !objective.counterCheck1
+            objective.counterCheck2 = !objective.counterCheck2
             updateVP()
             }
 
@@ -50,7 +50,7 @@ class FragmentObjectiveTwoCheckMarks(private val objective: Objective) : Fragmen
             } else {
                 objective.counter2--
             }
-            objective.counterCheck2 = !objective.counterCheck2
+            objective.counterCheck1 = !objective.counterCheck1
             updateVP()
         }
     }
