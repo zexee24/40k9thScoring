@@ -21,25 +21,65 @@ class CreateBattle : AppCompatActivity() {
     lateinit var p2Secondary3: Objective
     var battleType = "none"
     lateinit var mission: Primary
+    private var secondaryList: MutableList<Objective> = SecondaryList().getSecondaries as MutableList<Objective>
+    private lateinit var secondaryNameList: List<String>
+    var primaryList: MutableList<Primary> = PrimaryList().missions as MutableList<Primary>
+    private lateinit var currentPrimaryList: MutableList<Primary>
+    private lateinit var primaryNameList: List<String>
+
+    private fun setSecondaryLists(){
+        secondaryNameList = secondaryList.map {
+            it.name
+        }
+
+        val secondaryNameAdapter = ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, secondaryNameList)
+
+        spinnerP1Sec1.adapter = secondaryNameAdapter
+        spinnerP1Sec2.adapter = secondaryNameAdapter
+        spinnerP1Sec3.adapter = secondaryNameAdapter
+
+        spinnerP2Sec1.adapter = secondaryNameAdapter
+        spinnerP2Sec2.adapter = secondaryNameAdapter
+        spinnerP2Sec3.adapter = secondaryNameAdapter
+    }
+
+
+    private fun setPrimaryMissionList(){
+        currentPrimaryList = mutableListOf()
+        for(i in primaryList){
+            if(i.missionSize == battleType){
+                currentPrimaryList.add(i)
+            }
+        }
+
+        primaryNameList = currentPrimaryList.map{
+            it.name
+        }
+        spinnerSelectPrimary.adapter = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, primaryNameList)
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
-            setContentView(R.layout.createbattle)
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.createbattle)
+
+
+        setSecondaryLists()
+        setPrimaryMissionList()
 
 
 
-            //select mission type
-            val missionTypes = listOf("Combat Patrol", "Incursion", "Strike force", "Onslaught")
+        //select mission type
+        val missionTypes = listOf("Combat patrol", "Incursion", "Strike force", "Onslaught")
 
-            selectMissonType.adapter = ArrayAdapter<String>(this,android.R.layout.simple_expandable_list_item_1,missionTypes)
-            spinnerSelectPrimary.adapter = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, PrimaryList().missions.map { it.name })
+        selectMissonType.adapter = ArrayAdapter<String>(this,android.R.layout.simple_expandable_list_item_1,missionTypes)
 
-            val secondaryList = SecondaryList().getSecondaries
 
-            val secondaryNameList = secondaryList.map { it.name }
+
+
+
 
             //P1 Sec 1
-            spinnerP1Sec1.adapter = ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, secondaryNameList)
             spinnerP1Sec1.onItemSelectedListener = object  :  AdapterView.OnItemSelectedListener{
                 override fun onNothingSelected(p0: AdapterView<*>?){}
 
@@ -49,7 +89,7 @@ class CreateBattle : AppCompatActivity() {
             }
 
             //P1 Sec 2
-            spinnerP1Sec2.adapter = ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, secondaryNameList)
+
             spinnerP1Sec2.onItemSelectedListener = object  :  AdapterView.OnItemSelectedListener{
                 override fun onNothingSelected(p0: AdapterView<*>?){}
 
@@ -59,7 +99,6 @@ class CreateBattle : AppCompatActivity() {
             }
 
             //P1 Sec 3
-            spinnerP1Sec3.adapter = ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, secondaryNameList)
 
             spinnerP1Sec3.onItemSelectedListener = object  :  AdapterView.OnItemSelectedListener{
                 override fun onNothingSelected(p0: AdapterView<*>?){}
@@ -70,7 +109,7 @@ class CreateBattle : AppCompatActivity() {
             }
 
             //P2 Sec 1
-            spinnerP2Sec1.adapter = ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, secondaryNameList)
+
 
             spinnerP2Sec1.onItemSelectedListener = object  :  AdapterView.OnItemSelectedListener{
                 override fun onNothingSelected(p0: AdapterView<*>?){}
@@ -81,7 +120,6 @@ class CreateBattle : AppCompatActivity() {
             }
 
             //P2 Sec 2
-            spinnerP2Sec2.adapter = ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, secondaryNameList)
 
             spinnerP2Sec2.onItemSelectedListener = object  :  AdapterView.OnItemSelectedListener{
                 override fun onNothingSelected(p0: AdapterView<*>?){}
@@ -92,7 +130,7 @@ class CreateBattle : AppCompatActivity() {
             }
 
             //P2 Sec 3
-            spinnerP2Sec3.adapter = ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, secondaryNameList)
+
 
             spinnerP2Sec3.onItemSelectedListener = object  :  AdapterView.OnItemSelectedListener{
                 override fun onNothingSelected(p0: AdapterView<*>?){}
@@ -105,14 +143,12 @@ class CreateBattle : AppCompatActivity() {
 
 
 
-
-
-
             selectMissonType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
                 override fun onNothingSelected(p0: AdapterView<*>?){}
 
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                      battleType = missionTypes[position]
+                    battleType = missionTypes[position]
+                    setPrimaryMissionList()
                 }
             }
 
@@ -124,13 +160,16 @@ class CreateBattle : AppCompatActivity() {
                     position: Int,
                     id: Long
                 ) {
-                    mission = PrimaryList().missions[position]
+                    mission = currentPrimaryList[position]
+                    secondaryList[0] = mission.secondaryObjective
+                    setSecondaryLists()
                 }
             }
 
             //done
             addBattleDoneButton.setOnClickListener{
 
+                //TODO battle start and end interface
 
                 //in case of wrong input
                 try {
@@ -147,6 +186,7 @@ class CreateBattle : AppCompatActivity() {
                     battle.primaryMission = mission
                     battle.primaryMissionP1 = mission
                     battle.primaryMissionP2 = mission
+                    battle.turnCounter = 0
 
 
                     battleViewModel.insert(battle)

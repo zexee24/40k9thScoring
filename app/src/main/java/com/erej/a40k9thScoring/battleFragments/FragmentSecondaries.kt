@@ -20,13 +20,13 @@ class FragmentSecondaries(
         FragmentType: String
     ): Fragment {
         return when (FragmentType) {
-            "Counter" -> FragmentSecondaryCounter(objective)
-            "DualCounter" -> FragmentSecondaryDualCounter(objective)
-            "ThreeCheckMarks" -> FragmentSecondaryThreeCheckMarks(objective)
-            "OneCheckMark" -> FragmentSecondaryOneCheckMark(objective)
-            "TwoCheckMarks" -> FragmentSecondaryTwoCheckMarks(objective)
-            "Empty" -> FragmentSecondaryNone()
-            else -> FragmentSecondaryNone()
+            "Counter" -> FragmentObjectiveCounter(objective)
+            "DualCounter" -> FragmentObjectiveDualCounter(objective)
+            "ThreeCheckMarks" -> FragmentObjectiveThreeCheckMarks(objective)
+            "OneCheckMark" -> FragmentObjectiveOneCheckMark(objective)
+            "TwoCheckMarks" -> FragmentObjectiveTwoCheckMarks(objective)
+            "Empty" -> FragmentObjectiveNone()
+            else -> FragmentObjectiveNone()
 
         }
 

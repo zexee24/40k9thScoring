@@ -49,6 +49,10 @@ data class Objective(
             "Engage On All Fronts" -> this.vp = counter1 * 2 + counter2
             "While We Stand, We Fight" -> this.vp = counter1 * 5 + counter2 * 5 + counter3 * 5
             "Take and Hold" -> this.vp = counter1 * 5 + counter2 * 5 + counter3 * 5
+             else -> this.vp = counter1 + counter2 + counter3
+        }
+        if (this.vp >= 15){
+            this.vp = 15
         }
     }
 
@@ -96,7 +100,7 @@ class SecondaryList {
                 false,
                 listOf(1, 2, 3, 4),
                 "Score 6 VP for killing the enemy Warlord.",
-                "OneTimeCheckMark"
+                "OneCheckMark"
             ),
 
             Objective(
@@ -107,7 +111,8 @@ class SecondaryList {
                 "Set aside a tally of the number of models that you destroy." +
                         " Add 10 to the tally if you destroy a model with 10 or more wounds. At the end of the game, " +
                         "divide your tally by 10 and round down, then score that many VP.( E.G. a tally of 109 would yield 10 VP)",
-                "DualCounter"
+                "DualCounter",
+                listOf("Killed models", "Killed models with 10+ wounds")
             ),
             Objective(
                 "No Mercy, No Respite",
@@ -124,7 +129,7 @@ class SecondaryList {
                 listOf(1, 2, 3, 4),
                 "Determine your 3 most expensive individual models." +
                         " At the end of the game, score 5 VP for each that survived the battle.",
-                "ThreeOneTimeCheckMarks",
+                "ThreeCheckMarks",
                 listOf("Is your Expensive unit alive?", "Is your Expensive unit alive?", "Is your Expensive unit alive?")
             ),
             Objective(
@@ -134,7 +139,7 @@ class SecondaryList {
                 listOf(1, 2, 3, 4),
                 "Score 5 VP if you destroy an enemy unit on the first round. " +
                         "Score an extra 3 VP if you slay more units than your opponent in the first round.",
-                "TwoOneTimeCheckMarks"
+                "TwoCheckMarks"
             ),
             Objective(
                 "Battlefield Supremacy",

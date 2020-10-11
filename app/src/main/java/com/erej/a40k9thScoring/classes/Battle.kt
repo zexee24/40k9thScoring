@@ -13,8 +13,8 @@ class Battle(
     @ColumnInfo(name = "battle")
 
     val id : Long?,
-    val yourName : String,
-    val opponentName : String,
+    val p1Name : String,
+    val p2Name : String,
     val battleType : String
 
 ) : Serializable {
@@ -32,6 +32,8 @@ class Battle(
 
     var roundCounter: Int = 1
     var phaseCounter: Int = 0
+    var turn1: Int = 0
+    var turnCounter: Int = 0
 
     var openedFragment: Int = 0
 
