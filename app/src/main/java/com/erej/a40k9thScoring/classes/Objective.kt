@@ -62,6 +62,9 @@ data class Objective(
             "Take and Hold" -> this.vp = counter1 * 5 + counter2 * 5 + counter3 * 5
              else -> this.vp = counter1 + counter2 + counter3
         }
+        if (this.vp >= 15){
+            this.vp = 15
+        }
     }
 
     fun unCheck(){

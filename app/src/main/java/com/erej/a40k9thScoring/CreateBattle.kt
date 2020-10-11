@@ -21,8 +21,11 @@ class CreateBattle : AppCompatActivity() {
     lateinit var p2Secondary3: Objective
     var battleType = "none"
     lateinit var mission: Primary
-    lateinit var secondaryList: MutableList<Objective>
+    private var secondaryList: MutableList<Objective> = SecondaryList().getSecondaries as MutableList<Objective>
     private lateinit var secondaryNameList: List<String>
+    var primaryList: MutableList<Primary> = PrimaryList().missions as MutableList<Primary>
+    private lateinit var currentPrimaryList: MutableList<Primary>
+    private lateinit var primaryNameList: List<String>
 
     private fun setSecondaryLists(){
         secondaryNameList = secondaryList.map {
@@ -40,20 +43,37 @@ class CreateBattle : AppCompatActivity() {
         spinnerP2Sec3.adapter = secondaryNameAdapter
     }
 
+
+    private fun setPrimaryMissionList(){
+        currentPrimaryList = mutableListOf()
+        for(i in primaryList){
+            if(i.missionSize == battleType){
+                currentPrimaryList.add(i)
+            }
+        }
+
+        primaryNameList = currentPrimaryList.map{
+            it.name
+        }
+        spinnerSelectPrimary.adapter = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, primaryNameList)
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.createbattle)
 
-        secondaryList = SecondaryList().getSecondaries as MutableList<Objective>
+
         setSecondaryLists()
+        setPrimaryMissionList()
 
 
 
         //select mission type
-        val missionTypes = listOf("Combat Patrol", "Incursion", "Strike force", "Onslaught")
+        val missionTypes = listOf("Combat patrol", "Incursion", "Strike force", "Onslaught")
 
         selectMissonType.adapter = ArrayAdapter<String>(this,android.R.layout.simple_expandable_list_item_1,missionTypes)
-        spinnerSelectPrimary.adapter = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, PrimaryList().missions.map { it.name })
+
 
 
 
@@ -123,14 +143,12 @@ class CreateBattle : AppCompatActivity() {
 
 
 
-
-
-
             selectMissonType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
                 override fun onNothingSelected(p0: AdapterView<*>?){}
 
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                      battleType = missionTypes[position]
+                    battleType = missionTypes[position]
+                    setPrimaryMissionList()
                 }
             }
 
@@ -142,7 +160,7 @@ class CreateBattle : AppCompatActivity() {
                     position: Int,
                     id: Long
                 ) {
-                    mission = PrimaryList().missions[position]
+                    mission = currentPrimaryList[position]
                     secondaryList[0] = mission.secondaryObjective
                     setSecondaryLists()
                 }

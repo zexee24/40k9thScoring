@@ -164,7 +164,106 @@ class PrimaryList {
             primaries[1], secondaries[9],
             //TODO test their lines p.293
             R.drawable.shifting_front
+        ),
+
+        Primary(
+            "Eternal War",
+            "Strike force",
+            "Retrieval mission",
+            "",
+            "The battlefield is strewn with discarded equipment, supplies " +
+                    "and other detritus of war that, for various reasons, you " +
+                    "wish to recover. You must recover as many of these vital " +
+                    "objectives as you can without sustaining unacceptable " +
+                    "casualties in the process.",
+            primaries[1], secondaries[10],
+            R.drawable.retrieval_mission
+        ),
+
+        Primary(
+            "Eternal War",
+            "Strike force",
+            "Front-line warfare",
+            "",
+            "Your forces have encountered the enemy along a contested border between your territory and theirs. It is imperative that you seize the disputed ground quickly, while preventing your foe from crossing the border into your own lands.",
+            primaries[1], secondaries[11],
+            R.drawable.front_line_warfare
+        ),
+
+        Primary(
+            "Eternal War",
+            "Strike force",
+            "The four pillars",
+            "The Pillars: In this mission, Reinforcement units cannot " +
+                    "be set up within range of any objective markers.",
+            "Ancient alien pillars that crackle with distorting energies " +
+                    "dominate this battlefield. If their power can be siphoned off, " +
+                    "you will gain a significant resource to use against your foes.",
+            primaries[1], secondaries[12],
+            R.drawable.the_four_pillars
+        ),
+
+        Primary(
+            "Eternal War",
+            "Strike force",
+            "No man's land",
+            "No Man's Land: If a unit has a pre-battle rule that " +
+                    "allows it to be set up anywhere on the battlefield, that " +
+                    "unit must still be set up wholly within your deployment " +
+                    "zone. If a unit has a pre-battle rule that allows it to " +
+                    "make a move, it must end that move wholly within your " +
+                    "deployment zone.",
+            "Following a bloody skirmish over a vital objective in no " +
+                    "mans land, two forces have withdrawn to the relative safety " +
+                    "of their own lines to rearm and reinforce before venturing " +
+                    "forth once more to attempt to claim the prize, or at least " +
+                    "deny it to the enemy.",
+            primaries[1], secondaries[13],
+            R.drawable.no_mans_land
+        ),
+
+        Primary(
+            "Eternal War",
+            "Strike force",
+            "Scorched earth",
+            "Raze Objective (Action): One unit from your army can " +
+                    "start to perform this action at the start of your Movement " +
+                    "phase if it is within range of an objective marker that " +
+                    "can be razed and no enemy units (excluding AIRCRAFT) " +
+                    "are within range of that objective marker. Player A can " +
+                    "only attempt to raze the objective markers labelled B, " +
+                    "and player B can only attempt to raze the objective " +
+                    "markers labelled A. The action is completed at the end " +
+                    "of your turn. If this action is successfully completed, " +
+                    "that objective marker is razed and removed from " +
+                    "the battlefield.",
+            "The time for a decisive strike against the foe is nigh. Key " +
+                    "targets have been identified and their continued existence " +
+                    "can no longer be tolerated. Spread ruination throughout " +
+                    "the enemy's territory and leave nothing but heaped corpses " +
+                    "and blazing wreckage in your wake!",
+            primaries[1], secondaries[14],
+            R.drawable.scorched_earth
+        ),
+
+        Primary(
+            "Eternal War",
+            "Strike force",
+            "Vital intelligence",
+            "Data Terminals: The objective markers in this mission " +
+                    "represent data terminals. In this mission, if you control " +
+                    "an objective marker at the end of your Command phase, " +
+                    "it remains under your control unless your opponent " +
+                    "controls it at the end of any subsequent phase, even if you " +
+                    "have no models within range of it.",
+            "Important tactical information must be captured. Key " +
+                    "data-terminals have been detected, but the machine spirits " +
+                    "of several must be slaved to your data-tethers at the same " +
+                    "time ify ou are to intercept the intelligence you need.",
+            primaries[2], secondaries[15],
+            R.drawable.vital_intelligence
         )
+
 
 
     )
