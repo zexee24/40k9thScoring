@@ -173,7 +173,10 @@ class CreateBattle : AppCompatActivity() {
 
                 //in case of wrong input
                 try {
-                    val battle = Battle(null,editYourName.text.toString(),editOpponentName.text.toString(), battleType)
+                    val battle = Battle(null)
+                    battle.p1Name = editYourName.text.toString()
+                    battle.p2Name = editOpponentName.text.toString()
+                    battle.battleType = battleType
                     battle.p1Cp = editYourCp.text.toString().toInt()
                     battle.p2Cp = editOpponetCp.text.toString().toInt()
 

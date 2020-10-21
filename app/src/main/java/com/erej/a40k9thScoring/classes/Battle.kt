@@ -11,13 +11,13 @@ import java.io.Serializable
 class Battle(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "battle")
-
-    val id : Long?,
-    val p1Name : String,
-    val p2Name : String,
-    val battleType : String
+    val id : Long?
 
 ) : Serializable {
+
+    var p1Name : String = ""
+    var p2Name : String = ""
+    var battleType : String = ""
 
     var missionType: String = ""
 
