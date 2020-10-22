@@ -179,6 +179,7 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD:app/src/main/java/com/erej/a40k9thscoring/PlayGameActivity.kt
 <<<<<<< HEAD
         val firstFragment = BattleFragment(battleObject)
@@ -303,6 +304,14 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
 =======
 >>>>>>> 0bb401c... Got to actually learn drawer navigation
 =======
+=======
+        if (battleObject.createCounter != 10){
+            intent = Intent(this, createBattleMethod)
+            intent.putExtra("battle", battleObject)
+            startActivity(intent)
+        }
+
+>>>>>>> 19b13cb... This might not nork
         drawerBattleMenu.setNavigationItemSelectedListener(this)
 >>>>>>> 8fe89ef... Interface switching implemented - next the interfaces
 

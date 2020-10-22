@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="10. Declare Reserves And Transports"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16sp"
+        android:text="These missions use the Strategic Reserves rules (pg 256). Both players now secretly note down on their army roster which of the units in their army will start the battle in Strategic Reserves, which of their units will start the battle in a location other than the battlefield (if a player has access to any Stratagems that enable them to set up units from their army in a location other than the battlefield, they must use such Stratagems now), and which of their units will start the battle embarked within TRANSPORT models (they must declare what units are embarked on what model). When both players have done so, they declare their selections to their opponent. No more than half the total number of units in your army can be Strategic Reserve and/ or Reinforcement units, and the combined points value of all your Strategic Reserve and Reinforcement units (including those embarked within TRANSPORT models that are Strategic Reserve and/or Reinforcement  units) must be less than half of your army's total points value, even if every unit in your army has an ability that would allow them to be set up elsewhere. In Eternal War missions, Strategic Reserve and Reinforcement units can never arrive on the battlefield in the first battle round. Any Strategic Reserve or Reinforcement unit that has not arrived on the battlefield by the end of the third battle round counts as having been destroyed, as do any units embarked within them (this does not apply to units that are placed into Strategic "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

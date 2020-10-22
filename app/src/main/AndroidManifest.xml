@@ -18,7 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.erej.a40k9thScoring.CreateBattle" />
+        <activity android:name="com.erej.a40k9thScoring.CreateBattleFast" />
+        <activity android:name="com.erej.a40k9thScoring.CreateBattleSlow"/>
         <activity android:name="com.erej.a40k9thScoring.PlayGameActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"/>
     </application>
