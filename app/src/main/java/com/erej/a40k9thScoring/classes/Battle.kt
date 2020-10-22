@@ -30,6 +30,8 @@ class Battle(
     @TypeConverters(PrimaryConverter::class)
     lateinit var primaryMissionP2: Primary
 
+    var createCounter: Int = 0
+
     var roundCounter: Int = 1
     var phaseCounter: Int = 0
     var turn1: Int = 0
@@ -42,11 +44,11 @@ class Battle(
     var p1Vp = 0
     var p2Vp = 0
 
-    lateinit var p1Secondary1: Objective
-    lateinit var p1Secondary2: Objective
-    lateinit var p1Secondary3: Objective
+    var p1Secondary1: Objective = SecondaryList().getSecondaries[0]
+    var p1Secondary2: Objective = SecondaryList().getSecondaries[0]
+    var p1Secondary3: Objective = SecondaryList().getSecondaries[0]
 
-    lateinit var p2Secondary1: Objective
-    lateinit var p2Secondary2: Objective
-    lateinit var p2Secondary3: Objective
+    var p2Secondary1: Objective = SecondaryList().getSecondaries[0]
+    var p2Secondary2: Objective = SecondaryList().getSecondaries[0]
+    var p2Secondary3: Objective = SecondaryList().getSecondaries[0]
 }

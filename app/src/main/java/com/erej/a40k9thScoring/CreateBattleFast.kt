@@ -11,7 +11,7 @@ import com.erej.a40k9thScoring.classes.*
 import kotlinx.android.synthetic.main.createbattle.*
 
 
-class CreateBattle : AppCompatActivity() {
+class CreateBattleFast : AppCompatActivity() {
 
     lateinit var p1Secondary1: Objective
     lateinit var p1Secondary2: Objective
@@ -38,7 +38,7 @@ class CreateBattle : AppCompatActivity() {
         spinnerP1Sec2.adapter = secondaryNameAdapter
         spinnerP1Sec3.adapter = secondaryNameAdapter
 
-        spinnerP2Sec1.adapter = secondaryNameAdapter
+        spinnerP2Secondary1.adapter = secondaryNameAdapter
         spinnerP2Sec2.adapter = secondaryNameAdapter
         spinnerP2Sec3.adapter = secondaryNameAdapter
     }
@@ -111,7 +111,7 @@ class CreateBattle : AppCompatActivity() {
             //P2 Sec 1
 
 
-            spinnerP2Sec1.onItemSelectedListener = object  :  AdapterView.OnItemSelectedListener{
+            spinnerP2Secondary1.onItemSelectedListener = object  :  AdapterView.OnItemSelectedListener{
                 override fun onNothingSelected(p0: AdapterView<*>?){}
 
                 override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {

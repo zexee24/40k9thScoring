@@ -17,7 +17,10 @@ private lateinit var battleAdapter: BattleRecyclerAdapter
 lateinit var battleViewModel : BattleViewModel
 
 
+val createBattleMethod = CreateBattleSlow::class.java
+
 class MainActivity : AppCompatActivity(), OnBattleClickListener{
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +32,7 @@ class MainActivity : AppCompatActivity(), OnBattleClickListener{
 
         // initialise recycler view
         initRecyclerView()
+        val createBattleIntent = Intent(this, createBattleMethod)
 
         //on data update
         battleViewModel.allBattles.observe(this, Observer {battles ->
@@ -39,7 +43,7 @@ class MainActivity : AppCompatActivity(), OnBattleClickListener{
 
         //create new battle
         addNewBattle.setOnClickListener{
-        startActivity(Intent(this,CreateBattle::class.java))
+        startActivity(createBattleIntent)
         }
 
         //delete battle
