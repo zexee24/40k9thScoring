@@ -55,7 +55,6 @@
         android:layout_marginLeft="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintBottom_toTopOf="@+id/spinnerSelectBattleSize"
         app:layout_constraintEnd_toStartOf="@id/editTextP2Name"
         app:layout_constraintStart_toStartOf="parent" />
@@ -68,7 +67,6 @@
         android:layout_marginRight="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintBottom_toTopOf="@+id/spinnerSelectBattleSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/editTextP1Name" />
