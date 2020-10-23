@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.erej.a40k9thScoring.classes.Battle
 import com.erej.a40k9thScoring.classes.PrimaryList
-import com.erej.a40k9thScoring.createBattleFragments.FragmentSelectBattleSize
+import com.erej.a40k9thScoring.createBattleFragments.*
 import kotlinx.android.synthetic.main.create_battle_slow.*
 import java.lang.NullPointerException
 
@@ -20,6 +20,17 @@ class CreateBattleSlow :AppCompatActivity(){
         return when(battleObject.createCounter){
             -1 -> FragmentSelectBattleSize(battleObject)
             0 -> FragmentSelectBattleSize(battleObject)
+            1 -> FragmentMusterArmies(battleObject)
+            2 -> FragmentDetermineMission(battleObject)
+            3 -> FragmentReadMissionBriefing(battleObject)
+            4 -> FragmentPlaceObjectiveMarkers(battleObject)
+            5 -> FragmentSelectSecondaryObjectives(battleObject)
+            6 -> FragmentDetermineAttackerAndDefender(battleObject)
+            7 -> FragmentChooseDeploymentZone(battleObject)
+            8 -> FragmentDeclareReservesAndTransports(battleObject)
+            9 -> FragmentDeployArmies(battleObject)
+            10 -> FragmentDetermineFirstTurn(battleObject)
+            11 -> FragmentResolvePreBattleAbilities(battleObject)
             else -> throw error("Error in fragment state indexing.")
         }
     }
@@ -34,7 +45,6 @@ class CreateBattleSlow :AppCompatActivity(){
             battle.primaryMission = PrimaryList().missions[0]
             battle.primaryMissionP1 = PrimaryList().missions[0]
             battle.primaryMissionP2 = PrimaryList().missions[0]
-            battleViewModel.insert(battle)
             battle
         }
 
@@ -60,11 +70,8 @@ class CreateBattleSlow :AppCompatActivity(){
 
         buttonExit2.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
+            battleViewModel.insert(battleObject)
             startActivity(intent)
         }
-
-
-
-
     }
 }
