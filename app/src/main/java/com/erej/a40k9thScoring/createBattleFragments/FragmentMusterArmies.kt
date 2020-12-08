@@ -19,8 +19,14 @@ class FragmentMusterArmies(val battleObject:Battle): Fragment(R.layout.fragment_
     }
 
     override fun onDestroyView() {
-        battleObject.p1Cp = editTextNumber.text.toString().toInt()
-        battleObject.p2Cp = editTextNumber2.text.toString().toInt()
+        try{
+            battleObject.p1Cp = editTextNumber.text.toString().toInt()
+            battleObject.p2Cp = editTextNumber2.text.toString().toInt()
+        }catch (e: NumberFormatException){
+            battleObject.p1Cp = 0
+            battleObject.p2Cp = 0
+        }
+
         battleViewModel.update(battleObject)
         super.onDestroyView()
     }
