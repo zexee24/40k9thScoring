@@ -25,7 +25,8 @@
         android:text="Each player then secretly selects three secondary objectives for the battle and writes them down. Each can award victory points to the player who chose them. The secondary objectives that players can choose from can be found on pages 284-285, though some missions will include secondary objectives the players can also choose from. Once both players have selected their secondary objectives, they reveal their selections to their opponent. "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        />
 
     <Spinner
         android:id="@+id/spinnerP1Secondary1"
@@ -33,7 +34,9 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@+id/spinnerP2Secondary1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerP1Secondary2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        android:minHeight="24dp"
+        />
 
     <Spinner
         android:id="@+id/spinnerP1Secondary2"
@@ -41,7 +44,9 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@+id/spinnerP2Secondary1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerP1Secondary1"
+        android:minHeight="24dp"
+        />
 
     <Spinner
         android:id="@+id/spinnerP1Secondary3"
@@ -50,7 +55,9 @@
         app:layout_constraintEnd_toStartOf="@+id/spinnerP2Secondary1"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerP1Secondary1" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerP1Secondary2"
+        android:minHeight="24dp"
+        />
 
     <Spinner
         android:id="@+id/spinnerP2Secondary1"
@@ -58,7 +65,9 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/spinnerP1Secondary1"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        android:minHeight="24dp"
+        />
 
     <Spinner
         android:id="@+id/spinnerP2Secondary2"
@@ -67,7 +76,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@id/spinnerP1Secondary1"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerP2Secondary1" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerP2Secondary1"
+        android:minHeight="24dp"
+        />
 
     <Spinner
         android:id="@+id/spinnerP2Secondary3"
@@ -76,7 +87,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@id/spinnerP1Secondary1"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerP2Secondary2" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerP2Secondary2"
+        android:minHeight="24dp"
+        />
 
     <TextView
         android:id="@+id/textView6"
