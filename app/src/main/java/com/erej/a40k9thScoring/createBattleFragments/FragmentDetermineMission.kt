@@ -59,6 +59,8 @@ class FragmentDetermineMission(val battleObject:Battle): Fragment(R.layout.fragm
         spinnerSelectMission.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 battleObject.primaryMission = missionList[p2]
+                battleObject.primaryMissionP1 = missionList[p2]
+                battleObject.primaryMissionP2 = missionList[p2]
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {

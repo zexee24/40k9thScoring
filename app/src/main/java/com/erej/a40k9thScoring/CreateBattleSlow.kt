@@ -2,14 +2,12 @@ package com.erej.a40k9thScoring
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.erej.a40k9thScoring.classes.Battle
 import com.erej.a40k9thScoring.classes.PrimaryList
 import com.erej.a40k9thScoring.createBattleFragments.*
 import kotlinx.android.synthetic.main.create_battle_slow.*
-import java.lang.NullPointerException
 
 private lateinit var battleObject :Battle
 
@@ -31,6 +29,7 @@ class CreateBattleSlow :AppCompatActivity(){
             9 -> FragmentDeployArmies(battleObject)
             10 -> FragmentDetermineFirstTurn(battleObject)
             11 -> FragmentResolvePreBattleAbilities(battleObject)
+
             else -> throw error("Error in fragment state indexing.")
         }
     }
@@ -54,10 +53,18 @@ class CreateBattleSlow :AppCompatActivity(){
 
         buttonNext2.setOnClickListener {
             battleObject.createCounter++
-            supportFragmentManager.beginTransaction().apply {
-                replace(R.id.flCreateBattleFragment, getFragment())
-            }.commit()
-            battleViewModel.update(battleObject)
+            if (battleObject.createCounter == 12){
+                battleViewModel.insert(battleObject)
+                val intent = Intent(this, PlayGameActivity::class.java)
+                intent.putExtra("battle", battleObject)
+                startActivity(intent)
+            } else {
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.flCreateBattleFragment, getFragment())
+                }.commit()
+                battleViewModel.update(battleObject)
+            }
+
         }
 
         buttonPrevious2.setOnClickListener {

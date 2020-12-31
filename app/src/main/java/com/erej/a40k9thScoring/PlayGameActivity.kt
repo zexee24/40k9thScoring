@@ -134,7 +134,7 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
         //Fetch the battle date from MainActivity
         battleObject = intent.getSerializableExtra("battle") as Battle
 
-        if (battleObject.createCounter != 10){
+        if (battleObject.createCounter != 12){
             intent = Intent(this, createBattleMethod)
             intent.putExtra("battle", battleObject)
             startActivity(intent)

@@ -25,21 +25,21 @@ class SecondaryAdapter(val context: Context, private val secondarySet : List<Obj
         return secondaryList[position]
     }
 
-
     override fun getItemId(position: Int): Long {
         return position.toLong()
     }
 
-    fun updateList(category1 : String, category2: String){
+    fun updateList(category1 : String, category2: String) : List<String>{
         secondaryList.clear()
         secondaryList.add(secondarySet[0])
-        for (i in secondarySet){
+        for (i in secondarySet.drop(1)){
             if (i.category != category1 && i.category != category2){
                 secondaryList.add(i)
             }
         }
         secondaryNameList = secondaryList.map { it.name }
         this.notifyDataSetChanged()
+        return secondaryNameList
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
@@ -52,6 +52,5 @@ class SecondaryAdapter(val context: Context, private val secondarySet : List<Obj
         val textView = view.findViewById<TextView>(android.R.id.text1)
         textView.text = secondaryNameList[position].toString()
         return view
-
 }
 }
