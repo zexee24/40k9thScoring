@@ -180,6 +180,7 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD:app/src/main/java/com/erej/a40k9thscoring/PlayGameActivity.kt
 <<<<<<< HEAD
         val firstFragment = BattleFragment(battleObject)
@@ -306,6 +307,9 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
 =======
 =======
         if (battleObject.createCounter != 10){
+=======
+        if (battleObject.createCounter != 12){
+>>>>>>> d334609... Finnished CreateBattleSlow.kt but i still needs some bugfixing etc.
             intent = Intent(this, createBattleMethod)
             intent.putExtra("battle", battleObject)
             startActivity(intent)

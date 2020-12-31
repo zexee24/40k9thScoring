@@ -34,9 +34,9 @@ class Battle(
 
     var roundCounter: Int = 1
     var phaseCounter: Int = 0
-    var turn1: Int = 0
+    var firstTurn: Int = 0
     var turnCounter: Int = 0
-
+    var attacker: Int = 0
     var openedFragment: Int = 0
 
     var p1Cp = 0
