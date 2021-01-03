@@ -78,6 +78,9 @@ class CreateBattleSlow :AppCompatActivity(){
         buttonExit2.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             battleViewModel.insert(battleObject)
+            supportFragmentManager.beginTransaction().apply {
+                remove(supportFragmentManager.findFragmentById(R.id.flCreateBattleFragment)!!)
+            }.commit()
             startActivity(intent)
         }
     }

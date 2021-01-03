@@ -180,9 +180,9 @@ class PrimarySpecificSecondaries{
                      "your next Command phase, and you score a number of " +
                      "victory points depending on how many units completed " +
                      "this action this phase, as shown in the table below:\n " +
-                     "1 : 1" +
-                     "2 : 3" +
-                     "3 : 6" +
+                     "1 : 1\n" +
+                     "2 : 3\n" +
+                     "3 : 6\n" +
                      "4 : 10",
              "Counter",
              listOf("Number of points gained")),
