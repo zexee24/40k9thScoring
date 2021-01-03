@@ -19,8 +19,12 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="16sp"
-android:text="The players roll off and the winner decides who will be the Attacker and who will be the Defender. "
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="The players roll off and the winner decides who will be the Attacker and who will be the Defender. "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />

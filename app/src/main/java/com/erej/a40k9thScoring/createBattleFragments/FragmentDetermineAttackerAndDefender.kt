@@ -15,6 +15,8 @@ class FragmentDetermineAttackerAndDefender(val battleObject:Battle): Fragment(R.
         super.onViewCreated(view, savedInstanceState)
         spinnerSelectAttacker.adapter = ArrayAdapter<String>(activity?.applicationContext!!, R.layout.support_simple_spinner_dropdown_item,listOf(battleObject.p1Name, battleObject.p2Name))
 
+        spinnerSelectAttacker.setSelection(battleObject.attacker)
+
         spinnerSelectAttacker.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(
                 parent: AdapterView<*>?,
@@ -24,11 +26,10 @@ class FragmentDetermineAttackerAndDefender(val battleObject:Battle): Fragment(R.
             ) {
                 battleObject.attacker = position
             }
-
-            //TODO when allready selected
             override fun onNothingSelected(parent: AdapterView<*>?) {
 
             }
         }
+
     }
 }

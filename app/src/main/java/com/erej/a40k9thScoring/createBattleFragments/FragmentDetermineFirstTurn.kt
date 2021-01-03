@@ -16,6 +16,8 @@ class FragmentDetermineFirstTurn(val battleObject:Battle): Fragment(R.layout.fra
 
         spinnerSelectFirstTurn.adapter = ArrayAdapter<String>(activity?.applicationContext!!, R.layout.support_simple_spinner_dropdown_item, listOf(battleObject.p1Name, battleObject.p2Name))
 
+        spinnerSelectFirstTurn.setSelection(battleObject.firstTurn)
+
         spinnerSelectFirstTurn.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(
                 parent: AdapterView<*>?,
@@ -25,11 +27,10 @@ class FragmentDetermineFirstTurn(val battleObject:Battle): Fragment(R.layout.fra
             ) {
                 battleObject.firstTurn = position
             }
-            //TODO when allready selected
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                TODO("Not yet implemented")
-            }
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
+
+
 
     }
 }

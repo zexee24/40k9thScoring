@@ -4,7 +4,6 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
-import com.erej.a40k9thScoring.dataStoring.PrimaryConverter
 import java.io.Serializable
 
 @Entity(tableName = "battle_table")
@@ -24,11 +23,11 @@ class Battle(
     @TypeConverters(PrimaryConverter::class)
     lateinit var primaryMission: Primary
 
-    @TypeConverters(PrimaryConverter::class)
-    lateinit var primaryMissionP1: Primary
 
-    @TypeConverters(PrimaryConverter::class)
-    lateinit var primaryMissionP2: Primary
+    lateinit var primaryMissionP1: Objective
+
+
+    lateinit var primaryMissionP2: Objective
 
     var createCounter: Int = 0
 

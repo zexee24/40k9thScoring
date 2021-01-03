@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -19,14 +17,17 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="16sp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:text="Each player then secretly selects three secondary objectives for the battle and writes them down. Each can award victory points to the player who chose them. The secondary objectives that players can choose from can be found on pages 284-285, though some missions will include secondary objectives the players can also choose from. Once both players have selected their secondary objectives, they reveal their selections to their opponent. "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Spinner
         android:id="@+id/spinnerP1Secondary1"
@@ -93,9 +94,13 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:text="When you are instructed to select secondary objectives, you can select from any presented here, in addition to any secondary objective listed on the mission you are playing. You can score no more than 15 victory points from each secondary objective you select during the mission (any excess victory points awarded are discounted). Each secondary objective listed below has a category (e.g. Purge the Enemy). When you select secondary objectives, you cannot choose more than one from each category. "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
