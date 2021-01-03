@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -21,7 +19,11 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="16sp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:text="The players alternate setting up their remaining units, one at a time, starting with the Defender. A player's models must be set up wholly within their deployment zone. If one player finishes deploying all their units, their opponent then deploys the remainder of their units. If a model from your army is so large that it cannot physically be set up wholly within your deployment zone (i.e. the smallest dimension of that model is greater than the depth of your deployment zone), it  must be set up so that it is  touching your battlefield edge. In the first battle round, that model's unit cannot do any of the following: make a Normal Move, Advance, Fall Back, attempt to manifest or deny psychic powers, make any attacks with ranged weapons, declare a charge, perform a Heroic Intervention, perform any actions or psychic actions. Models in such units count as having moved a distance in inches equal to their Move (M)  characteristic in their first Movement phase. If the unit has a minimum Move characteristic, it counts as having moved its maximum Move characteristic. If both players have units with abilities that allow them to be set up 'after both armies have deployed; the players must roll off after all other units have been set up and alternate setting up these units, starting with the winner. "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

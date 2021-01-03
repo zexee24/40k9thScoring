@@ -96,8 +96,8 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
 
 
     private fun updateVP(){
-        battleObject.p1Vp = battleObject.p1Secondary1.vp + battleObject.p1Secondary2.vp + battleObject.p1Secondary3.vp + battleObject.primaryMissionP1.primaryObjective.vp
-        battleObject.p2Vp = battleObject.p2Secondary1.vp + battleObject.p2Secondary2.vp + battleObject.p2Secondary3.vp + battleObject.primaryMissionP2.primaryObjective.vp
+        battleObject.p1Vp = battleObject.p1Secondary1.vp + battleObject.p1Secondary2.vp + battleObject.p1Secondary3.vp + battleObject.primaryMissionP1.vp
+        battleObject.p2Vp = battleObject.p2Secondary1.vp + battleObject.p2Secondary2.vp + battleObject.p2Secondary3.vp + battleObject.primaryMissionP2.vp
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -171,8 +171,8 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
             if (battleObject.p2Secondary2.progressive) {battleObject.p2Secondary2.unCheck()}
             if (battleObject.p2Secondary3.progressive) {battleObject.p2Secondary3.unCheck()}
 
-            if(battleObject.primaryMission.primaryObjective.progressive) {battleObject.primaryMissionP1.primaryObjective.unCheck()}
-            if(battleObject.primaryMission.primaryObjective.progressive) {battleObject.primaryMissionP2.primaryObjective.unCheck()}
+            if(battleObject.primaryMission.primaryObjective.progressive) {battleObject.primaryMissionP1.unCheck()}
+            if(battleObject.primaryMission.primaryObjective.progressive) {battleObject.primaryMissionP2.unCheck()}
 
 
 

@@ -74,6 +74,7 @@ class FragmentSelectSecondaryObjectives(val battleObject:Battle): Fragment(R.lay
         (spinnerP2Secondary2.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p2Secondary1.category)
         (spinnerP2Secondary1.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p2Secondary2.category)
 
+        //TODO Oh fuck me sideways
     }
 
     private fun createSpinners(){
@@ -96,7 +97,7 @@ class FragmentSelectSecondaryObjectives(val battleObject:Battle): Fragment(R.lay
                 position: Int,
                 id: Long
             ) {
-                battleObject.p1Secondary1 = spinnerP1Secondary1.adapter.getItem(position) as Objective
+                battleObject.p1Secondary1 = (spinnerP1Secondary1.adapter.getItem(position) as Objective).copy()
                 val thisSecondary = battleObject.p1Secondary1
                 (spinnerP1Secondary2.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p1Secondary3.category)
                 (spinnerP1Secondary3.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p1Secondary2.category)
@@ -112,7 +113,7 @@ class FragmentSelectSecondaryObjectives(val battleObject:Battle): Fragment(R.lay
                 position: Int,
                 id: Long
             ) {
-                battleObject.p1Secondary2 = spinnerP1Secondary2.adapter.getItem(position) as Objective
+                battleObject.p1Secondary2 = (spinnerP1Secondary2.adapter.getItem(position) as Objective).copy()
                 val thisSecondary = battleObject.p1Secondary2
                 (spinnerP1Secondary1.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p1Secondary3.category)
                 (spinnerP1Secondary3.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p1Secondary1.category)
@@ -129,7 +130,7 @@ class FragmentSelectSecondaryObjectives(val battleObject:Battle): Fragment(R.lay
                 position: Int,
                 id: Long
             ) {
-                battleObject.p1Secondary3 = spinnerP1Secondary3.adapter.getItem(position) as Objective
+                battleObject.p1Secondary3 = (spinnerP1Secondary3.adapter.getItem(position) as Objective).copy()
                 val thisSecondary = battleObject.p1Secondary3
                 (spinnerP1Secondary2.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p1Secondary1.category)
                 (spinnerP1Secondary1.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p1Secondary2.category)
@@ -147,7 +148,7 @@ class FragmentSelectSecondaryObjectives(val battleObject:Battle): Fragment(R.lay
                 position: Int,
                 id: Long
             ) {
-                battleObject.p2Secondary1 = spinnerP2Secondary1.adapter.getItem(position) as Objective
+                battleObject.p2Secondary1 = (spinnerP2Secondary1.adapter.getItem(position) as Objective).copy()
                 val thisSecondary = battleObject.p2Secondary1
                 (spinnerP2Secondary2.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p2Secondary3.category)
                 (spinnerP2Secondary3.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p2Secondary2.category)
@@ -163,7 +164,7 @@ class FragmentSelectSecondaryObjectives(val battleObject:Battle): Fragment(R.lay
                 position: Int,
                 id: Long
             ) {
-                battleObject.p2Secondary2 = spinnerP2Secondary2.adapter.getItem(position) as Objective
+                battleObject.p2Secondary2 = (spinnerP2Secondary2.adapter.getItem(position) as Objective).copy()
                 val thisSecondary = battleObject.p2Secondary2
                 (spinnerP2Secondary1.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p2Secondary3.category)
                 (spinnerP2Secondary3.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p2Secondary1.category)
@@ -179,7 +180,7 @@ class FragmentSelectSecondaryObjectives(val battleObject:Battle): Fragment(R.lay
                 position: Int,
                 id: Long
             ) {
-                battleObject.p2Secondary3 = spinnerP2Secondary3.adapter.getItem(position) as Objective
+                battleObject.p2Secondary3 = (spinnerP2Secondary3.adapter.getItem(position) as Objective).copy()
                 val thisSecondary = battleObject.p2Secondary3
                 (spinnerP2Secondary2.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p2Secondary1.category)
                 (spinnerP2Secondary1.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p2Secondary2.category)

@@ -31,8 +31,8 @@ class FragmentPrimaries(
     }
 
     private fun setupFragments(){
-        val p1Fragment = getFragment(battleObject.primaryMissionP1.primaryObjective)
-        val p2Fragment = getFragment(battleObject.primaryMissionP2.primaryObjective)
+        val p1Fragment = getFragment(battleObject.primaryMissionP1)
+        val p2Fragment = getFragment(battleObject.primaryMissionP2)
 
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.fl_missionObjectiveP1, p1Fragment)

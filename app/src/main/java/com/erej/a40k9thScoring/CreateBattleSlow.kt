@@ -42,8 +42,8 @@ class CreateBattleSlow :AppCompatActivity(){
         } catch (e: TypeCastException){
             val battle = Battle(null)
             battle.primaryMission = PrimaryList().missions[0]
-            battle.primaryMissionP1 = PrimaryList().missions[0]
-            battle.primaryMissionP2 = PrimaryList().missions[0]
+            battle.primaryMissionP1 = PrimaryList().missions[0].primaryObjective
+            battle.primaryMissionP2 = PrimaryList().missions[0].primaryObjective
             battle
         }
 
