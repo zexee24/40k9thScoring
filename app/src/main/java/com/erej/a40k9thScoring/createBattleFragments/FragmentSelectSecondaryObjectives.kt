@@ -21,7 +21,58 @@ class FragmentSelectSecondaryObjectives(val battleObject:Battle): Fragment(R.lay
         spinner.adapter = SecondaryAdapter(activity?.applicationContext!!, allSecondaries)
     }
 
+    private fun setSpinner(spinner: Spinner, secondary : Objective){
+        spinner.setSelection((spinner.adapter as SecondaryAdapter).getPosition(secondary))
+    }
+
+    private fun setAllSpinners (){
+        setSpinner(spinnerP1Secondary1, battleObject.p1Secondary1)
+        setSpinner(spinnerP1Secondary2, battleObject.p1Secondary2)
+        setSpinner(spinnerP1Secondary3, battleObject.p1Secondary3)
+
+        setSpinner(spinnerP2Secondary1, battleObject.p2Secondary1)
+        setSpinner(spinnerP2Secondary2, battleObject.p2Secondary2)
+        setSpinner(spinnerP2Secondary3, battleObject.p2Secondary3)
+
+
+    }
+
     private fun reloadSpinners(){
+
+        setSpinner(spinnerP1Secondary1, battleObject.p1Secondary1)
+
+        var thisSecondary = battleObject.p1Secondary1
+        (spinnerP1Secondary2.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p1Secondary3.category)
+        (spinnerP1Secondary3.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p1Secondary2.category)
+
+        setSpinner(spinnerP1Secondary2, battleObject.p1Secondary2)
+
+        thisSecondary = battleObject.p1Secondary2
+        (spinnerP1Secondary1.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p1Secondary3.category)
+        (spinnerP1Secondary3.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p1Secondary1.category)
+
+        setSpinner(spinnerP1Secondary3, battleObject.p1Secondary3)
+
+        thisSecondary = battleObject.p1Secondary3
+        (spinnerP1Secondary2.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p1Secondary1.category)
+        (spinnerP1Secondary1.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p1Secondary2.category)
+
+        setSpinner(spinnerP2Secondary1, battleObject.p2Secondary1)
+
+        thisSecondary = battleObject.p2Secondary1
+        (spinnerP2Secondary2.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p2Secondary3.category)
+        (spinnerP2Secondary3.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p2Secondary2.category)
+
+        setSpinner(spinnerP2Secondary2, battleObject.p2Secondary2)
+
+        thisSecondary = battleObject.p2Secondary1
+        (spinnerP2Secondary2.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p2Secondary3.category)
+        (spinnerP2Secondary3.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p2Secondary2.category)
+
+        setSpinner(spinnerP2Secondary3, battleObject.p2Secondary3)
+        thisSecondary = battleObject.p2Secondary3
+        (spinnerP2Secondary2.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p2Secondary1.category)
+        (spinnerP2Secondary1.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p2Secondary2.category)
 
     }
 
@@ -35,7 +86,7 @@ class FragmentSelectSecondaryObjectives(val battleObject:Battle): Fragment(R.lay
         setAdapter(spinnerP2Secondary3)
 
 
-        //TODO when allready selected
+
         //Spinners for P1
         spinnerP1Secondary1.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
 
@@ -49,6 +100,7 @@ class FragmentSelectSecondaryObjectives(val battleObject:Battle): Fragment(R.lay
                 val thisSecondary = battleObject.p1Secondary1
                 (spinnerP1Secondary2.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p1Secondary3.category)
                 (spinnerP1Secondary3.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p1Secondary2.category)
+                setAllSpinners()
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
@@ -64,8 +116,10 @@ class FragmentSelectSecondaryObjectives(val battleObject:Battle): Fragment(R.lay
                 val thisSecondary = battleObject.p1Secondary2
                 (spinnerP1Secondary1.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p1Secondary3.category)
                 (spinnerP1Secondary3.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p1Secondary1.category)
+                setAllSpinners()
             }
-            override fun onNothingSelected(parent: AdapterView<*>?) {}
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
         }
         spinnerP1Secondary3.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
 
@@ -79,6 +133,7 @@ class FragmentSelectSecondaryObjectives(val battleObject:Battle): Fragment(R.lay
                 val thisSecondary = battleObject.p1Secondary3
                 (spinnerP1Secondary2.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p1Secondary1.category)
                 (spinnerP1Secondary1.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p1Secondary2.category)
+                setAllSpinners()
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
@@ -96,6 +151,7 @@ class FragmentSelectSecondaryObjectives(val battleObject:Battle): Fragment(R.lay
                 val thisSecondary = battleObject.p2Secondary1
                 (spinnerP2Secondary2.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p2Secondary3.category)
                 (spinnerP2Secondary3.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p2Secondary2.category)
+                setAllSpinners()
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
@@ -111,6 +167,7 @@ class FragmentSelectSecondaryObjectives(val battleObject:Battle): Fragment(R.lay
                 val thisSecondary = battleObject.p2Secondary2
                 (spinnerP2Secondary1.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p2Secondary3.category)
                 (spinnerP2Secondary3.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p2Secondary1.category)
+                setAllSpinners()
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
@@ -126,6 +183,7 @@ class FragmentSelectSecondaryObjectives(val battleObject:Battle): Fragment(R.lay
                 val thisSecondary = battleObject.p2Secondary3
                 (spinnerP2Secondary2.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p2Secondary1.category)
                 (spinnerP2Secondary1.adapter as SecondaryAdapter).updateList(thisSecondary.category, battleObject.p2Secondary2.category)
+                setAllSpinners()
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
@@ -137,7 +195,7 @@ class FragmentSelectSecondaryObjectives(val battleObject:Battle): Fragment(R.lay
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         createSpinners()
-
-
+        reloadSpinners()
     }
+
 }

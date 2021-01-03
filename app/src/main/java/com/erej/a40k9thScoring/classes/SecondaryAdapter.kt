@@ -21,6 +21,16 @@ class SecondaryAdapter(val context: Context, private val secondarySet : List<Obj
         return secondaryList.size
     }
 
+
+    fun getPosition(objective: Objective): Int{
+        for (i in secondaryList.indices){
+            if (secondaryList[i] == objective){
+                return i
+            }
+        }
+        throw error("The objective for this mission is no longer in the secondary set / selectable")
+    }
+
     override fun getItem(position: Int): Objective {
         return secondaryList[position]
     }
