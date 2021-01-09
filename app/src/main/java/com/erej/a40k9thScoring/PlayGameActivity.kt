@@ -49,18 +49,25 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
     }
 
     private fun nextTurn(){
-        when(battleObject.turnCounter){
-            0 -> {
-                battleObject.phaseCounter = 0
-                battleObject.turnCounter++
-            }
-            1 -> {
-                battleObject.phaseCounter = 0
-                battleObject.turnCounter = 0
-                battleObject.roundCounter++
-            }
+        if(battleObject.currentTurn == battleObject.firstTurn){
+            battleObject.currentTurn++
+        }else{
+            battleObject.currentTurn = battleObject.firstTurn
+            battleObject.roundCounter++
         }
+        if (battleObject.currentTurn > 1){
+            battleObject.currentTurn = 0
+        }
+        battleObject.phaseCounter = 0
         setRoundText()
+    }
+
+    private fun commandPhase(){
+        if (battleObject.currentTurn == 0){
+            battleObject.p1Cp++
+        }else{
+            battleObject.p2Cp++
+        }
     }
 
     private fun setRoundText(){
@@ -70,7 +77,10 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
 
         roundText += " "
         roundText += when(battleObject.phaseCounter){
-            0 -> getString(R.string.command)
+            0 -> {
+                commandPhase()
+                getString(R.string.command)
+            }
             1 -> getString(R.string.movement)
             2 -> getString(R.string.psychic)
             3 -> getString(R.string.shooting)
@@ -84,7 +94,7 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
             else -> throw error("in phase indexing")
         }
         roundText += " "
-        roundText += when(battleObject.turnCounter){
+        roundText += when(battleObject.currentTurn){
             0 -> battleObject.p1Name
             1 -> battleObject.p2Name
             else -> throw error("Error in turn indexing")
@@ -96,8 +106,8 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
 
 
     private fun updateVP(){
-        battleObject.p1Vp = battleObject.p1Secondary1.vp + battleObject.p1Secondary2.vp + battleObject.p1Secondary3.vp + battleObject.primaryMissionP1.primaryObjective.vp
-        battleObject.p2Vp = battleObject.p2Secondary1.vp + battleObject.p2Secondary2.vp + battleObject.p2Secondary3.vp + battleObject.primaryMissionP2.primaryObjective.vp
+        battleObject.p1Vp = battleObject.p1Secondary1.vp + battleObject.p1Secondary2.vp + battleObject.p1Secondary3.vp + battleObject.primaryMissionP1.vp
+        battleObject.p2Vp = battleObject.p2Secondary1.vp + battleObject.p2Secondary2.vp + battleObject.p2Secondary3.vp + battleObject.primaryMissionP2.vp
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -134,6 +144,12 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
         //Fetch the battle date from MainActivity
         battleObject = intent.getSerializableExtra("battle") as Battle
 
+        if (battleObject.createCounter != 12){
+            intent = Intent(this, createBattleMethod)
+            intent.putExtra("battle", battleObject)
+            startActivity(intent)
+        }
+
         drawerBattleMenu.setNavigationItemSelectedListener(this)
 
 
@@ -165,8 +181,8 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
             if (battleObject.p2Secondary2.progressive) {battleObject.p2Secondary2.unCheck()}
             if (battleObject.p2Secondary3.progressive) {battleObject.p2Secondary3.unCheck()}
 
-            if(battleObject.primaryMission.primaryObjective.progressive) {battleObject.primaryMissionP1.primaryObjective.unCheck()}
-            if(battleObject.primaryMission.primaryObjective.progressive) {battleObject.primaryMissionP2.primaryObjective.unCheck()}
+            if(battleObject.primaryMission.primaryObjective.progressive) {battleObject.primaryMissionP1.unCheck()}
+            if(battleObject.primaryMission.primaryObjective.progressive) {battleObject.primaryMissionP2.unCheck()}
 
 
 

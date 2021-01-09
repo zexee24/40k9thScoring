@@ -11,7 +11,7 @@ interface BattleDAO {
     @Query("SELECT * from battle_table ORDER BY battle ASC")
     fun getBattle(): LiveData<List<Battle>>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(battle: Battle)
 
     @Query ("DELETE FROM battle_table ")

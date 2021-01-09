@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <Spinner
-        android:id="@+id/spinnerP2Sec1"
+        android:id="@+id/spinnerP2Secondary1"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:spinnerMode="dialog"
@@ -21,7 +21,7 @@
         android:spinnerMode="dialog"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/spinnerP1Sec2"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerP2Sec1" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerP2Secondary1" />
 
     <Spinner
         android:id="@+id/spinnerP2Sec3"

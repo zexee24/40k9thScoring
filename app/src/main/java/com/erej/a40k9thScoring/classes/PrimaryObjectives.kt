@@ -4,10 +4,10 @@ class PrimaryObjectives{
 
     val primaryObjectives: List<Objective> = listOf(
 
-        Objective("None", "None",false, listOf(), "Be Empty","Empty"),
+        Objective("Primary", "None",false, listOf(), "Be Empty","Empty"),
 
         Objective(
-            "None",
+            "Primary",
             "Take and Hold",
             true,
             listOf(6),
@@ -20,7 +20,7 @@ class PrimaryObjectives{
             listOf("You control one or more objective markers", "You control two or more objective markers", "You control more objective markers than your opponent" )),
 
         Objective(
-            "None",
+            "Primary",
             "Domination",
             true,
             listOf(6),
@@ -33,7 +33,7 @@ class PrimaryObjectives{
             listOf("You control two or more objective markers", "You control three or more objective markers", "You control more objective markers than your opponent" )),
 
         Objective(
-            "None",
+            "Primary",
             "Unified Advance",
             true,
             listOf(6),

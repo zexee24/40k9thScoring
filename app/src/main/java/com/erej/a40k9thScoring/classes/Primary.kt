@@ -117,7 +117,6 @@ class PrimaryList {
                 "protect your supply lines. The battleground is won and lost " +
                 "one yard at a time, and a commander must simultaneously " +
                 "master offensive and defensive tactics if they are to prevail.", primaries[1], secondaries[6],
-            //TODO centre ground p.291
             R.drawable.centre_ground
         ),
         Primary(
@@ -131,7 +130,6 @@ class PrimaryList {
                     "assault to capture it. Storm every site of tactical import and " +
                     "leave the foe with no place to hide.",
             primaries[1], secondaries[7],
-            //TODO forward push p.292
             R.drawable.forward_push
         ),
         Primary(
@@ -145,7 +143,6 @@ class PrimaryList {
                     "the enemy's position can be overrun, a brutal grinding war " +
                     "could be avoided.",
             primaries[2], secondaries[8],
-            //TODO ransack p.293
             R.drawable.ransack
         ),
         Primary(
@@ -162,7 +159,6 @@ class PrimaryList {
                     "our forces the breakthrough needed to cut off the enemy's " +
                     "supply lines.",
             primaries[1], secondaries[9],
-            //TODO test their lines p.293
             R.drawable.shifting_front
         ),
 

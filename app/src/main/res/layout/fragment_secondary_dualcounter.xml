@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colourBackround2"
     android:clickable="false"
     tools:context=".objectiveFragments.FragmentObjectiveCounter">
 
@@ -13,11 +14,10 @@
         style="@style/Widget.AppCompat.Button.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
         android:background="#7C2D2D"
         android:text="-"
-        app:layout_constraintBottom_toTopOf="@+id/buttonDecrease2"
-        app:layout_constraintEnd_toStartOf="@+id/counterView1" />
+        app:layout_constraintEnd_toStartOf="@+id/counterView1"
+        app:layout_constraintTop_toTopOf="@+id/buttonIncrease1" />
 
     <Button
         android:id="@+id/buttonIncrease1"
@@ -26,11 +26,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="4dp"
         android:background="#47BC4B"
         android:text="+"
-        app:layout_constraintBottom_toTopOf="@+id/buttonIncrease"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewdescription" />
 
     <TextView
         android:id="@+id/counterView"
@@ -57,14 +56,12 @@
     <TextView
         android:id="@+id/textViewdescription"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
+        android:layout_height="wrap_content"
         android:autoSizeMaxTextSize="18dp"
         android:autoSizeMinTextSize="10dp"
         android:autoSizeStepGranularity="2sp"
         android:autoSizeTextType="uniform"
         android:text="description"
-        app:layout_constraintBottom_toTopOf="@+id/buttonIncrease1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
@@ -78,8 +75,8 @@
         android:layout_marginRight="8dp"
         android:background="#47BC4B"
         android:text="+"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonIncrease1" />
 
     <TextView
         android:id="@+id/counterView1"
@@ -87,9 +84,9 @@
         android:layout_height="wrap_content"
         android:text="0"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonIncrease"
         app:layout_constraintEnd_toStartOf="@+id/buttonIncrease"
-        app:layout_constraintTop_toTopOf="@+id/buttonDecrease2" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonIncrease1" />
 
     <Button
         android:id="@+id/buttonDecrease2"
@@ -98,8 +95,9 @@
         android:layout_height="wrap_content"
         android:background="#7C2D2D"
         android:text="-"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/counterView1" />
+        app:layout_constraintBottom_toBottomOf="@+id/buttonIncrease"
+        app:layout_constraintEnd_toStartOf="@+id/counterView1"
+        app:layout_constraintTop_toBottomOf="@+id/buttonIncrease1" />
 
     <TextView
         android:id="@+id/textViewCounterHint1"

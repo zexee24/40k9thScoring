@@ -20,4 +20,5 @@
     <string name="charge">Charge</string>
     <string name="fight">Fight</string>
     <string name="endOfRound">End of round</string>
+    <string name="_1_select_battle_size">1. Select Battle Size</string>
 </resources>
