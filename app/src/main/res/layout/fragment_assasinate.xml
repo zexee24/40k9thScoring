@@ -5,8 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 <<<<<<< HEAD:app/src/main/res/layout/fragment_assasinate.xml
+<<<<<<< HEAD:app/src/main/res/layout/fragment_assasinate.xml
     tools:context=".AssassinateFragment">
 =======
+=======
+    android:background="@color/colourBackround2"
+>>>>>>> 956b2b2... TODO: turncounting:app/src/main/res/layout/fragment_secondary_counter.xml
     android:clickable="false"
 <<<<<<< HEAD:app/src/main/res/layout/fragment_assasinate.xml
 <<<<<<< HEAD:app/src/main/res/layout/fragment_assasinate.xml
@@ -42,10 +46,20 @@
 
     <TextView
         android:id="@+id/textViewdescription"
+<<<<<<< HEAD:app/src/main/res/layout/fragment_assasinate.xml
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="description"
         app:layout_constraintBottom_toTopOf="@+id/buttonIncrease"
+=======
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:autoSizeMaxTextSize="18dp"
+        android:autoSizeMinTextSize="10dp"
+        android:autoSizeStepGranularity="2sp"
+        android:autoSizeTextType="uniform"
+        android:text="description"
+>>>>>>> 956b2b2... TODO: turncounting:app/src/main/res/layout/fragment_secondary_counter.xml
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
@@ -59,13 +73,17 @@
 =======
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
         android:background="@color/colorPositive"
 >>>>>>> 6a5579d... Merge remote-tracking branch 'origin/master':app/src/main/res/layout/fragment_secondary_counter.xml
         android:text="+"
+<<<<<<< HEAD:app/src/main/res/layout/fragment_assasinate.xml
         app:layout_constraintBottom_toTopOf="@+id/counterView1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+=======
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/counterView1"
+>>>>>>> 956b2b2... TODO: turncounting:app/src/main/res/layout/fragment_secondary_counter.xml
         app:layout_constraintTop_toBottomOf="@+id/textViewdescription" />
 
     <TextView
@@ -75,10 +93,17 @@
         android:layout_marginBottom="1dp"
         android:text="0"
         android:textSize="24sp"
+<<<<<<< HEAD:app/src/main/res/layout/fragment_assasinate.xml
         app:layout_constraintBottom_toTopOf="@+id/buttonDecrease"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonIncrease" />
+=======
+        app:layout_constraintBottom_toBottomOf="@+id/buttonIncrease"
+        app:layout_constraintEnd_toStartOf="@+id/buttonIncrease"
+        app:layout_constraintStart_toEndOf="@id/buttonDecrease"
+        app:layout_constraintTop_toTopOf="@+id/buttonIncrease" />
+>>>>>>> 956b2b2... TODO: turncounting:app/src/main/res/layout/fragment_secondary_counter.xml
 
     <Button
         android:id="@+id/buttonDecrease"
@@ -86,17 +111,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 <<<<<<< HEAD:app/src/main/res/layout/fragment_assasinate.xml
+<<<<<<< HEAD:app/src/main/res/layout/fragment_assasinate.xml
 =======
         android:layout_marginBottom="8dp"
+=======
+>>>>>>> 956b2b2... TODO: turncounting:app/src/main/res/layout/fragment_secondary_counter.xml
         android:background="@color/colorNegative"
 >>>>>>> 6a5579d... Merge remote-tracking branch 'origin/master':app/src/main/res/layout/fragment_secondary_counter.xml
         android:text="-"
+<<<<<<< HEAD:app/src/main/res/layout/fragment_assasinate.xml
         app:layout_constraintBottom_toBottomOf="parent"
 <<<<<<< HEAD:app/src/main/res/layout/fragment_assasinate.xml
         app:layout_constraintEnd_toEndOf="parent"
 =======
+=======
+        app:layout_constraintBottom_toBottomOf="@+id/buttonIncrease"
+>>>>>>> 956b2b2... TODO: turncounting:app/src/main/res/layout/fragment_secondary_counter.xml
         app:layout_constraintEnd_toStartOf="@+id/counterView1"
-        app:layout_constraintStart_toEndOf="@+id/textViewCounterHint" />
+        app:layout_constraintStart_toEndOf="@+id/textViewCounterHint"
+        app:layout_constraintTop_toTopOf="@+id/buttonIncrease" />
 
     <TextView
         android:id="@+id/textViewCounterHint"
