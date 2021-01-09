@@ -84,12 +84,25 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
     }
 
     private fun nextTurn(){
-
+        if(battleObject.currentTurn == battleObject.firstTurn){
+            battleObject.currentTurn++
+        }else{
+            battleObject.currentTurn = battleObject.firstTurn
+            battleObject.roundCounter++
+        }
+        if (battleObject.currentTurn > 1){
+            battleObject.currentTurn = 0
+        }
+        battleObject.phaseCounter = 0
         setRoundText()
     }
 
-    private fun commandPhase() : String{
-        return getString(R.string.command)
+    private fun commandPhase(){
+        if (battleObject.currentTurn == 0){
+            battleObject.p1Cp++
+        }else{
+            battleObject.p2Cp++
+        }
     }
 
     private fun setRoundText(){
@@ -99,8 +112,11 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
 
         roundText += " "
         roundText += when(battleObject.phaseCounter){
-            0 -> getString(R.string.command)
-            1 -> commandPhase()
+            0 -> {
+                commandPhase()
+                getString(R.string.command)
+            }
+            1 -> getString(R.string.movement)
             2 -> getString(R.string.psychic)
             3 -> getString(R.string.shooting)
             4 -> getString(R.string.charge)
@@ -113,7 +129,7 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
             else -> throw error("in phase indexing")
         }
         roundText += " "
-        roundText += when(battleObject.turnCounter){
+        roundText += when(battleObject.currentTurn){
             0 -> battleObject.p1Name
             1 -> battleObject.p2Name
             else -> throw error("Error in turn indexing")
