@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colourBackround2"
     android:clickable="false"
     tools:context=".objectiveFragments.FragmentObjectiveCounter">
 
@@ -22,13 +23,12 @@
     <TextView
         android:id="@+id/textViewdescription"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:autoSizeMaxTextSize="18dp"
         android:autoSizeMinTextSize="10dp"
         android:autoSizeStepGranularity="2sp"
         android:autoSizeTextType="uniform"
         android:text="description"
-        app:layout_constraintBottom_toTopOf="@+id/buttonDecrease"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
@@ -40,12 +40,11 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
         android:background="@color/colorPositive"
         android:text="+"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/counterView1" />
+        app:layout_constraintStart_toEndOf="@id/counterView1"
+        app:layout_constraintTop_toBottomOf="@+id/textViewdescription" />
 
     <TextView
         android:id="@+id/counterView1"
@@ -57,22 +56,22 @@
         android:layout_marginRight="4dp"
         android:text="0"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonDecrease"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonIncrease"
         app:layout_constraintEnd_toStartOf="@+id/buttonIncrease"
         app:layout_constraintStart_toEndOf="@id/buttonDecrease"
-        app:layout_constraintTop_toBottomOf="@+id/textViewdescription" />
+        app:layout_constraintTop_toTopOf="@+id/buttonIncrease" />
 
     <Button
         android:id="@+id/buttonDecrease"
         style="@style/Widget.AppCompat.Button.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:background="@color/colorNegative"
         android:text="-"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonIncrease"
         app:layout_constraintEnd_toStartOf="@+id/counterView1"
-        app:layout_constraintStart_toEndOf="@+id/textViewCounterHint" />
+        app:layout_constraintStart_toEndOf="@+id/textViewCounterHint"
+        app:layout_constraintTop_toTopOf="@+id/buttonIncrease" />
 
     <TextView
         android:id="@+id/textViewCounterHint"

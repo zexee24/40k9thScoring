@@ -49,18 +49,12 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
     }
 
     private fun nextTurn(){
-        when(battleObject.turnCounter){
-            0 -> {
-                battleObject.phaseCounter = 0
-                battleObject.turnCounter++
-            }
-            1 -> {
-                battleObject.phaseCounter = 0
-                battleObject.turnCounter = 0
-                battleObject.roundCounter++
-            }
-        }
+
         setRoundText()
+    }
+
+    private fun commandPhase() : String{
+        return getString(R.string.command)
     }
 
     private fun setRoundText(){
@@ -71,7 +65,7 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
         roundText += " "
         roundText += when(battleObject.phaseCounter){
             0 -> getString(R.string.command)
-            1 -> getString(R.string.movement)
+            1 -> commandPhase()
             2 -> getString(R.string.psychic)
             3 -> getString(R.string.shooting)
             4 -> getString(R.string.charge)
