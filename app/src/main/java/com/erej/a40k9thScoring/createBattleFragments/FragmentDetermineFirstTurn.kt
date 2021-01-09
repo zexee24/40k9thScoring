@@ -26,6 +26,7 @@ class FragmentDetermineFirstTurn(val battleObject:Battle): Fragment(R.layout.fra
                 id: Long
             ) {
                 battleObject.firstTurn = position
+                battleObject.currentTurn = battleObject.firstTurn
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }

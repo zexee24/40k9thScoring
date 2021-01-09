@@ -189,7 +189,7 @@ class CreateBattleFast : AppCompatActivity() {
                     battle.primaryMission = mission
                     battle.primaryMissionP1 = mission.primaryObjective
                     battle.primaryMissionP2 = mission.primaryObjective
-                    battle.turnCounter = 0
+                    battle.currentTurn = 0
 
 
                     battleViewModel.insert(battle)
