@@ -134,7 +134,7 @@ class SecondaryList {
                 "While We Stand, We Fight",
                 false,
                 listOf(1, 2, 3, 4),
-                "Determine your 3 most expensive individual models." +
+                "Determine your 3 most expensive units (inc. wargear)." +
                         " At the end of the game, score 5 VP for each that survived the battle.",
                 "ThreeCheckMarks",
                 listOf("Is your Expensive unit alive?", "Is your Expensive unit alive?", "Is your Expensive unit alive?")

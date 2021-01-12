@@ -21,4 +21,8 @@
     <string name="fight">Fight</string>
     <string name="endOfRound">End of round</string>
     <string name="_1_select_battle_size">1. Select Battle Size</string>
+    <string name="settings">Settings</string>
+    <string name="default_name">default name</string>
+    <string name="save">save</string>
+    <string name="auto_increment_cp">auto increment cp</string>
 </resources>
