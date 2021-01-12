@@ -22,6 +22,8 @@
         <activity android:name="com.erej.a40k9thScoring.CreateBattleSlow"/>
         <activity android:name="com.erej.a40k9thScoring.PlayGameActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".SettingsActivity" />
+
     </application>
 
 </manifest>

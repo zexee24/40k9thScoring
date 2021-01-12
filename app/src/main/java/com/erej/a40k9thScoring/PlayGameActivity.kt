@@ -98,10 +98,12 @@ class PlayGameActivity: AppCompatActivity(), NavigationView.OnNavigationItemSele
     }
 
     private fun commandPhase(){
-        if (battleObject.currentTurn == 0){
-            battleObject.p1Cp++
-        }else{
-            battleObject.p2Cp++
+        if (Settings(applicationContext).getSettingBool("auto_increment_cp")!!) {
+            if (battleObject.currentTurn == 0) {
+                battleObject.p1Cp++
+            } else {
+                battleObject.p2Cp++
+            }
         }
     }
 
