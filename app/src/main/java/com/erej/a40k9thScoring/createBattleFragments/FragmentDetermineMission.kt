@@ -7,7 +7,7 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import com.erej.a40k9thScoring.R
 import com.erej.a40k9thScoring.classes.Battle
-import com.erej.a40k9thScoring.classes.Primary
+import com.erej.a40k9thScoring.classes.Mission
 import com.erej.a40k9thScoring.classes.PrimaryList
 import kotlinx.android.synthetic.main.fragment_create_select_mission.*
 
@@ -15,7 +15,7 @@ class FragmentDetermineMission(val battleObject:Battle): Fragment(R.layout.fragm
 
     private val missionPacks = listOf<String>("Eternal War")
     private val allMission = PrimaryList().missions
-    private var missionList : MutableList<Primary> = mutableListOf(allMission[0])
+    private var missionList : MutableList<Mission> = mutableListOf(allMission[0])
     private lateinit var missionNameList : List<String>
 
     private fun updatePrimaryList(){
@@ -43,7 +43,7 @@ class FragmentDetermineMission(val battleObject:Battle): Fragment(R.layout.fragm
             "Onslaught" -> R.drawable.onslaught
             else -> throw error("Error in mission types in $this")
         }
-        imageView.setImageResource(image)
+        imageViewBattleMap.setImageResource(image)
 
 
         spinnerSelectMissionPack.adapter = ArrayAdapter<String>(activity?.applicationContext!!, android.R.layout.simple_list_item_1, missionPacks)

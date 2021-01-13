@@ -1,8 +1,8 @@
 package com.erej.a40k9thScoring.dataStoring
 
 import androidx.room.TypeConverter
+import com.erej.a40k9thScoring.classes.Mission
 import com.erej.a40k9thScoring.classes.Objective
-import com.erej.a40k9thScoring.classes.Primary
 import com.google.gson.Gson
 
 class ObjectiveConverter {
@@ -29,14 +29,14 @@ class PrimaryConverter {
 
         @TypeConverter
         @JvmStatic
-        fun fromPrimary(primary: Primary): String{
-            return Gson().toJson(primary)
+        fun fromPrimary(mission: Mission): String{
+            return Gson().toJson(mission)
         }
 
         @TypeConverter
         @JvmStatic
-        fun toPrimary(s: String): Primary {
-            return Gson().fromJson(s, Primary::class.java)
+        fun toPrimary(s: String): Mission {
+            return Gson().fromJson(s, Mission::class.java)
         }
     }
 }

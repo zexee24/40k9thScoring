@@ -20,11 +20,11 @@ class CreateBattleFast : AppCompatActivity() {
     lateinit var p2Secondary2: Objective
     lateinit var p2Secondary3: Objective
     var battleType = "none"
-    lateinit var mission: Primary
+    lateinit var mission: Mission
     private var secondaryList: MutableList<Objective> = SecondaryList().getSecondaries as MutableList<Objective>
     private lateinit var secondaryNameList: List<String>
-    var primaryList: MutableList<Primary> = PrimaryList().missions as MutableList<Primary>
-    private lateinit var currentPrimaryList: MutableList<Primary>
+    var missionList: MutableList<Mission> = PrimaryList().missions as MutableList<Mission>
+    private lateinit var currentMissionList: MutableList<Mission>
     private lateinit var primaryNameList: List<String>
 
     private fun setSecondaryLists(){
@@ -45,14 +45,14 @@ class CreateBattleFast : AppCompatActivity() {
 
 
     private fun setPrimaryMissionList(){
-        currentPrimaryList = mutableListOf()
-        for(i in primaryList){
+        currentMissionList = mutableListOf()
+        for(i in missionList){
             if(i.missionSize == battleType){
-                currentPrimaryList.add(i)
+                currentMissionList.add(i)
             }
         }
 
-        primaryNameList = currentPrimaryList.map{
+        primaryNameList = currentMissionList.map{
             it.name
         }
         spinnerSelectPrimary.adapter = ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, primaryNameList)
@@ -160,7 +160,7 @@ class CreateBattleFast : AppCompatActivity() {
                     position: Int,
                     id: Long
                 ) {
-                    mission = currentPrimaryList[position]
+                    mission = currentMissionList[position]
                     secondaryList[0] = mission.secondaryObjective
                     setSecondaryLists()
                 }

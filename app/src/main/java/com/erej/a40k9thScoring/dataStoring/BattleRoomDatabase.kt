@@ -5,10 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import androidx.sqlite.db.SupportSQLiteDatabase
 import com.erej.a40k9thScoring.classes.Battle
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
 
 
 @Database(entities = [Battle::class],version = 1, exportSchema = false)
@@ -23,7 +20,7 @@ abstract class BattleRoomDatabase: RoomDatabase() {
         @Volatile
         private var INSTANCE: BattleRoomDatabase? = null
 
-        fun getDatabase(context: Context, scope: CoroutineScope): BattleRoomDatabase {
+        fun getDatabase(context: Context): BattleRoomDatabase {
             val tempInstance = INSTANCE
 
             if (tempInstance != null){
@@ -36,7 +33,7 @@ abstract class BattleRoomDatabase: RoomDatabase() {
                     BattleRoomDatabase::class.java,
                     "battle_database"
 
-                ).addCallback(BattleDatabaseCallback(scope)).build()
+                ).addCallback(BattleDatabaseCallback()).build()
                 INSTANCE = instance
                 return instance
             }
@@ -44,6 +41,7 @@ abstract class BattleRoomDatabase: RoomDatabase() {
 
     }
 
+<<<<<<< HEAD
     private class BattleDatabaseCallback(
         private val scope: CoroutineScope
     ) : RoomDatabase.Callback() {
@@ -112,5 +110,8 @@ abstract class BattleRoomDatabase: RoomDatabase() {
 
 
     }
+=======
+    private class BattleDatabaseCallback : RoomDatabase.Callback()
+>>>>>>> c61a4cb... Created a database to store missionPacks locally
 
 }
