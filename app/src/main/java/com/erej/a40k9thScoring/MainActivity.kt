@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.erej.a40k9thScoring.classes.Battle
+import com.erej.a40k9thScoring.dataStoring.BattleViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 

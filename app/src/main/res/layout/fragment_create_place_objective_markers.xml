@@ -47,7 +47,7 @@ where each should be placed. "
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/imageViewBattleMap"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -72,7 +72,7 @@ where each should be placed. "
                 app:layout_constraintBottom_toTopOf="@+id/textView9"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imageView" />
+                app:layout_constraintTop_toBottomOf="@id/imageViewBattleMap" />
 
             <TextView
                 android:id="@id/textView9"
