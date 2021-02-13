@@ -4,10 +4,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.erej.a40k9thScoring.classes.MissionPack
 
 @Database(entities = [MissionPack::class], version = 1, exportSchema = false)
-
+@TypeConverters(ObjectiveListConverter::class, PrimaryListConverter::class)
 abstract class MissionPackRoomDatabase: RoomDatabase() {
 
     abstract fun missionPackDao(): MissionPackDAO

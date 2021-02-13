@@ -7,4 +7,9 @@
         android:icon="@drawable/ic_baseline_settings_24"
         android:title="@string/settings"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_updateData"
+        android:icon="@drawable/ic_baseline_cloud_download_24"
+        android:title="@string/update_data"
+        app:showAsAction="ifRoom" />
 </menu>

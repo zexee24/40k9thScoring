@@ -8,7 +8,6 @@ data class Objective(
     val category : String,
     val name : String,
     val progressive: Boolean,
-
     /*
     0 = Command
     1 = Movement
@@ -18,7 +17,6 @@ data class Objective(
     5 = Fight
     6 = End of round
      */
-
     val triggerPhases : List<Int>,
 <<<<<<< HEAD
     val hint : String
