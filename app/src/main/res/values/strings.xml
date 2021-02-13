@@ -25,4 +25,5 @@
     <string name="default_name">default name</string>
     <string name="save">save</string>
     <string name="auto_increment_cp">auto increment cp</string>
+    <string name="update_data">Update data</string>
 </resources>

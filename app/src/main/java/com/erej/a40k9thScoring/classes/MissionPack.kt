@@ -4,7 +4,8 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
-import com.erej.a40k9thScoring.dataStoring.PrimaryConverter
+import com.erej.a40k9thScoring.dataStoring.ObjectiveListConverter
+import com.erej.a40k9thScoring.dataStoring.PrimaryListConverter
 
 
 @Entity(tableName = "missionPack_table")
@@ -12,8 +13,11 @@ data class MissionPack(
     @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name = "missionPack")
     val name : String,
-    @TypeConverters(PrimaryConverter::class)
-    val missions : List<Mission>,
-    val secondaries: List<Objective>,
-    val missionsSpecificSecondaries: List<Objective>
+    @TypeConverters(PrimaryListConverter::class)
+    var  missions : List<Mission>,
+
+    @TypeConverters(ObjectiveListConverter::class)
+    val secondaries: List<Objective>
+
 )
+
