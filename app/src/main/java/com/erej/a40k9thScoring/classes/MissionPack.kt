@@ -17,7 +17,7 @@ data class MissionPack(
     var  missions : List<Mission>,
 
     @TypeConverters(ObjectiveListConverter::class)
-    val secondaries: List<Objective>
+    var secondaries: List<Objective>
 
 )
 

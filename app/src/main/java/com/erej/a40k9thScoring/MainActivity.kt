@@ -33,23 +33,31 @@ val createBattleMethod = CreateBattleSlow::class.java
 class MainActivity : AppCompatActivity(), OnBattleClickListener{
 
     private fun upDateData(){
+
+        //create the "ui"
         val popupView = layoutInflater.inflate(R.layout.popup_update_data, null, false)
         val width = LinearLayout.LayoutParams.WRAP_CONTENT
         val heigth = LinearLayout.LayoutParams.WRAP_CONTENT
-
         val popupWindow = PopupWindow(popupView, width, heigth, false)
         popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0)
-        val fbdb = FirebaseFirestore.getInstance()
 
+        //define data source
+        val fbdb = FirebaseFirestore.getInstance()
         val docRef = fbdb.collection("MissionPacks")
+
+        //create a list for the missionPacks
+
         val missionPackList = mutableListOf<MissionPack>()
 
+
         docRef.get().addOnSuccessListener { document ->
+            //loop trough all missionPacks
             for (i in document) {
                 val newDocRef = docRef.document(i.id)
-                    val missionPackName = i["name"]
-                    val missions = mutableListOf<Mission>()
-
+                val missionPackName = i["name"]
+                val missions = mutableListOf<Mission>()
+                val missionPack = MissionPack(missionPackName.toString(), listOf(), listOf())
+                //loop trough all missions in the missionPack
                     newDocRef.collection("missions").get().addOnSuccessListener { missionList ->
                         for (j in missionList) {
                             val missionsName = j["name"] as String
@@ -74,8 +82,12 @@ class MainActivity : AppCompatActivity(), OnBattleClickListener{
                                 )
                             )
                         }
-                        }
+                        missionPackList.remove(missionPack)
+                        missionPack.missions = missions
+                        missionPackList.add(missionPack)
 
+                        }
+                //loop trough all secondaries in the missionPack
                 val objectives = mutableListOf<Objective>()
                 newDocRef.collection("objectives").get()
                     .addOnSuccessListener { objectiveList ->
@@ -84,22 +96,27 @@ class MainActivity : AppCompatActivity(), OnBattleClickListener{
                             objectives.add(objective)
                             Log.d("Objectives","$objective")
                         }
+                        missionPackList.remove(missionPack)
+                        missionPack.missions = missions
+                        missionPackList.add(missionPack)
                     }
-                val missionPack = MissionPack(missionPackName.toString(), missions, objectives)
                 missionPackList.add(missionPack)
             }
         }
 
-        Toast.makeText(this, "$missionPackList", Toast.LENGTH_SHORT).show()
-        for (i in missionPackList){
-            missionPackViewModel.insert(i)
-            Toast.makeText(this, "$i", Toast.LENGTH_SHORT).show()
-        }
+
 
         popupWindow.contentView.buttonCancel.setOnClickListener {
             popupWindow.dismiss()
         }
         popupWindow.contentView.buttonOk.setOnClickListener {
+            for (i in missionPackList){
+                missionPackViewModel.insert(i)
+            }
+            missionPackViewModel.allMissionPacks.observe(this, Observer { missionPack ->
+                Toast.makeText(this, "${missionPack.size}", Toast.LENGTH_SHORT).show()
+            })
+
             popupWindow.dismiss()
         }
 
@@ -152,9 +169,7 @@ class MainActivity : AppCompatActivity(), OnBattleClickListener{
             battles?.let {battleAdapter.submitList(it)}
         })
 
-        missionPackViewModel.allMissionPacks.observe(this, Observer { missionsPacks ->
-            Toast.makeText(this, missionsPacks.size.toString(), Toast.LENGTH_SHORT).show()
-        })
+
 
         //create new battle
         addNewBattle.setOnClickListener{
