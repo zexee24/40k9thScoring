@@ -17,17 +17,19 @@ class BattleRecyclerAdapter(private var clickListener: OnBattleClickListener) : 
         LayoutInflater.from(parent.context).inflate(R.layout.layout_battle_list, parent,false)
     )
     }
+
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-     when(holder){
-         is BattleViewHolder ->{
-             holder.bind(items[position],clickListener)
-            
-         }
-     }
+        when(holder){
+            is BattleViewHolder ->{
+                holder.bind(items[position],clickListener)
+            }
+        }
     }
+
     override fun getItemCount(): Int {
         return items.size
     }
+
     fun submitList(battleList: List<Battle>){
         items = battleList
         notifyDataSetChanged()
@@ -43,7 +45,6 @@ fun  getBattleAtPosition(position : Int): Battle {
         itemView: View
     ):RecyclerView.ViewHolder(itemView) {
 
-
         fun bind(battle: Battle, action: OnBattleClickListener){
             itemView.name1.text = battle.p1Name
             itemView.name2.text = battle.p2Name
@@ -56,9 +57,6 @@ fun  getBattleAtPosition(position : Int): Battle {
             itemView.setOnClickListener{
                 action.onItemClick(battle, adapterPosition)
             }
-
-
-
         }
     }
 
