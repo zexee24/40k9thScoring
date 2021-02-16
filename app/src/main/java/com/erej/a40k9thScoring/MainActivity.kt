@@ -7,7 +7,6 @@ import android.util.Log
 import android.view.*
 import android.widget.LinearLayout
 import android.widget.PopupWindow
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -20,6 +19,7 @@ import com.erej.a40k9thScoring.dataStoring.MissionPackViewModel
 import com.erej.a40k9thScoring.dataStoring.fireBaseConverter
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.popup_update_data.*
 import kotlinx.android.synthetic.main.popup_update_data.view.*
 import kotlinx.coroutines.*
 
@@ -27,6 +27,7 @@ import kotlinx.coroutines.*
 private lateinit var battleAdapter: BattleRecyclerAdapter
 lateinit var battleViewModel : BattleViewModel
 lateinit var missionPackViewModel : MissionPackViewModel
+lateinit var missionPackAdapter : MissionPackUpdateRecyclerAdapter
 
 val createBattleMethod = CreateBattleSlow::class.java
 
@@ -46,47 +47,54 @@ class MainActivity : AppCompatActivity(), OnBattleClickListener{
         val docRef = fbdb.collection("MissionPacks")
 
         //create a list for the missionPacks
-
         val missionPackList = mutableListOf<MissionPack>()
 
+        //initialize info about data updates
+        initUpdateDataRecyclerView()
+        missionPackViewModel.allMissionPacks.observe(this, Observer { missionPack ->
+            missionPack?.let {missionPackAdapter.submitList(it)}
+        })
 
         docRef.get().addOnSuccessListener { document ->
+
             //loop trough all missionPacks
             for (i in document) {
                 val newDocRef = docRef.document(i.id)
                 val missionPackName = i["name"]
                 val missions = mutableListOf<Mission>()
-                val missionPack = MissionPack(missionPackName.toString(), listOf(), listOf())
+                //TODO expected numbers
+                val missionPack = MissionPack(missionPackName.toString(), listOf(), listOf(),0,0)
+
                 //loop trough all missions in the missionPack
-                    newDocRef.collection("missions").get().addOnSuccessListener { missionList ->
-                        for (j in missionList) {
-                            val missionsName = j["name"] as String
-                            val briefing = j["briefing"] as String
-                            val rules = j["missionRules"] as String
-                            val size = j["missionSize"] as String
-                            val primaryObjective =
-                                fireBaseConverter(j["primaryObjective"] as Map<String, Any>)
-                            val secondaryObjective =
-                                fireBaseConverter(j["secondaryObjective"] as Map<String, Any>)
-                            val setupImage = j["setupImage"] as Long
-                            missions.add(
-                                Mission(
-                                    "",
-                                    size,
-                                    missionsName,
-                                    rules,
-                                    briefing,
-                                    primaryObjective,
-                                    secondaryObjective,
-                                    setupImage.toInt()
+                newDocRef.collection("missions").get().addOnSuccessListener { missionList ->
+                    for (j in missionList) {
+                        val missionsName = j["name"] as String
+                        val briefing = j["briefing"] as String
+                        val rules = j["missionRules"] as String
+                        val size = j["missionSize"] as String
+                        val primaryObjective =
+                            fireBaseConverter(j["primaryObjective"] as Map<String, Any>)
+                        val secondaryObjective =
+                            fireBaseConverter(j["secondaryObjective"] as Map<String, Any>)
+                        val setupImage = j["setupImage"] as Long
+                        missions.add(
+                            Mission(
+                                "",
+                                size,
+                                missionsName,
+                                rules,
+                                briefing,
+                                primaryObjective,
+                                secondaryObjective,
+                                setupImage.toInt()
                                 )
                             )
                         }
-                        missionPackList.remove(missionPack)
-                        missionPack.missions = missions
-                        missionPackList.add(missionPack)
-
+                    missionPackList.remove(missionPack)
+                    missionPack.missions = missions
+                    missionPackList.add(missionPack)
                         }
+
                 //loop trough all secondaries in the missionPack
                 val objectives = mutableListOf<Objective>()
                 newDocRef.collection("objectives").get()
@@ -101,6 +109,7 @@ class MainActivity : AppCompatActivity(), OnBattleClickListener{
                         missionPackList.add(missionPack)
                     }
                 missionPackList.add(missionPack)
+                //TODO add indication to progress with recyclerView
             }
         }
 
@@ -113,10 +122,6 @@ class MainActivity : AppCompatActivity(), OnBattleClickListener{
             for (i in missionPackList){
                 missionPackViewModel.insert(i)
             }
-            missionPackViewModel.allMissionPacks.observe(this, Observer { missionPack ->
-                Toast.makeText(this, "${missionPack.size}", Toast.LENGTH_SHORT).show()
-            })
-
             popupWindow.dismiss()
         }
 
@@ -215,7 +220,16 @@ class MainActivity : AppCompatActivity(), OnBattleClickListener{
             addItemDecoration(topSpacingDecoration)
             adapter = battleAdapter
         }
-
+    }
+    private fun initUpdateDataRecyclerView(){
+        recyclerViewMissionPacks.apply {
+            //TODO fix this
+            layoutManager = LinearLayoutManager(applicationContext)
+            missionPackAdapter = MissionPackUpdateRecyclerAdapter()
+            val topSpacingItemDecoration = TopSpacingItemDecoration(10)
+            addItemDecoration(topSpacingItemDecoration)
+            adapter = missionPackAdapter
+        }
     }
 
 }

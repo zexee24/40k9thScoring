@@ -15,9 +15,11 @@ data class MissionPack(
     val name : String,
     @TypeConverters(PrimaryListConverter::class)
     var  missions : List<Mission>,
-
     @TypeConverters(ObjectiveListConverter::class)
-    var secondaries: List<Objective>
+    var secondaries: List<Objective>,
+
+    val expectedMission: Int,
+    val expectedSecondaries: Int
 
 )
 
