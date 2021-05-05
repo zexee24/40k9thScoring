@@ -1,6 +1,5 @@
 package com.erej.a40k9thScoring
 
-
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -40,6 +39,16 @@ class MainActivity : AppCompatActivity(), OnBattleClickListener{
         val width = LinearLayout.LayoutParams.WRAP_CONTENT
         val heigth = LinearLayout.LayoutParams.WRAP_CONTENT
         val popupWindow = PopupWindow(popupView, width, heigth, false)
+
+        popupView.recyclerViewMissionPacks.apply{
+            layoutManager = LinearLayoutManager(applicationContext)
+            missionPackAdapter = MissionPackUpdateRecyclerAdapter()
+            val topSpacingItemDecoration = TopSpacingItemDecoration(10)
+            addItemDecoration(topSpacingItemDecoration)
+            adapter = missionPackAdapter
+        }
+
+
         popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0)
 
         //define data source
@@ -50,13 +59,12 @@ class MainActivity : AppCompatActivity(), OnBattleClickListener{
         val missionPackList = mutableListOf<MissionPack>()
 
         //initialize info about data updates
-        initUpdateDataRecyclerView()
         missionPackViewModel.allMissionPacks.observe(this, Observer { missionPack ->
             missionPack?.let {missionPackAdapter.submitList(it)}
         })
 
+        //go through the documents and do shit
         docRef.get().addOnSuccessListener { document ->
-
             //loop trough all missionPacks
             for (i in document) {
                 val newDocRef = docRef.document(i.id)
@@ -87,13 +95,13 @@ class MainActivity : AppCompatActivity(), OnBattleClickListener{
                                 primaryObjective,
                                 secondaryObjective,
                                 setupImage.toInt()
-                                )
                             )
-                        }
+                        )
+                    }
                     missionPackList.remove(missionPack)
                     missionPack.missions = missions
                     missionPackList.add(missionPack)
-                        }
+                }
 
                 //loop trough all secondaries in the missionPack
                 val objectives = mutableListOf<Objective>()
@@ -105,11 +113,10 @@ class MainActivity : AppCompatActivity(), OnBattleClickListener{
                             Log.d("Objectives","$objective")
                         }
                         missionPackList.remove(missionPack)
-                        missionPack.missions = missions
+                        missionPack.secondaries = objectives
                         missionPackList.add(missionPack)
                     }
-                missionPackList.add(missionPack)
-                //TODO add indication to progress with recyclerView
+                missionPackViewModel.insert(missionPack)
             }
         }
 
@@ -118,11 +125,11 @@ class MainActivity : AppCompatActivity(), OnBattleClickListener{
         popupWindow.contentView.buttonCancel.setOnClickListener {
             popupWindow.dismiss()
         }
+
         popupWindow.contentView.buttonOk.setOnClickListener {
             for (i in missionPackList){
                 missionPackViewModel.insert(i)
             }
-            popupWindow.dismiss()
         }
 
     }
@@ -221,15 +228,6 @@ class MainActivity : AppCompatActivity(), OnBattleClickListener{
             adapter = battleAdapter
         }
     }
-    private fun initUpdateDataRecyclerView(){
-        recyclerViewMissionPacks.apply {
-            //TODO fix this
-            layoutManager = LinearLayoutManager(applicationContext)
-            missionPackAdapter = MissionPackUpdateRecyclerAdapter()
-            val topSpacingItemDecoration = TopSpacingItemDecoration(10)
-            addItemDecoration(topSpacingItemDecoration)
-            adapter = missionPackAdapter
-        }
-    }
 
+    //initialize the recyclerView for data update
 }

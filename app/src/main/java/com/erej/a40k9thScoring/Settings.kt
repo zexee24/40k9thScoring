@@ -29,6 +29,4 @@ class Settings(val context: Context) {
     fun getSettingBool(setting : String) : Boolean?{
         return sharedPreferences.getBoolean(setting, false)
     }
-
-
 }
