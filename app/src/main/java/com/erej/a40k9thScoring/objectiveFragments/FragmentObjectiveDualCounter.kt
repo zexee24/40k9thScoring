@@ -26,9 +26,6 @@ class FragmentObjectiveDualCounter(private val objective: Objective) : Fragment(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
-
         //setup secondary names and counters
         textViewTitle.text = objective.name
         textViewdescription.text = objective.hint
@@ -53,7 +50,6 @@ class FragmentObjectiveDualCounter(private val objective: Objective) : Fragment(
         }
             counterView1.text = objective.counter1.toString()
             updateVP()
-
         }
 
         //upper button

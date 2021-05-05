@@ -12,8 +12,6 @@ class MissionPackUpdateRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewH
 
     private var items = emptyList<MissionPack>()
 
-
-
     override fun getItemCount(): Int {
         return items.size
     }
@@ -28,6 +26,7 @@ class MissionPackUpdateRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+
         return MissionPackViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.cardview_missionpack_update_status, parent, false)
         )
@@ -39,11 +38,14 @@ class MissionPackUpdateRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewH
 
         fun bind(missionPack: MissionPack){
             itemView.textViewMissionPackName.text = missionPack.name
+            itemView.textViewMissionNumber.text = missionPack.missions.size.toString()
+            itemView.textViewSecondaryNumber.text = missionPack.secondaries.size.toString()
+
         }
+
 
         fun updateMissionStatus(missionPack: MissionPack, number : Int){
             itemView.textViewMissionNumber.text = number.toString()
-
             if (number == missionPack.expectedMission){
                 itemView.progressBarMissions.visibility = View.GONE
             }

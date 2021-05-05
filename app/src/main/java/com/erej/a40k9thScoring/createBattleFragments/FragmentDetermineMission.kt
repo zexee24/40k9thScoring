@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.fragment_create_select_mission.*
 
 class FragmentDetermineMission(val battleObject:Battle): Fragment(R.layout.fragment_create_select_mission) {
 
-    private val missionPacks = listOf<String>("Eternal War")
+    private val missionPacks = listOf("Eternal War")
     private val allMission = PrimaryList().missions
     private var missionList : MutableList<Mission> = mutableListOf(allMission[0])
     private lateinit var missionNameList : List<String>
