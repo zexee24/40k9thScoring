@@ -42,20 +42,5 @@ class MissionPackUpdateRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewH
             itemView.textViewSecondaryNumber.text = missionPack.secondaries.size.toString()
 
         }
-
-
-        fun updateMissionStatus(missionPack: MissionPack, number : Int){
-            itemView.textViewMissionNumber.text = number.toString()
-            if (number == missionPack.expectedMission){
-                itemView.progressBarMissions.visibility = View.GONE
-            }
-        }
-
-        fun updateSecondaryStatus(missionPack: MissionPack, number : Int){
-            itemView.textViewSecondaryNumber.text = number.toString()
-            if (number == missionPack.expectedSecondaries){
-                itemView.progressBarSecondaries.visibility = View.GONE
-            }
-        }
     }
 }

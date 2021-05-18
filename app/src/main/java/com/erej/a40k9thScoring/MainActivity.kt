@@ -32,7 +32,7 @@ val createBattleMethod = CreateBattleSlow::class.java
 
 class MainActivity : AppCompatActivity(), OnBattleClickListener{
 
-    private fun upDateData(){
+    private fun upDateData() {
 
         //create the "ui"
         val popupView = layoutInflater.inflate(R.layout.popup_update_data, null, false)
@@ -40,14 +40,13 @@ class MainActivity : AppCompatActivity(), OnBattleClickListener{
         val heigth = LinearLayout.LayoutParams.WRAP_CONTENT
         val popupWindow = PopupWindow(popupView, width, heigth, false)
 
-        popupView.recyclerViewMissionPacks.apply{
+        popupView.recyclerViewMissionPacks.apply {
             layoutManager = LinearLayoutManager(applicationContext)
             missionPackAdapter = MissionPackUpdateRecyclerAdapter()
             val topSpacingItemDecoration = TopSpacingItemDecoration(10)
             addItemDecoration(topSpacingItemDecoration)
             adapter = missionPackAdapter
         }
-
 
         popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0)
 
@@ -60,78 +59,34 @@ class MainActivity : AppCompatActivity(), OnBattleClickListener{
 
         //initialize info about data updates
         missionPackViewModel.allMissionPacks.observe(this, Observer { missionPack ->
-            missionPack?.let {missionPackAdapter.submitList(it)}
+            missionPack?.let { missionPackAdapter.submitList(it) }
         })
 
         //go through the documents and do shit
         docRef.get().addOnSuccessListener { document ->
+
             //loop trough all missionPacks
             for (i in document) {
-                val newDocRef = docRef.document(i.id)
                 val missionPackName = i["name"]
-                val missions = mutableListOf<Mission>()
-                //TODO expected numbers
-                val missionPack = MissionPack(missionPackName.toString(), listOf(), listOf(),0,0)
+                val missions = i["missions"]
+                val secondaries = i["secondaries"]
+                //val missionPack = MissionPack(missionPackName.toString(), missions, secondaries,0)
+                //missionPackList.add(missionPack)
 
-                //loop trough all missions in the missionPack
-                newDocRef.collection("missions").get().addOnSuccessListener { missionList ->
-                    for (j in missionList) {
-                        val missionsName = j["name"] as String
-                        val briefing = j["briefing"] as String
-                        val rules = j["missionRules"] as String
-                        val size = j["missionSize"] as String
-                        val primaryObjective =
-                            fireBaseConverter(j["primaryObjective"] as Map<String, Any>)
-                        val secondaryObjective =
-                            fireBaseConverter(j["secondaryObjective"] as Map<String, Any>)
-                        val setupImage = j["setupImage"] as Long
-                        missions.add(
-                            Mission(
-                                "",
-                                size,
-                                missionsName,
-                                rules,
-                                briefing,
-                                primaryObjective,
-                                secondaryObjective,
-                                setupImage.toInt()
-                            )
-                        )
-                    }
-                    missionPackList.remove(missionPack)
-                    missionPack.missions = missions
-                    missionPackList.add(missionPack)
+            }
+
+            popupWindow.contentView.buttonCancel.setOnClickListener {
+                popupWindow.dismiss()
+            }
+
+            popupWindow.contentView.buttonOk.setOnClickListener {
+                for (i in missionPackList) {
+                    missionPackViewModel.insert(i)
                 }
-
-                //loop trough all secondaries in the missionPack
-                val objectives = mutableListOf<Objective>()
-                newDocRef.collection("objectives").get()
-                    .addOnSuccessListener { objectiveList ->
-                        for (j in objectiveList) {
-                            val objective = fireBaseConverter(j)
-                            objectives.add(objective)
-                            Log.d("Objectives","$objective")
-                        }
-                        missionPackList.remove(missionPack)
-                        missionPack.secondaries = objectives
-                        missionPackList.add(missionPack)
-                    }
-                missionPackViewModel.insert(missionPack)
+                popupWindow.dismiss()
             }
+
         }
-
-
-
-        popupWindow.contentView.buttonCancel.setOnClickListener {
-            popupWindow.dismiss()
-        }
-
-        popupWindow.contentView.buttonOk.setOnClickListener {
-            for (i in missionPackList){
-                missionPackViewModel.insert(i)
-            }
-        }
-
     }
 
     //set listener for actionbar menu
@@ -215,7 +170,6 @@ class MainActivity : AppCompatActivity(), OnBattleClickListener{
             val intent = Intent(this, PlayGameActivity::class.java)
             intent.putExtra("battle", item)
         startActivity(intent)
-
     }
 
     //initialize the recyclerView for battles

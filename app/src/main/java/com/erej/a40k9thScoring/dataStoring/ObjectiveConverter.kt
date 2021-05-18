@@ -6,6 +6,14 @@ import com.erej.a40k9thScoring.classes.Objective
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
+fun HashMapToObjective(hashMap: HashMap<String,Any>) {
+
+}
+
+fun HashMapToMission(hashMap: HashMap<String,Any>) {
+
+}
+
 class ObjectiveConverter {
 
 companion object {
