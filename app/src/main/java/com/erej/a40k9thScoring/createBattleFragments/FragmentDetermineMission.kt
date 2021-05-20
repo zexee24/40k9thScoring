@@ -9,11 +9,12 @@ import com.erej.a40k9thScoring.R
 import com.erej.a40k9thScoring.classes.Battle
 import com.erej.a40k9thScoring.classes.Mission
 import com.erej.a40k9thScoring.classes.PrimaryList
+import com.erej.a40k9thScoring.missionPackViewModel
 import kotlinx.android.synthetic.main.fragment_create_select_mission.*
 
 class FragmentDetermineMission(val battleObject:Battle): Fragment(R.layout.fragment_create_select_mission) {
 
-    private val missionPacks = listOf("Eternal War")
+    private val missionPacks = missionPackViewModel.allMissionPacks.value?.map { it.name }
     private val allMission = PrimaryList().missions
     private var missionList : MutableList<Mission> = mutableListOf(allMission[0])
     private lateinit var missionNameList : List<String>
