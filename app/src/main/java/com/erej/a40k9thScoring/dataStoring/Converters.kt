@@ -6,11 +6,25 @@ import com.erej.a40k9thScoring.classes.Objective
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-fun HashMapToObjective(hashMap: HashMap<String,Any>) {
-
+fun hashMapToObjective(hashMap: HashMap<String,Any>): Objective {
+    val category = hashMap["category"] as String
+    val name = hashMap["name"] as String
+    val progressive = hashMap["progressive"] as Boolean
+    val triggerPhases = hashMap["triggerPhases"] as List<Int>
+    val hint = hashMap["hint"] as String
+    val fragmentType = hashMap["fragmentType"] as String
+    return Objective(category, name, progressive, triggerPhases, hint, fragmentType)
 }
 
-fun HashMapToMission(hashMap: HashMap<String,Any>) {
+fun hashMapToMission(hashMap: HashMap<String,Any>): Mission {
+    val name = hashMap["name"] as String
+    val missionSize = hashMap["size"] as String
+    val missionRules = hashMap["rules"] as String
+    val primaryObjective = hashMapToObjective(hashMap["primaryObjective"] as HashMap<String,Any>)
+    val secondaryObjective = hashMapToObjective(hashMap["secondaryObjective"] as HashMap<String,Any>)
+    val briefing = hashMap["briefing"] as String
+    val setupImage = hashMap["setupImage"] as Long
+    return (Mission(missionSize,name,missionRules,briefing,primaryObjective,secondaryObjective,setupImage.toInt()))
 
 }
 
