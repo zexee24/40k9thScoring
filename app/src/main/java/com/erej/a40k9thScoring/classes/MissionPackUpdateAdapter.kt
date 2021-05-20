@@ -40,7 +40,10 @@ class MissionPackUpdateRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewH
             itemView.textViewMissionPackName.text = missionPack.name
             itemView.textViewMissionNumber.text = missionPack.missions.size.toString()
             itemView.textViewSecondaryNumber.text = missionPack.secondaries.size.toString()
-
+            if (missionPack.expected == missionPack.missions.size + missionPack.secondaries.size){
+                itemView.progressBarMissions.alpha = 0F
+                itemView.imageViewCheckMark.alpha = 1F
+            }
         }
     }
 }

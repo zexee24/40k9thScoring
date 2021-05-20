@@ -23,7 +23,7 @@ class CreateBattleFast : AppCompatActivity() {
     lateinit var mission: Mission
     private var secondaryList: MutableList<Objective> = SecondaryList().getSecondaries as MutableList<Objective>
     private lateinit var secondaryNameList: List<String>
-    var missionList: MutableList<Mission> = PrimaryList().missions as MutableList<Mission>
+    var missionList: MutableList<Mission> = PrimaryList().missions
     private lateinit var currentMissionList: MutableList<Mission>
     private lateinit var primaryNameList: List<String>
 

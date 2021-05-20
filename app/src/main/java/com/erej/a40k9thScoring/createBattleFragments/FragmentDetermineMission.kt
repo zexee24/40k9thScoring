@@ -22,7 +22,7 @@ class FragmentDetermineMission(val battleObject:Battle): Fragment(R.layout.fragm
         missionList.clear()
         for (i in allMission) {
 
-            if (i.missionSize == battleObject.battleType && i.missionPack == spinnerSelectMissionPack.selectedItem) {
+            if (i.missionSize == battleObject.battleType) {
                 missionList.add(i)
             }
         }

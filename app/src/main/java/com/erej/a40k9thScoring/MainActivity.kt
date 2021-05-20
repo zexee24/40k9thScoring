@@ -13,9 +13,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.erej.a40k9thScoring.classes.*
-import com.erej.a40k9thScoring.dataStoring.BattleViewModel
-import com.erej.a40k9thScoring.dataStoring.MissionPackViewModel
-import com.erej.a40k9thScoring.dataStoring.fireBaseConverter
+import com.erej.a40k9thScoring.dataStoring.*
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.popup_update_data.*
@@ -68,11 +66,16 @@ class MainActivity : AppCompatActivity(), OnBattleClickListener{
             //loop trough all missionPacks
             for (i in document) {
                 val missionPackName = i["name"]
-                val missions = i["missions"]
-                val secondaries = i["secondaries"]
-                //val missionPack = MissionPack(missionPackName.toString(), missions, secondaries,0)
-                //missionPackList.add(missionPack)
-
+                val missions = i["missions"] as ArrayList<HashMap<String,Any>>
+                val secondaries = i["secondaries"] as ArrayList<HashMap<String,Any>>
+                val expected = i["expected"] as Long
+                val missionList = mutableListOf<Mission>()
+                val secondaryList = mutableListOf<Objective>()
+                missions.forEach { missionList.add(hashMapToMission(it))}
+                secondaries.forEach { secondaryList.add(hashMapToObjective(it)) }
+                val missionPack = MissionPack(missionPackName.toString(), missionList, secondaryList,expected.toInt())
+                missionPackList.add(missionPack)
+                missionPackAdapter.submitList(missionPackList)
             }
 
             popupWindow.contentView.buttonCancel.setOnClickListener {
@@ -80,7 +83,7 @@ class MainActivity : AppCompatActivity(), OnBattleClickListener{
             }
 
             popupWindow.contentView.buttonOk.setOnClickListener {
-                for (i in missionPackList) {
+                for (i in missionPackList){
                     missionPackViewModel.insert(i)
                 }
                 popupWindow.dismiss()
