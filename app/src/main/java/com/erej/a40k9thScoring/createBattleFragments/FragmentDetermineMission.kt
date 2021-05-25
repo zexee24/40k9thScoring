@@ -5,33 +5,32 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import com.erej.a40k9thScoring.R
 import com.erej.a40k9thScoring.classes.Battle
 import com.erej.a40k9thScoring.classes.Mission
-import com.erej.a40k9thScoring.classes.PrimaryList
+import com.erej.a40k9thScoring.classes.MissionPack
 import com.erej.a40k9thScoring.missionPackViewModel
 import kotlinx.android.synthetic.main.fragment_create_select_mission.*
 
 class FragmentDetermineMission(val battleObject:Battle): Fragment(R.layout.fragment_create_select_mission) {
 
-    private val missionPacks = missionPackViewModel.allMissionPacks.value?.map { it.name }
-    private val allMission = PrimaryList().missions
-    private var missionList : MutableList<Mission> = mutableListOf(allMission[0])
-    private lateinit var missionNameList : List<String>
+    private lateinit var  missionPacks : List<MissionPack>
+    private var missionPackNameList : List<String> = listOf()
+    private lateinit var  availableMissions: List<Mission>
+    private lateinit var availableMissionNameList : List<String>
+    private lateinit var missionPack : MissionPack
 
     private fun updatePrimaryList(){
-        missionList.clear()
-        for (i in allMission) {
-
-            if (i.missionSize == battleObject.battleType) {
-                missionList.add(i)
+        val tempList = mutableListOf<Mission>()
+        for (i in missionPack.missions){
+            if (i.missionSize == battleObject.battleType){
+                tempList.add(i)
             }
         }
-        missionNameList = missionList.map {
-            it.name
-        }
-
-        spinnerSelectMission.adapter = ArrayAdapter<String>(activity?.applicationContext!!, android.R.layout.simple_list_item_1, missionNameList)
+        availableMissions = tempList.toList()
+        availableMissionNameList = availableMissions.map { it.name }
+        spinnerSelectMission.adapter = ArrayAdapter<String>(activity?.applicationContext!!, android.R.layout.simple_list_item_1, availableMissionNameList)
     }
 
 
@@ -46,26 +45,31 @@ class FragmentDetermineMission(val battleObject:Battle): Fragment(R.layout.fragm
         }
         imageViewBattleMap.setImageResource(image)
 
+        missionPackViewModel.allMissionPacks.observe(viewLifecycleOwner, Observer {
+            it?.let { missionPacks = it }
+            missionPackNameList = missionPacks.map { it.name }
+            spinnerSelectMissionPack.adapter = ArrayAdapter<String>(activity?.applicationContext!!, android.R.layout.simple_list_item_1, missionPackNameList)
+        })
 
-        spinnerSelectMissionPack.adapter = ArrayAdapter<String>(activity?.applicationContext!!, android.R.layout.simple_list_item_1, missionPacks)
         spinnerSelectMissionPack.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                battleObject.missionType = missionPacks[p2]
+                missionPack = missionPacks[p2]
                 updatePrimaryList()
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                battleObject.missionType = missionPacks[0]
+                missionPack = missionPacks[0]
+                updatePrimaryList()
             }
         }
+
         spinnerSelectMission.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                battleObject.primaryMission = missionList[p2]
+                battleObject.primaryMission = availableMissions[p2]
                 battleObject.primaryMissionP1 = battleObject.primaryMission.primaryObjective.copy()
                 battleObject.primaryMissionP2 = battleObject.primaryMission.primaryObjective.copy()
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-
             }
         }
 

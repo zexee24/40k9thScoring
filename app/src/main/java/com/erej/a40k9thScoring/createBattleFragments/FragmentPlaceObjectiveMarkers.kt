@@ -1,6 +1,7 @@
 package com.erej.a40k9thScoring.createBattleFragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.erej.a40k9thScoring.R

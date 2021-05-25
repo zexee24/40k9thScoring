@@ -12,10 +12,3 @@ data class Mission(
     val secondaryObjective: Objective,
     val setupImage: Int
 ): Serializable
-
-class PrimaryList(
-
-){
-    val missions = mutableListOf<Mission>()
-
-}
