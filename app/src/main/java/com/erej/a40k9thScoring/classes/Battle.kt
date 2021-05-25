@@ -19,8 +19,6 @@ class Battle(
     var p2Name : String = ""
     var battleType : String = ""
 
-    var missionType: String = ""
-
     @TypeConverters(PrimaryConverter::class)
     lateinit var primaryMission: Mission
 
