@@ -32,17 +32,16 @@
                 android:layout_marginTop="16sp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
-                android:text="Each mission has a mission briefing that
-        will detail the primary objectives that award
-        victory points to the players. Some missions
-        may also include one or more secondary
-        objectives that players can choose to select
-        during the Select Secondary Objectives
-        step. Some mission briefings also list one or
-        more mission rules that will apply for the
-        duration of the battle. The players should
-        read and familiarise themselves with these
-        before proceeding. "
+                android:text="Each mission has a mission briefing that will detail the primary objectives that award
+victory points to the players. Some missions
+may also include one or more secondary
+objectives that players can choose to select
+during the Select Secondary Objectives
+step. Some mission briefings also list one or
+more mission rules that will apply for the
+duration of the battle. The players should
+read and familiarise themselves with these
+before proceeding. "
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView" />

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "720966404341",
+    "project_id": "kscoring",
+    "storage_bucket": "kscoring.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:720966404341:android:5d975a7b54975ae954ddbc",
+        "android_client_info": {
+          "package_name": "com.erej.a40k9thscoring"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "720966404341-086go1eajj0087ms90pjj1tbg84v63sj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEi8SSvtCpNumi3TdI9DZ6qthxrJu_SlE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "720966404341-086go1eajj0087ms90pjj1tbg84v63sj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

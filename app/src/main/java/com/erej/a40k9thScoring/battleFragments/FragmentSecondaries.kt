@@ -68,6 +68,7 @@ class FragmentSecondaries(
             battleObject.p2Secondary3.fragmentType
         )
 
+        
 
         //set fragments
         supportFragmentManager.beginTransaction().apply {

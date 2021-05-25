@@ -6,10 +6,10 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Toast
-import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import com.erej.a40k9thScoring.R
+import com.erej.a40k9thScoring.RandomNames
+import com.erej.a40k9thScoring.Settings
 import com.erej.a40k9thScoring.battleViewModel
 import com.erej.a40k9thScoring.classes.Battle
 import kotlinx.android.synthetic.main.fragment_create_select_battlesize.*
@@ -19,8 +19,9 @@ class FragmentSelectBattleSize(val battleObject:Battle): Fragment(R.layout.fragm
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        editTextP1Name.hint = battleObject.p1Name
-        editTextP2Name.hint = battleObject.p2Name
+
+
+
 
         editTextP1Name.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
@@ -61,5 +62,22 @@ class FragmentSelectBattleSize(val battleObject:Battle): Fragment(R.layout.fragm
             override fun onNothingSelected(p0: AdapterView<*>?) {
             }
         }
+
+        if (battleObject.p1Name == ""){
+            var defaultName = Settings(activity?.applicationContext!!).getSetting("default_name")
+            if (defaultName == "") {
+                defaultName = RandomNames().getRandomName()
+            }
+            editTextP1Name.setText(defaultName)
+        }else{
+            editTextP1Name.hint = battleObject.p1Name
+        }
+
+        if (battleObject.p2Name == "" && Settings(activity?.applicationContext!!).getSettingBool("auto_generate_names")!!){
+            editTextP2Name.setText(RandomNames().getRandomName())
+        }else{
+            editTextP2Name.hint = battleObject.p2Name
+        }
+
     }
 }

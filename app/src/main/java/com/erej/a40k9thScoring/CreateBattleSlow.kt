@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.erej.a40k9thScoring.classes.Battle
-import com.erej.a40k9thScoring.classes.PrimaryList
 import com.erej.a40k9thScoring.createBattleFragments.*
 import kotlinx.android.synthetic.main.create_battle_slow.*
 
@@ -41,9 +40,6 @@ class CreateBattleSlow :AppCompatActivity(){
             intent.getSerializableExtra("battle") as Battle
         } catch (e: TypeCastException){
             val battle = Battle(null)
-            battle.primaryMission = PrimaryList().missions[0]
-            battle.primaryMissionP1 = PrimaryList().missions[0].primaryObjective
-            battle.primaryMissionP2 = PrimaryList().missions[0].primaryObjective
             battle
         }
 
